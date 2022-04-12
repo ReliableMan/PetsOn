@@ -3,6 +3,10 @@ import Navbar from './components/Navbar/Navbar';
 import MainPage from './Pages/MainPage/MainPage';
 import NavbarAfter from './components/Navbar/NavbarAfter';
 import './App.css';
+import Post from './components/Post/Post';
+import Services from './components/Services/Services'
+import About from './components/About/About';
+import Account from './components/Account/Account';
 
 function App() {
   return (
@@ -10,6 +14,10 @@ function App() {
      <Navbar/>
      <Routes>
           <Route path='sign' element={<NavbarAfter/>}/>
+          <Route path='post' element={<Post/>}/>
+          <Route path='services' element={<Services/>}/>
+          <Route path='about' element={<About/>}/>
+          <Route path='account' element={<Account/>}/>
      </Routes>
    </div>
   );
