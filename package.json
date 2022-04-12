@@ -16,15 +16,5 @@
   "bugs": {
     "url": "https://github.com/ReliableMan/groupProject/issues"
   },
-  "homepage": "https://github.com/ReliableMan/groupProject#readme",
-  "devDependencies": {
-    "eslint": "^8.13.0",
-    "sequelize-cli": "^6.4.1"
-  },
-  "dependencies": {
-    "dotenv": "^16.0.0",
-    "pg": "^8.7.3",
-    "pg-hstore": "^2.3.4",
-    "sequelize": "^6.18.0"
-  }
+  "homepage": "https://github.com/ReliableMan/groupProject#readme"
 }
