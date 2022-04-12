@@ -63,8 +63,10 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/tweets', postsRouter);
+
 app.use('/users', usersRouter);
+
 
 app.listen(PORT ?? 3003, () => {
   console.log('Server started at http://localhost:%s/', PORT)
-});
+})
