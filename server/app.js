@@ -43,6 +43,8 @@ app.use('/', indexRouter);
 app.use('/posts', postsRouter);
 app.use('/users', usersRouter);
 
+
+
 app.listen(process.env.PORT ?? 3001, () => {
   console.log('Server started')
 });
