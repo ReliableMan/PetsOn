@@ -43,23 +43,23 @@ module.exports = {
       },
       first_name: {
         type: Sequelize.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
       last_name: {
         type: Sequelize.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
       date_birth: {
         type: Sequelize.DATE,
-        allowNull: false,
+        // allowNull: false,
       },
       role: {
         type: Sequelize.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
       speciality: {
         type: Sequelize.STRING,
-        allowNull: false,
+        // allowNull: false,
       },
       description: {
         type: Sequelize.TEXT

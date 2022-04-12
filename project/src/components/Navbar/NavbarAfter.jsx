@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
-import Registration from '../ModalReg/Registration';
-import Authentificate from '../ModalAuth/Authentificate';
+import Registration from '../ModalAuth&Reg/Registration';
+import Authentificate from '../ModalAuth&Reg/Authentificate';
 
 
 export default function Navbar() {

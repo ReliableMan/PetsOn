@@ -1,23 +1,17 @@
 {
   "development": {
-    "username": "monika",
-    "password": "123",
-    "database": "pets",
+    "use_env_variable": "DB_URL",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
+    "use_env_variable": "DB_URL_TEST",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
+    "use_env_variable": "DB_URL_PROD",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   }
 }

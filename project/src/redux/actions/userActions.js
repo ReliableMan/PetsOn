@@ -10,6 +10,17 @@ export const clearInputs = () => {
   return {type: 'CLEAR_INPUTS', payload: {}}
 }
 
-export const submitUser = () => {
-  
+export const submitUser = (e) => async(dispatch) => {
+  const userRequest = await fetch('http://localhost:3903/auth/signup', {
+    method: 'POST',
+    credentials: 'include',
+    headers:{
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(e)
+  });
+  const userFromBack = await userRequest.json();
+  console.log(userFromBack);
+  dispatch(setUser(userFromBack));
 }
+
