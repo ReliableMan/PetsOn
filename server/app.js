@@ -40,7 +40,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use('/', indexRouter);
-app.use('/tweets', postsRouter);
+app.use('/posts', postsRouter);
 app.use('/users', usersRouter);
 
 app.listen(process.env.PORT ?? 3001, () => {

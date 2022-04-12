@@ -61,6 +61,9 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      photo: {
+        type: Sequelize.TEXT,
+      },
       description: {
         type: Sequelize.TEXT
       },
