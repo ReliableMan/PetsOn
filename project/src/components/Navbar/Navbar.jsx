@@ -18,6 +18,7 @@ export default function Navbar() {
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="/post">Статьи</Link>
         </li>
+
       </ul>
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
@@ -27,6 +28,11 @@ export default function Navbar() {
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="/about">О нас</Link>
+        </li>
+      </ul>
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <Link className="nav-link active" aria-current="page" to="/account">Личный кабинет</Link>
         </li>
       </ul>
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
