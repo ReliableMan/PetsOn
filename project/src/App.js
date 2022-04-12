@@ -4,9 +4,9 @@ import MainPage from './components/Pages/MainPage/MainPage';
 import NavbarAfter from './components/Navbar/NavbarAfter';
 import './App.css';
 import Post from './components/Post/Post';
-import Services from './components/Services/Services'
 import About from './components/About/About';
-import Account from './components/Account/Account';
+import Profile from './components/Account/Profile';
+import Grooming from './components/Services/Grooming';
 
 function App() {
   return (
@@ -15,9 +15,9 @@ function App() {
      <Routes>
           <Route path='sign' element={<NavbarAfter/>}/>
           <Route path='post' element={<Post/>}/>
-          <Route path='services' element={<Services/>}/>
+          <Route path='services' element={<Grooming/>}/>
           <Route path='about' element={<About/>}/>
-          <Route path='account' element={<Account/>}/>
+          <Route path='account' element={<Profile/>}/>
      </Routes>
      <MainPage/>
    </div>
