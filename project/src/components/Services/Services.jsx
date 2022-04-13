@@ -4,17 +4,18 @@ import { Link } from 'react-router-dom';
 export default function Services() {
   return (
     <>
-      <div className="">
-        <div>ВЫБЕРИ УСЛУГУ</div>
-        <div>
-          <Link to="/services/walking">ВЫГУЛ</Link>
-        </div>
-        <div>
-          <Link to="/services/grooming">ГРУМИНГ</Link>
-        </div>
-        <div>
-          <Link to="/services/other">ДРУГОЕ</Link>
-        </div>
+      <div>ВЫБЕРИ УСЛУГУ</div>
+      <div>
+        <Link to="walking">ВЫГУЛ</Link>
+      </div>
+      <div>
+        <Link to="grooming">ГРУМИНГ</Link>
+      </div>
+      <div>
+       <Link className="vetLink" aria-current="page" to="vet">ВЕТЕРИНАРИЯ</Link>
+      </div>
+      <div>
+       <Link to="other">ДРУГОЕ</Link>
       </div>
     </>
   )

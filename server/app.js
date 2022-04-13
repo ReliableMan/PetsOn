@@ -13,6 +13,11 @@ const indexRouter = require('./routes/index');
 const postsRouter = require('./routes/posts');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth')
+const vetRouter = require('./routes/vet')
+const servicesRouter = require('./routes/services')
+const groomingRouter = require('./routes/grooming')
+const otherRouter = require('./routes/other')
+const walkRouter = require('./routes/walking')
 
 const { PORT } = process.env;
 const dbcheck = require('./db/dbConnection');
@@ -64,6 +69,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 app.use('/auth', authRouter);
+app.use('/vet', vetRouter)
+app.use('/services', servicesRouter)
+app.use('/services/grooming', groomingRouter)
+app.use('/services/other', otherRouter)
+app.use('/services/walking', walkRouter)
+
 
 
 app.listen(PORT ?? 3003, () => {
