@@ -27,7 +27,7 @@ export default function MainPage() {
           <img src="images/other.png" alt="logoCard" />
         </Link>
       </div>
-      <button>НАЙТИ УСЛУГУ</button>
+      <button><Link to="/findServ">НАЙТИ УСЛУГУ</Link></button>
       <div className="container_friend">
         <img
           src="images/fri.jpeg"
