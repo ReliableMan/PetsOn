@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "./profile.css";
 
 export default function Profile(props) {
   const [data, setData] = useState(props.edit ? props.edit.value : '');
@@ -18,7 +19,7 @@ export default function Profile(props) {
   };
 
   return (
-      <div>
+      <div className='profile'>
         {props.edit ? (
           <>
             <h1>ЛИЧНЫЙ КАБИНЕТ</h1>
