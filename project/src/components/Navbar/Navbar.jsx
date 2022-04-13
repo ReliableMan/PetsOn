@@ -32,7 +32,7 @@ export default function Navbar() {
       </ul>
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/account">Личный кабинет</Link>
+          <Link className="nav-link active" aria-current="page" to="/profile">Личный кабинет</Link>
         </li>
       </ul>
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
