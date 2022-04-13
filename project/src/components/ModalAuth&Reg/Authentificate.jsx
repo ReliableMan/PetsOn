@@ -1,5 +1,5 @@
 import React from 'react';
-import '../ModalReg/modal.css'
+import './modal.css'
 
 const Authentificate = ({ active, setActive }) => {
     return (

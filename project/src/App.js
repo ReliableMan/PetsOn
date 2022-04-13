@@ -1,6 +1,7 @@
 import {Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-// import MainPage from './Pages/MainPage/MainPage';
+
+import MainPage from './components/Pages/MainPage/MainPage';
 import NavbarAfter from './components/Navbar/NavbarAfter';
 import './App.css';
 import Post from './components/Post/Post';
@@ -28,6 +29,7 @@ function App() {
         <Route path='about' element={<About/>}/>
         <Route path='profile' element={<Profile/>}/>
      </Routes>
+     <MainPage/>
    </div>
   );
 }

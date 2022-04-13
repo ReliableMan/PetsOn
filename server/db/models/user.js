@@ -50,23 +50,23 @@ module.exports = (sequelize, DataTypes) => {
     },
     first_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     last_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     date_birth: {
       type: DataTypes.DATE,
-      allowNull: false,
+      // allowNull: false,
     },
     role: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     speciality: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     photo: {
       type: DataTypes.TEXT,
