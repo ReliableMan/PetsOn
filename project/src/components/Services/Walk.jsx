@@ -1,8 +1,9 @@
 import React from 'react'
+import "./walk.css";
 
 export default function Walk() {
   return (
-    <>
+    <div className='walk'>
       <div>ОСТАВЬТЕ ЗАЯВКУ НА ВЫГУЛ</div>
       <form>
         <div className="">
@@ -21,6 +22,6 @@ export default function Walk() {
         </div>
         <button type="submit" className="">Отправить</button>
       </form>
-    </>
+    </div>
   )
 }

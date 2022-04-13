@@ -1,8 +1,9 @@
 import React from 'react'
+import "./other.css";
 
 export default function Services() {
   return (
-    <>
+    <div className='other'>
       <div>ОСТАВЬТЕ ЗАЯВКУ НА УСЛУГУ</div>
       <form>
         <div className="">
@@ -21,7 +22,7 @@ export default function Services() {
         </div>
         <button type="submit" className="">Отправить</button>
       </form>
-    </>
+    </div>
   )
 }
 
