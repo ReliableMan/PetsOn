@@ -1,8 +1,30 @@
+.mainPage{
+
+font-family: 'Inter';
+font-style: normal;
+background: #F1F1FF;
+border-radius: 40px;
+}
+
 .catdog{
   display: flex;
   justify-content:right;
+  
 }
 
 .container_link{
-  border: 1ch;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer{
+  display: flex;
+  flex-direction: column;
+}
+
+.footer_body{
+  display: flex;
+  flex-direction: column;
 }
