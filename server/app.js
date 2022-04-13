@@ -10,14 +10,14 @@ const FileStore = require('session-file-store')(session); // используе�
 
 // requiring routes files
 const indexRouter = require('./routes/index');
-const postsRouter = require('./routes/posts');
+const specialityRouter = require('./routes/specialityRouter');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth')
 const vetRouter = require('./routes/vet')
 const servicesRouter = require('./routes/services')
-const groomingRouter = require('./routes/grooming')
-const otherRouter = require('./routes/other')
-const walkRouter = require('./routes/walking')
+// const groomingRouter = require('./routes/grooming')
+// const otherRouter = require('./routes/other')
+// const walkRouter = require('./routes/walking')
 
 const { PORT } = process.env;
 const dbcheck = require('./db/dbConnection');
@@ -67,13 +67,14 @@ app.use((req, res, next) => {
 // routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/posts', postsRouter);
+//app.use('/posts', postsRouter);
 app.use('/auth', authRouter);
 app.use('/vet', vetRouter)
 app.use('/services', servicesRouter)
-app.use('/services/grooming', groomingRouter)
-app.use('/services/other', otherRouter)
-app.use('/services/walking', walkRouter)
+// app.use('/services/grooming', groomingRouter)
+// app.use('/services/other', otherRouter)
+// app.use('/services/walking', walkRouter)
+app.use('/findServ', specialityRouter)
 
 
 
