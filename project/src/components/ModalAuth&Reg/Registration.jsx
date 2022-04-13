@@ -17,11 +17,13 @@ const Registration = ({ active, setActive }) => {
   // записать данные и диспатчом отправить на бэк и записать 
   const submitHandler = async (e) => {
     e.preventDefault();
-    // if(inputs.userPassword === inputs.userPasswordRepeat ){
+    if(inputs.userPassword === inputs.userPasswordRepeat ){
       dispatch(submitUser(inputs));
       dispatch(clearInputs());
       navigate('/')
-    // }
+    } else {
+      alert('Вы неправильно ввели пароль, попробуйте снова.')
+    }
   }
 
     return (
@@ -36,7 +38,8 @@ const Registration = ({ active, setActive }) => {
                    </div>
                 <div className="col-auto">
                   <input type="text" name="userName" id="inputUserName" 
-                  className="form-control" value={inputs.userName ?? ''} onChange={changeHandler}/>
+                  className="form-control" value={inputs.userName ?? ''} onChange={changeHandler} 
+                  pattern="[A-Za-z]\w+" required/>
                 </div>
                </div>
 
@@ -47,7 +50,8 @@ const Registration = ({ active, setActive }) => {
                    </div>
                 <div className="col-auto">
                   <input type="email" name="userEmail" id="inputUserEmail" 
-                  className="form-control" value={inputs.userEmail ?? ''} onChange={changeHandler}/>
+                  className="form-control" value={inputs.userEmail ?? ''} onChange={changeHandler}
+                  pattern="^[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\.[A-Za-z]{2,}$" required/>
                 </div>
                </div>
 
@@ -58,7 +62,8 @@ const Registration = ({ active, setActive }) => {
                    </div>
                 <div className="col-auto">
                   <input type="password" name="userPassword" id="inputUserPassword" 
-                  className="form-control" value={inputs.userPassword ?? ''} onChange={changeHandler}/>
+                  className="form-control" value={inputs.userPassword ?? ''} onChange={changeHandler}
+                  required/>
                 </div>
                </div>
 
@@ -74,7 +79,7 @@ const Registration = ({ active, setActive }) => {
                </div>
                <br />
                <div className="container"> 
-               <button type="submit" className="btn btn-outline-primary">Зарегестрироваться</button>
+               <button type="submit" className="btn btn-outline-primary">Войти</button>
                </div>
                </form>
               </div>
