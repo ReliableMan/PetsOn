@@ -14,6 +14,7 @@ import Other from './components/Services/Other'
 
 import About from './components/About/About';
 import Profile from './components/Profile/Profile';
+import FindServ from './components/Pages/FindServ/FindServ';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
      <Routes>
      
         <Route path='/' element={<MainPage />} />
+        <Route path='findServ' element={<FindServ />} />
         <Route path='sign' element={<NavbarAfter/>}/>
         <Route path='post' element={<Post/>}/>
 
