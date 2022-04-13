@@ -33,17 +33,17 @@ router.post('/signup', async (req, res) => {
 // * авторизация пользователя
 router.post('/signin', async (req, res) => {
   const { userEmail, userPassword } = req.body;
-  console.log('req.body', req.body);
+  console.log('req.body12', req.body);
 
   try {
-    const user = await User.findOne({ where: { userEmail }, raw: true });
+    const user = await User.findOne({ where: { email: userEmail }, raw: true });
     const isValidPass = await bcrypt.compare(userPassword, user.password);
 
     if (isValidPass) {
       req.session.user = {
         id: user.id,
         name: user.username,
-        email: user.email,
+        email: user.userEmail,
       };
     }
     res.json(req.session.user);
