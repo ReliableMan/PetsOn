@@ -4,5 +4,8 @@
 }
 
 .container_link{
-  border: 1ch;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
 }
