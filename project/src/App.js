@@ -1,4 +1,4 @@
-import {Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 
 import MainPage from './components/Pages/MainPage/MainPage';
@@ -19,6 +19,7 @@ function App() {
    <div className='container'>
      <Navbar/>
      <Routes>
+        <Route path='/' element={<MainPage />} />
         <Route path='sign' element={<NavbarAfter/>}/>
         <Route path='post' element={<Post/>}/>
         <Route path='services' element={<Services/>}>
@@ -29,7 +30,6 @@ function App() {
         <Route path='about' element={<About/>}/>
         <Route path='profile' element={<Profile/>}/>
      </Routes>
-     <MainPage/>
    </div>
   );
 }
