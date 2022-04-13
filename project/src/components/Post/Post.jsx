@@ -4,11 +4,11 @@ import './post.css'
 
 export default function Post() {
   return (
-    <div className='container'>
+    <div className='container-all'>
     <div className='text-title'>О ком будем читать?</div>
     <div className='container-link'>
-    <Link className="cat" to="/cat"><img src="images/cat.png" alt="logoCat" style={{width: '5rem'}}/></Link>
-    <Link className="cat" to="/dog"><img src="images/dog.png" alt="logoCat" style={{width: '5rem'}}/></Link>
+    <Link className="cat" to="/post/cat"><img src="images/cat.png" alt="logoCat" style={{width: '5rem'}}/></Link>
+    <Link className="cat" to="/post/dog"><img src="images/dog.png" alt="logoCat" style={{width: '5rem'}}/></Link>
     </div>
 
     <div className='container-post'>
