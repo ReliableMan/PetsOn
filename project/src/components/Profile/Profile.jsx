@@ -7,7 +7,7 @@ export default function Profile() {
         <h1>
           ЛИЧНЫЙ КАБИНЕТ
         </h1>
-        <img src="" alt="" width="" height="" />
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.hFpyV8YrShUEkGGrBcEEtQAAAA%26pid%3DApi&f=1" alt="" width="" height="" />
         <div>
           <p>ФИО</p>
           <p>Обо мне</p>

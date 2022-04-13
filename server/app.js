@@ -61,10 +61,9 @@ app.use((req, res, next) => {
 
 // routes
 app.use('/', indexRouter);
-app.use('/auth', authRouter);
-app.use('/tweets', postsRouter);
-
 app.use('/users', usersRouter);
+app.use('/posts', postsRouter);
+app.use('/auth', authRouter);
 
 
 app.listen(PORT ?? 3003, () => {
