@@ -57,13 +57,6 @@ module.exports = {
         type: Sequelize.STRING,
         // allowNull: false,
       },
-      speciality_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Specialities',
-          key: 'id'
-        },
-      },
       photo: {
         type: Sequelize.TEXT,
       },
