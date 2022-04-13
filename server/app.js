@@ -10,8 +10,8 @@ const FileStore = require('session-file-store')(session); // используе�
 
 // requiring routes files
 const indexRouter = require('./server/routes/index');
-const postsRouter = require('./server/routes/posts');
 const usersRouter = require('./server/routes/users');
+const postsRouter = require('./server/routes/posts');
 
 const app = express();
 
@@ -40,8 +40,8 @@ app.use((req, res, next) => {
 
 // routes
 app.use('/', indexRouter);
-app.use('/posts', postsRouter);
 app.use('/users', usersRouter);
+app.use('/posts', postsRouter);
 
 
 
