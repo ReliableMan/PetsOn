@@ -22,11 +22,14 @@ function App() {
         <Route path='/' element={<MainPage />} />
         <Route path='sign' element={<NavbarAfter/>}/>
         <Route path='post' element={<Post/>}/>
-        <Route path='services' element={<Services/>}>
+
+        <Route path='services' element={<Services/>}/>
+        <Route path='services'>
           <Route path='walking' element={<Walk/>}/>
           <Route path='grooming' element={<Grooming/>}/>
           <Route path='other' element={<Other/>}/>
         </Route>
+
         <Route path='about' element={<About/>}/>
         <Route path='profile' element={<Profile/>}/>
      </Routes>
