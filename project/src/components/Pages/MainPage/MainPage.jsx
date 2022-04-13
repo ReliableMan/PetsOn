@@ -17,7 +17,7 @@ export default function MainPage() {
         <Link className="card" to="/services/walking">
           <img src="images/walk.png" alt="logoCard" />
         </Link>
-        <Link className="card" to="/vet">
+        <Link className="card" to="/services/vet">
           <img src="images/vet.png" alt="logoCard" />
         </Link>
         <Link className="card" to="/services/grooming">
