@@ -12,7 +12,7 @@ export default function Services() {
         <Link to="grooming">ГРУМИНГ</Link>
       </div>
       <div>
-       <Link className="vetLink" aria-current="page" to="/vet">ВЕТЕРИНАРИЯ</Link>
+       <Link className="vetLink" aria-current="page" to="vet">ВЕТЕРИНАРИЯ</Link>
       </div>
       <div>
        <Link to="other">ДРУГОЕ</Link>

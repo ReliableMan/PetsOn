@@ -29,6 +29,7 @@ function App() {
         <Route path='services'>
           <Route path='walking' element={<Walk/>}/>
           <Route path='grooming' element={<Grooming/>}/>
+          <Route path='vet' element={<Vet/>}/>
           <Route path='other' element={<Other/>}/>
         </Route>
 
