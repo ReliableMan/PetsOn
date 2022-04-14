@@ -8,9 +8,10 @@
 }
 .navbar-toggler{
   border-color: #E2E5FF;
+  color: #E2E5FF;
 }
 /* .navbar-toggler-icon{
-  background-color: #E2E5FF;
+  color: #E2E5FF;
 } */
 .nav-link{
   text-decoration: none;
