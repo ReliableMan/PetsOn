@@ -7,10 +7,6 @@ import './App.css';
 import Post from './components/Post/Post';
 // services components
 import Services from './components/Services/Services';
-import Walk from './components/Services/Walk'
-import Grooming from './components/Services/Grooming'
-import Vet from './components/Services/Vet'
-import Other from './components/Services/Other'
 
 import About from './components/About/About';
 import Profile from './components/Profile/Profile';
@@ -28,15 +24,7 @@ function App() {
         <Route path='findServ' element={<FindServ />} />
         <Route path='sign' element={<NavbarAfter/>}/>
         <Route path='post' element={<Post/>}/>
-
         <Route path='services' element={<Services/>}/>
-        <Route path='services'>
-          <Route path='walking' element={<Walk/>}/>
-          <Route path='grooming' element={<Grooming/>}/>
-          <Route path='vet' element={<Vet/>}/>
-          <Route path='other' element={<Other/>}/>
-        </Route>
-
         <Route path='about' element={<About/>}/>
         <Route path='profile' element={<Profile/>}/>
         <Route path='profile/edit' element={<EditProfile/>}/>
