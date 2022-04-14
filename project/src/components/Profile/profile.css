@@ -1,7 +1,64 @@
-.profile{
-  height: 1000px;
-  left: 231px;
-  top: 130px;
+.profile {
+  padding: 0px 20px 20px 20px;
   background: #F1F1FF;
+}
+
+.heading {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 42px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.72);
+  padding-top: 15px;
+}
+
+.user-info {
+  padding: 15px 15px;
+  display: flex;
+  background: #E2E5FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 90px;
+}
+
+.photo {
+  border-radius: 90px 90px;
+}
+
+.user-info-text {
+  padding: 15px 15px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(67, 67, 71, 0.47);
+}
+
+.btn-change-data {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
   border-radius: 40px;
+}
+
+.btn-change-data-link {
+  text-decoration: none;
+  color: #000000;
+}
+
+.myServices {
+  padding: 15px 15px;
+}
+
+.table-row {
+  /* background-color: #E5FFE2; */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 90px;
 }

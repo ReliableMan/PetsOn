@@ -1,0 +1,75 @@
+.profile {
+  padding: 0px 20px 20px 20px;
+  background: #F1F1FF;
+}
+
+.heading {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 42px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.72);
+  padding-top: 15px;
+}
+
+.change-photo {
+  width: 100%;
+  border-radius: 91px;
+  background-color: #D2D7FF;
+}
+
+
+
+.change-photo::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.form-label {
+  
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: rgba(67, 67, 71, 0.47);
+}
+
+.form-input {
+  width: 100%;
+  background: #F1F1FF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 91px;
+}
+
+.select-role {
+  width: 100%;
+  background: #F1F1FF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 91px;
+}
+
+.form-textarea {
+  
+  width: 100%;
+  background: #F1F1FF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.btn-save-changes {
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 40px;
+  background-color: #D2D7FF;
+}
