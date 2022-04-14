@@ -12,6 +12,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      picture: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       pet_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -22,10 +26,6 @@ module.exports = {
       },
       text: {
         type: Sequelize.TEXT,
-        allowNull: false,
-      },
-      date: {
-        type: Sequelize.DATE,
         allowNull: false,
       },
       user_id: {
