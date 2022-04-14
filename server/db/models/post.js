@@ -20,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    picture: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     pet_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -27,10 +31,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     text: {
       type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    date: {
-      type: DataTypes.DATE,
       allowNull: false,
     },
     user_id: DataTypes.INTEGER,
