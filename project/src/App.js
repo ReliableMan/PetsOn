@@ -13,6 +13,7 @@ import Other from './components/Services/Other'
 
 import About from './components/About/About';
 import Profile from './components/Profile/Profile';
+import EditProfile from './components/Profile/EditProfile';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
 
         <Route path='about' element={<About/>}/>
         <Route path='profile' element={<Profile/>}/>
+        <Route path='profile/edit' element={<EditProfile/>}/>
      </Routes>
    </div>
   );
