@@ -36,3 +36,16 @@
 .modelContent.active {
   transform: scale(1);
 }
+
+.live{
+  background-color: #3b4557;
+  animation: pulse 1500ms infinite;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: #ebe5e8 0 0 0 0;
+  }
+  75% {
+    box-shadow: #ff69b400 0 0 0 16px;
+  }
+}

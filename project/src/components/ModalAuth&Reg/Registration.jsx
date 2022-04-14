@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userTyping, clearInputs, submitUser  } from '../../redux/actions/userActions';
 // 
 
-const Registration = ({ active, setActive }) => {
+const Registration = () => {
   const inputs = useSelector(store => store.signUpInputs);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -27,8 +27,8 @@ const Registration = ({ active, setActive }) => {
   }
 
     return (
-        <div className={active ? "modal active": "modal"} onClick={() => setActive(false)}>
-            <div className={active ? "modelContent active": "modelContent"} onClick={(e) => e.stopPropagation()}>
+          <div className='container'>
+<button className='btn btn-outline-primary' to='signIn'></button>
               <form onSubmit={submitHandler}>
               <p> Регистрация</p>
 
@@ -79,11 +79,11 @@ const Registration = ({ active, setActive }) => {
                </div>
                <br />
                <div className="container"> 
-               <button type="submit" className="btn btn-outline-primary">Войти</button>
+               <button type="submit" className="btn btn-outline-primary live">Войти</button>
                </div>
                </form>
               </div>
-        </div>
+    
     );
 };
 
