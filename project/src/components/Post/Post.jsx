@@ -19,17 +19,20 @@ export default function Post() {
     })
   },[]);
 
+
+
 //console.log('111', post);
 
   return (
     <div className="container-all">
       <div className="text-title">О ком будем читать?</div>
+
       <div className="container-link">
-        <Link className="cat" to="/post/cat">
+        <Link className="cat" to="/pet/pet/1">
           <img src="images/cat.png" alt="logoCat" style={{ width: "5rem" }} />
         </Link>
-        <Link className="cat" to="/post/dog">
-          <img src="images/dog.png" alt="logoCat" style={{ width: "5rem" }} />
+        <Link className="dog" to="/pet/pet/2">
+          <img src="images/dog.png" alt="logoDog" style={{ width: "5rem" }} />
         </Link>
       </div>
 
