@@ -1,14 +1,18 @@
+@import url('https://rsms.me/inter/inter.css');
 .mainPage{
 font-family: 'Inter';
 font-style: normal;
 background: #F1F1FF;
 border-radius: 40px;
+display: flex;
+flex-direction: column;
+justify-content: center;
 }
 
 .catdog{
   display: flex;
   justify-content:right;
-  
+  margin-right: 5%;
 }
 
 .container_link{
@@ -26,4 +30,326 @@ border-radius: 40px;
 .footer_body{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.card{
+  background-color: #F1F1FF;
+  border: 1px solid #F1F1FF;
+}
+.container_friend{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.findAFriend{
+  width: 96%;
+  height: 100%;
+  
+}
+.findServMain{
+  justify-content: center;
+  
+}
+.findServ{
+  margin-top: 10%;
+  width: 25%;
+  height: 20%;
+  display: flex;
+  margin-left: 35%;
+}
+
+.text_title{
+  width: 65%;
+  /* height: 10%; */
+  padding-top: 5%;
+  /* padding-bottom: 5%; */
+  padding-left: 5%;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 61px;
+
+  color: rgba(0, 0, 0, 0.72);
+}
+
+.text_main{
+  width: 495px;
+  /* height: 102px; */
+  padding-top: 5%;
+  padding-left: 5%;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.72);
+}
+
+.ContsinerTitleOurServices{
+  display: flex;
+  justify-content: center;
+}
+.titleOurServices {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 3%;
+  line-height: 36px;
+  color: #434347;
+}
+.textNewsletter{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 10px;
+  margin-bottom: 3%;
+  color: rgba(0, 0, 0, 0.72);
+}
+.inpytNewsletter{
+  width: 500px;
+  height: 50px;
+  background: #FFFBFB;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+}
+
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-bottom: 10%;
+}
+.btnNewsletter{  
+  width: 170px;
+  height: 50px;
+  background: rgba(23, 116, 254, 0.55);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+  margin-left: 5px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 23px;
+  color: rgba(0, 0, 0, 0.72);
+}
+
+.footer_body{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2%;
+  align-items: flex-end;
+}
+.footer_links1{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-bottom: 1%;
+}
+.footer_links2{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-bottom: 1%;
+}
+.textFooterLinks{
+  text-decoration: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 38px;
+  color: #434347;
+}
+
+
+
+/* для уменьшения экрана */
+
+
+@media (min-width: 768px) and (max-width: 1400px) {
+  .text_title{
+    width: 80%;
+    height: 10%;
+    padding-top: 5%;
+    padding-left: 5%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 41px;
+  
+    color: rgba(0, 0, 0, 0.72);
+  }
+  .text_main{
+    width: 495px;
+    height: 52px;
+    padding-top: 5%;
+    padding-left: 5%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.72);
+  }
+  .titleOurServices {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 36px;
+    color: #434347;
+    margin-bottom: 2%;
+  }
+  .textNewsletter{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 10px;
+    margin-bottom: 3%;
+    color: rgba(0, 0, 0, 0.72);
+  }
+  .inpytNewsletter{
+    width: 300px;
+    height: 40px;
+    background: #FFFBFB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+  }
+  
+  .btnNewsletter{  
+    width: 120px;
+    height: 40px;
+    background: rgba(23, 116, 254, 0.55);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    margin-left: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 23px;
+    color: rgba(0, 0, 0, 0.72);
+  }
+  .textFooterLinks{
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 38px;
+    color: #434347;
+  }
+  .textFooterLinks{
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 30px;
+    color: #434347;
+  }
+  .footer_img{
+    /* display:none; */
+  }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 767px) {
+  .text_title{
+    width: 80%;
+    height: 50px;
+    padding-top: 10%;
+    padding-left: 5%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 31px;
+  
+    color: rgba(0, 0, 0, 0.72);
+  }
+  .text_main{
+    width: 495px;
+    height: 102px;
+    padding-top: 15%;
+    padding-bottom: 5%;;
+    padding-left: 5%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.72);
+  }
+  .titleOurServices {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 30px;
+    color: #434347;
+    margin-bottom: 3%;
+  }
+  .textNewsletter{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 10px;
+    margin-bottom: 4%;
+    color: rgba(0, 0, 0, 0.72);
+  }
+  .inpytNewsletter{
+    width: 200px;
+    height: 30px;
+    background: #FFFBFB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+  }
+  
+  .btnNewsletter{  
+    width: 75px;
+    height: 30px;
+    background: rgba(23, 116, 254, 0.55);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    margin-left: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 8px;
+    line-height: 23px;
+    color: rgba(0, 0, 0, 0.72);
+  }
+  .textFooterLinks{
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 20px;
+    color: #434347;
+  }
+  .footer_img{
+    display:none;
+  }
+  
 }
