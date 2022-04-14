@@ -14,16 +14,16 @@ export default function MainPage() {
       </a>
       <p>Наши услуги</p>
       <div className="container_link">
-        <Link className="card" to="/services/walking">
+        <Link className="card" to="/services">
           <img src="images/walk.png" alt="logoCard" />
         </Link>
         <Link className="card" to="/services/vet">
           <img src="images/vet.png" alt="logoCard" />
         </Link>
-        <Link className="card" to="/services/grooming">
+        <Link className="card" to="/services">
           <img src="images/groom.png" alt="logoCard" />
         </Link>
-        <Link className="card" to="/services/other">
+        <Link className="card" to="/services">
           <img src="images/other.png" alt="logoCard" />
         </Link>
       </div>
