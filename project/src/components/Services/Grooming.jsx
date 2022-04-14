@@ -1,8 +1,9 @@
 import React from 'react'
+import "./grooming.css";
 
 export default function Grooming() {
   return (
-    <>
+    <div className='groom'>
       <div>ОСТАВЬТЕ ЗАЯВКУ НА ГРУМИНГ</div>
       <form>
         <div className="">
@@ -21,6 +22,6 @@ export default function Grooming() {
         </div>
         <button type="submit" className="">Отправить</button>
       </form>
-    </>
+    </div>
   )
 }

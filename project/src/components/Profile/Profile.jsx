@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import "./profile.css";
 
 export default function Profile() {
 
@@ -16,7 +17,7 @@ export default function Profile() {
           </button>
         </div>
       </div>
-
+        
       <h2>МОИ ЗАЯВКИ И УСЛУГИ</h2>
       <table className="container">
         <tr>

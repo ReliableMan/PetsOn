@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ Post }) {
       // define association here
-      this.hasMany(Post, { foreignKey: "user_id" })
+      this.hasMany(Post, { foreignKey: "user_id" });
     }
   }
   User.init({
@@ -61,10 +61,6 @@ module.exports = (sequelize, DataTypes) => {
       // allowNull: false,
     },
     role: {
-      type: DataTypes.STRING,
-      // allowNull: false,
-    },
-    speciality: {
       type: DataTypes.STRING,
       // allowNull: false,
     },

@@ -1,15 +1,13 @@
 import React from 'react';
-
-// { useEffect }
 import { Link } from 'react-router-dom';
-// import { useDispatch, useSelector } from "react-redux";
+import "./navbar.css"
 
 export default function Navbar() {
   return (
-    <>
+    <div className='container'>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
-    <Link className="navbar-brand" to="/"><img src="images/PetsOn.png" alt="logo" style={{width: '5rem'}}/></Link>
+    <Link className="navbar-brand" to="/"><img src="images/PetsOn.png" alt="logoPet" style={{width: '5rem'}}/></Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -43,6 +41,6 @@ export default function Navbar() {
     </div>
   </div>
 </nav>
-    </>
+    </div>
   )
 }

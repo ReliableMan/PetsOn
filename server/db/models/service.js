@@ -9,14 +9,19 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ User }) {
+    static associate({ User, Speciality}) {
       // define association here
       this.belongsTo(User, { foreignKey: 'user_id' });
+      this.hasOne(Speciality, { foreignKey: "id" })
     }
   }
   Service.init({
     title: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    speciality_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     price: {
@@ -28,10 +33,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     user_id: {
       type: DataTypes.INTEGER,
-      references: {
-        model: 'Users',
-        key: 'id'
-      }
     },
   }, {
     sequelize,

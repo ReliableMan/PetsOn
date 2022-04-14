@@ -8,6 +8,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      speciality_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Specialities',
+          key: 'id'
+        },
+      },
       title: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -21,6 +28,10 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
       },
       createdAt: {
         allowNull: false,

@@ -57,10 +57,6 @@ module.exports = {
         type: Sequelize.STRING,
         // allowNull: false,
       },
-      speciality: {
-        type: Sequelize.STRING,
-        // allowNull: false,
-      },
       photo: {
         type: Sequelize.TEXT,
       },
