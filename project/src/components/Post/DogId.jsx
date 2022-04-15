@@ -13,15 +13,16 @@ export default function DogId() {
       const { picture, title, text } = PostsDog.data;
       //console.log("7777777", picture);
       setPostDog({ picture, title, text });
-      console.log(postDog);
+      console.log(picture, "pic");
     });
   }, []);
 
   return (
     <div className="container">
       <h3>{postDog.title}</h3>
-      <img  className='' src={postDog.picture} />
+      <img src={postDog.picture}/>
       <p>{postDog.text}</p>
+
     </div>
   );
 }
