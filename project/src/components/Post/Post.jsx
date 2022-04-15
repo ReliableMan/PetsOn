@@ -5,7 +5,7 @@ import "./post.css";
 
 export default function Post() {
   const [post, setPost] = useState([]);
-  const { id } = useParams();
+
 
   useEffect(() => {
     axios.get("http://localhost:3903/posts").then((allPostsFromServer) => {
