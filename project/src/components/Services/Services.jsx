@@ -7,12 +7,12 @@ export default function Services() {
       <form>
         <div className="heading">ОСТАВЬТЕ ЗАЯВКУ НА УСЛУГУ</div>
         <div className="">
-          <label htmlFor="serviceTitle" className="form-label">Название услуги</label>
+          <label htmlFor="serviceTitle" className="form-label">НАЗВАНИЕ УСЛУГИ</label>
           <input type="text" name="serviceTitle" id="serviceTitle"
             className="form-input" required="required" />
         </div>
         <div className="">
-          <label htmlFor="serviceCategory" className="form-label">Категория</label>
+          <label htmlFor="serviceCategory" className="form-label">КАТЕГОРИЯ</label>
           <select className="select-category" name="serviceCategory" id="serviceCategory">
             <option value="walk">ВЫГУЛ</option>
             <option value="grooming">ГРУМИНГ</option>
@@ -22,13 +22,13 @@ export default function Services() {
         </div>
         <div className="price-currency-container">
           <div>
-            <label htmlFor="servicePrice" className="form-label">Стоимость</label>
+            <label htmlFor="servicePrice" className="form-label">СТОИМОСТЬ</label>
             <input type="number" min="0" max="10000" step="1"
               name="servicePrice" id="servicePrice"
               className="form-input" required="required" />
           </div>
           <div>
-            <label htmlFor="currency" className="form-label">Валюта</label>
+            <label htmlFor="currency" className="form-label">ВАЛЮТА</label>
             <select className="select-currency" name="select-currency" id="currency">
               <option value="ruble">&#8381;</option>
               <option value="dollar">&#36;</option>
@@ -37,13 +37,13 @@ export default function Services() {
           </div>
         </div>
         <div className="">
-          <label htmlFor="serviceTitle" className="form-label">Подробное описание</label>
+          <label htmlFor="serviceTitle" className="form-label">ПОДРОБНОЕ ОПИСАНИЕ</label>
           <textarea id="serviceDescription" name="serviceDescription" className="form-textarea"
             rows="4" cols="50">
           </textarea>
         </div>
         <div className="btn-submit-container">
-          <button type="submit" className="btn-submit">Отправить</button>
+          <button type="submit" className="btn-submit">СОЗДАТЬ</button>
         </div>
       </form>
     </div>

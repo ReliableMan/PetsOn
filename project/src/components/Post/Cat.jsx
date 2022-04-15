@@ -19,11 +19,17 @@ export default function Cat() {
 
   return (
     <>
-      <div className="container-post">
+      <div className="posts-container">
         {postCat.map((el) => (
-          <Link className="post" key={el.id} to={`/posts/cats/${el.id}`}>
-            {el.title}
-            <img src={el.picture} alt="" width="150" height="150"/>
+          <Link key={el.id} to={`/posts/cats/${el.id}`}>
+            <div className="one-post-container">
+              <div className="img-container">
+                <img src={el.picture} alt="" width="150" height="150" />
+              </div>
+              <div className="link-container">
+                {el.title}
+              </div>
+            </div>
           </Link>
         ))}
       </div>
