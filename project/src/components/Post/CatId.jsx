@@ -21,7 +21,7 @@ export default function CatId() {
     <div className="container">
       <h3>{postCat.title}</h3>
       <img  className='' src={postCat.picture} />
-      <p>{postCat.text}</p>
+      <p className="postText">{postCat.text}</p>
     </div>
   );
 }

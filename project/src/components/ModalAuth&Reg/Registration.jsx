@@ -1,24 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styleRegister.css';
+// import RegType from './RegType';
+
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { userTyping, clearInputs, submitUser  } from '../../redux/actions/userActions';
+import { userTyping, clearInputs, submitUser, specInputs } from '../../redux/actions/userActions';
 // 
 
-const Registration = ({ active, setActive }) => {
+const Registration = () => {
+
+  const [value, setValue] = useState('');
+  console.log('=====1', value)
+
+  const [value1, setValue1] = useState('');
+  console.log('+++++1', value1)
+
   const inputs = useSelector(store => store.signUpInputs);
+  const select = useSelector(store => store.userSpeciality)
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const choice1 = (e) => {
+    setValue(e.target.value) 
+  };
+
+  const choice2 = (e) => {
+    setValue1(e.target.value) 
+  };
+ 
   //  отслеживать изменения инпутов при вводе данных
   const changeHandler = (e) => {
     dispatch(userTyping(e))
   }
+
   // записать данные и диспатчом отправить на бэк и записать 
   const submitHandler = async (e) => {
     e.preventDefault();
     if(inputs.userPassword === inputs.userPasswordRepeat ){
-      dispatch(submitUser(inputs));
+      dispatch(submitUser({inputs, value, value1}));
+      dispatch(specInputs({select, value, value1}));
+      console.log('121212121212', {value, value1});
       dispatch(clearInputs());
       navigate('/')
     } else {
@@ -27,12 +49,12 @@ const Registration = ({ active, setActive }) => {
   }
 
     return (
-        <div className='container register'>
+        <div className='container header register'>
               <form onSubmit={submitHandler}>
                 <div className='header1'>
              <p> Регистрация ||| <Link to='/signIn'>Авторизация</Link></p>  
                 </div>
-
+{/* //* -----------------------------------------------------------------------------Фамилия */}
                 <div className="row align-items-center">
                    <div className="col-auto">
                     <label htmlFor="inputLogin" className="col-form-label">Фамилия</label>
@@ -45,58 +67,67 @@ const Registration = ({ active, setActive }) => {
                 </div>
                </div>
                <br/>
-
+{/* //* -----------------------------------------------------------------------------Имя */}
                <div className="row align-items-center">
                    <div className="col-auto">
                     <label htmlFor="inputLogin" className="col-form-label label2">Имя</label>
                    </div>
                    
                 <div className="col-auto input-group-sm inpSur">
-                  <input type="text" name="name" id="inputUserSurname" 
+                  <input type="text" name="name" id="name" 
                   className="form-control inpSurname" value={inputs.name ?? ''} onChange={changeHandler} 
                    required/>
                 </div>
                </div>
                <br/>
-
+{/* //* -----------------------------------------------------------------------------Дата рождения */}
                <div className="row align-items-center">
                    <div className="col-auto">
                     <label htmlFor="start" className="col-form-label">Дата рождения</label>
                    </div>
-                   {/* //! обработать и записать в базу */}
+                   
                 <div className="col-auto input-group-sm inpSur">
                   <input type="date"  name="birthday" min="1960-01-01" max="2020-12-31"
-                  className="" onChange={changeHandler} 
+                  className="" value={inputs.birthday ?? ''} onChange={changeHandler} 
                    required/>
                 </div>
                </div>
                <br/>
-
+{/* //* -----------------------------------------------------------------------------Тип учётной записи */}
                <div className="row align-items-center">
                    <div className="col-auto">
                     <label htmlFor="inputLogin" className="col-form-label">Тип учётной записи</label>
                    </div>
                    {/* //! обработать и записать в базу */}
                 <div className="col-auto input-group-sm inpSur">
-                <select class="form-select" aria-label="Default select example">
-                      <option disabled>Выберите из списка</option>
+                <select onClick={choice1} name="typeUser" 
+                 className="form-select" aria-label="Default select example">
+                      <option value=''>Выберите из списка</option>
                        <option value="user">Пользователь</option>
                        <option value="specialist">Специалист</option>
-                       {/* // ! тернарное выражение  */}
-                       {/* записывать в стейт значение выбранного value
-                         в звисимости от того что выбрали, рендерим компонент
-                         
-                         можно тернаркой */}
-                         {/* 1) отловить все onChange 
-                         2) записывать в стейт (местный стейт) 
-                         3) */}
                       </select>
                 </div>
                </div>
+                       {value === "specialist" ?  
+                       <>
+                       <div className="row align-items-center">
+                        <div className="col-auto">
+                               <label htmlFor="inputLogin" className="col-form-label"
+                               >Уточните пожалуйста</label>
+                       </div>
+                            <div className="col-auto input-group-sm inpSur">
+                        <select onClick={choice2} name="typeUser1" 
+                        className="form-select" aria-label="Default select example">
+                              <option value=''>Не выбрано</option>
+                              <option value="Выгул домашних животных">Выгул домашних животных</option>
+                              <option value="Стрижка домашних животных">Стрижка домашних животных</option>
+                              <option value='Другое'>Другое</option>
+                        </select>
+                      </div>
+                      </div>
+                       </> : null}
                <br/>
-
-
-
+{/* //* -----------------------------------------------------------------------------Логин */}
                 <div className="row align-items-center">
                    <div className="col-auto">
                     <label htmlFor="inputLogin" className="col-form-label">Логин</label>
@@ -107,8 +138,8 @@ const Registration = ({ active, setActive }) => {
                   pattern="[A-Za-z]\w+" required/>
                 </div>
                </div>
-
                <br/>
+{/* //* -----------------------------------------------------------------------------Email */}
                <div className="row align-items-center">
                    <div className="col-auto">
                     <label htmlFor="inputEmail6" className="col-form-label">Email</label>
@@ -120,8 +151,8 @@ const Registration = ({ active, setActive }) => {
                   pattern="^[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\.[A-Za-z]{2,}$" required/>
                 </div>
                </div>
-
                     <br/>
+{/* //* -----------------------------------------------------------------------------Пароль */}                    
                     <div className="row align-items-center">
                    <div className="col-auto">
                     <label htmlFor="inputPassword6" className="col-form-label">Пароль</label>
@@ -132,8 +163,8 @@ const Registration = ({ active, setActive }) => {
                   required/>
                 </div>
                </div>
-
                   <br />
+{/* //* -----------------------------------------------------------------------------Повторите пароль */}                 
                   <div className="row align-items-center">
                    <div className="col-auto">
                     <label htmlFor="inputPassword6" className="col-form-label">Повторите пароль</label>
@@ -145,11 +176,8 @@ const Registration = ({ active, setActive }) => {
                </div>
                <br />
                <div className="col-auto input-group-sm">
-
                </div>
-
-
-
+{/* //* -----------------------------------------------------------------------------Войти */}
                <div className="container but"> 
                <button type="submit" className="btn btn-outline-primary live">Войти</button>
                </div>
@@ -160,3 +188,4 @@ const Registration = ({ active, setActive }) => {
 };
 
 export default Registration;
+

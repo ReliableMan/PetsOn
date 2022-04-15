@@ -1,5 +1,6 @@
 export const initState = {
   signUpInputs: {},
   logInInputs: {},
-  user: {}
+  user: {},
+  userSpeciality: {}
 };

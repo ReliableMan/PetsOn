@@ -28,6 +28,7 @@ const Authentificate = () => {
             <div className="header1">
             <p> Авторизация ||| <Link to='/sign'>Регистрация</Link></p>
             </div>
+
             <br />
             <div className="row align-items-center">
               <div className="col-auto">
@@ -42,21 +43,11 @@ const Authentificate = () => {
                   className="form-control "
                   name="userEmail"
                   value={inputs.userEmail ?? ""}
-                  onChange={(event) => dispatch(userTypingLogin(event))}
-
-                  // {...register("email", {
-                  //   required: true,
-                  //   maxLength: 25,
-                  //   pattern: /^[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\.[A-Za-z]{2,}$/
-                  // })}
-                />
-
-                {/* {errors?.email?.type === "required" && <p>Это поле не может быть пустым</p>}
-                  {errors?.email?.type === "maxLength" && (<p>Не более 25 символов</p>)}
-                  {errors?.email?.type === "pattern" && ( <p>Пожалуйста введите правильно свой email.</p>)} */}
+                  onChange={(event) => dispatch(userTypingLogin(event))}/>
               </div>
             </div>
             <br />
+
             <div className="row align-items-center">
               <div className="col-auto">
                 <label htmlFor="inputPassword6" className="col-form-label">
@@ -71,20 +62,11 @@ const Authentificate = () => {
                   className="form-control"
                   name="userPassword"
                   value={inputs.userPassword ?? ""}
-                  onChange={(event) => dispatch(userTypingLogin(event))}
-
-                  // {...register("password", {
-                  //   required: true,
-                  //   min: 8,
-                  //   max: 20
-                  // })}
-                />
-
-                {/* {errors?.password?.type === "required" && <p>Обязательно напишите пароль.</p>}
-                  {errors.password && <p>Пароль должен содержать не менее 8 символов и не более 20.</p>} */}
+                  onChange={(event) => dispatch(userTypingLogin(event))}/>
               </div>
             </div>
             <br />
+
             <div className="container but">
               <button type="submit" className="btn btn-outline-primary live">
                 Войти

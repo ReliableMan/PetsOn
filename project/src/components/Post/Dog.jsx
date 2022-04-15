@@ -22,7 +22,8 @@ export default function Dog() {
       <div className="container-post">
         {postDog.map((el) => (
           <Link className="post" key={el.id} to={`/posts/dogs/${el.id}`}>
-            {el.title}
+            <img src={el.picture} alt="" width="150" height="150"/>
+            <div>{el.title}</div>
           </Link>
         ))}
       </div>

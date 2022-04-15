@@ -1,12 +1,19 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
-
+const { Speciality } = require('../db/models');
 
 // * регистрация нового пользователя
 router.post('/signup', async (req, res) => {
-  const { userName, userEmail, userPassword } = req.body;
-  console.log('req.body', req.body);
+  const {
+    userSurname, name, userName,
+    birthday,
+    userEmail,
+    userPassword } = req.body.inputs;
+  const { value, value1 } = req.body;
+
+  console.log('req.body', req.body.inputs);
+  console.log('req.body-->', value, 'req.body-->', value1);
 
   try {
     const hashedPass = await bcrypt.hash(userPassword, 15);
@@ -14,14 +21,25 @@ router.post('/signup', async (req, res) => {
       username: userName,
       email: userEmail,
       password: hashedPass,
-      
+      first_name: userSurname,
+      last_name: name,
+      date_birth: birthday,
+      role: value,
     });
+
+    const speciality = await Speciality.create({ title: value1 })
+
     const timeCreationUser = new Date().toLocaleDateString();
     req.session.user = {
       id: user.id,
-      name: user.username,
+      login: user.username,
       email: user.email,
       time: timeCreationUser,
+      surname: user.first_name,
+      name: user.last_name,
+      birthday: user.date_birth,
+      role: user.role,
+      speciality: speciality.title
     };
     res.json(req.session.user);
   } catch (err) {
