@@ -23,6 +23,7 @@ export default function Cat() {
         {postCat.map((el) => (
           <Link className="post" key={el.id} to={`/posts/cats/${el.id}`}>
             {el.title}
+            <img src={el.picture} alt="" width="150" height="150"/>
           </Link>
         ))}
       </div>
