@@ -50,7 +50,7 @@ module.exports = {
         // allowNull: false,
       },
       date_birth: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         // allowNull: false,
       },
       role: {

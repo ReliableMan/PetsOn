@@ -12,7 +12,7 @@ const FileStore = require('session-file-store')(session); // используе�
 const indexRouter = require('./routes/index');
 const specialityRouter = require('./routes/specialityRouter');
 const postsRouter = require('./routes/postsRouter');
-const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/usersRouter');
 const authRouter = require('./routes/auth');
 const vetRouter = require('./routes/vet');
 const servicesRouter = require('./routes/servicesAll');
@@ -62,6 +62,7 @@ app.use((req, res, next) => {
   res.locals.userId = req.session?.userId;
   res.locals.userEmail = req.session?.userEmail;
   res.locals.userUsername = req.session?.userUsername;
+  
   next();
 });
 
