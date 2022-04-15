@@ -31,14 +31,8 @@ function App() {
         <Route path='/' element={<MainPage />} />
         <Route path='findServ' element={<FindServ />} />
 
-        <Route path='sign' element={<NavbarAfter />} />
-        <Route path='posts' element={<Post />}>
-          {/* <Route path='pet/pet/1' element={<Dog />}>
-          <Route path='pet/id' element={<DogId />}/>
-          </Route>
-          <Route path='pet/pet/2' element={<Cat />}>
-          <Route path='pet/id' element={<CatId />}/> */}
-        </Route>
+        <Route path='posts' element={<Post />}/>
+     
         <Route path='posts/cats' element={<Cat />}/>
         <Route path='posts/cats/:id' element={<CatId />}/>
         <Route path='posts/dogs' element={<Dog />}/>
@@ -47,22 +41,15 @@ function App() {
         <Route path='about' element={<About />} />
         <Route path='profile' element={<Profile />} />
         <Route path='profile/edit' element={<EditProfile />} />
-      </Routes>
-    </div>
-
+     
 
         <Route path='sign' element={<Registration/>}/>
   
           <Route path='signIn' element={<Authentificate/>}/>
         
 
-        <Route path='post' element={<Post/>}/>
-        <Route path='services' element={<Services/>}/>
-        <Route path='about' element={<About/>}/>
-        <Route path='profile' element={<Profile/>}/>
-        <Route path='profile/edit' element={<EditProfile/>}/>
-     </Routes>
-   </div>
+     </Routes >
+   </div >
   );
 }
 
