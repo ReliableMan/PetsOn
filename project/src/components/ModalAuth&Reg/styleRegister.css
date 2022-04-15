@@ -2,15 +2,42 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.login{
+.register{
   display: flex;
   justify-content: center;
-  height: 250px;
+  height: 600px;
   left: 231px;
   top: 130px;
   background: #F1F1FF;
   border-radius: 40px;
 }
+.inpSur{
+padding-left: 0px;
+padding-right: 0px;
+}
+.inpSurname{
+  /* margin-right: 5px; */
+
+  margin-left: 5px;
+}
+
+.inpName{
+  margin-left: 20px;
+}
+
+.label2{
+  padding-right: 50px
+}
+
+.inpEmail{
+  margin-left: 24px;
+}
+
+.inpPass{
+  margin-left: 3px;
+  margin-right: 20px;
+}
+
 .header{
   margin-top: 10px;
   padding-top: 7px;
@@ -24,6 +51,16 @@
   display: flex;
   justify-content: end;
 }
+
+label {
+  display: block;
+  letter-spacing: 3px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+
+
 .live{
   background-color: rgb(248,249,250);
   animation: pulse 1700ms infinite;
