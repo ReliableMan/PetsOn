@@ -22,7 +22,7 @@ export default function EditProfile() {
   return (
     <div className="edit-profile">
       <form onSubmit={submitHandler}>
-        <h2 className="heading">ИЗМЕНЕНИЕ ДАННЫХ</h2>
+        <div className="heading">ИЗМЕНЕНИЕ ДАННЫХ</div>
         <div>
           <label htmlFor="myPhoto" className="form-label">Загрузить фото профиля</label>
           <input type="file" id="myPhoto" name="myPhoto" className="change-photo" />
