@@ -1,7 +1,7 @@
 import React from "react";
 import "./modal.css";
-// import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   userTypingLogin,
@@ -9,44 +9,37 @@ import {
   submitUserLogin,
 } from "../../redux/actions/userActions";
 
-const Authentificate = ({ active, setActive }) => {
+const Authentificate = () => {
   const inputs = useSelector((store) => store.logInInputs);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const { register, handleSubmit, formState: { errors } } = useForm();
-
+  
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log("inputs", inputs);
     dispatch(submitUserLogin(inputs));
     dispatch(clearInputs());
     navigate("/");
   };
 
   return (
-    <div className="main">
-      <div
-        className={active ? "modal active" : "modal"}
-        onClick={() => setActive(false)}
-      >
-        <div
-          className={active ? "modelContent active" : "modelContent"}
-          onClick={(e) => e.stopPropagation()}
-        >
+    
+      <div className="container login header">
           <form onSubmit={submitHandler}>
-            <p> Авторизация</p>
+            <div className="header1">
+            <p> Авторизация ||| <Link to='/sign'>Регистрация</Link></p>
+            </div>
             <br />
-            <div className="row g-3 align-items-center">
+            <div className="row align-items-center">
               <div className="col-auto">
                 <label htmlFor="inputPassword6" className="col-form-label">
                   Email
                 </label>
               </div>
 
-              <div className="col-auto">
+              <div className="col-auto input-group-sm">
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control "
                   name="userEmail"
                   value={inputs.userEmail ?? ""}
                   onChange={(event) => dispatch(userTypingLogin(event))}
@@ -64,14 +57,14 @@ const Authentificate = ({ active, setActive }) => {
               </div>
             </div>
             <br />
-            <div className="row g-3 align-items-center">
+            <div className="row align-items-center">
               <div className="col-auto">
                 <label htmlFor="inputPassword6" className="col-form-label">
                   Пароль
                 </label>
               </div>
-              <hr />
-              <div className="col-auto">
+            
+              <div className="col-auto input-group-sm">
                 <input
                   type="password"
                   id="inputPassword6"
@@ -92,15 +85,14 @@ const Authentificate = ({ active, setActive }) => {
               </div>
             </div>
             <br />
-            <div className="container">
-              <button type="submit" className="btn btn-outline-primary">
+            <div className="container but">
+              <button type="submit" className="btn btn-outline-primary live">
                 Войти
               </button>
             </div>
           </form>
         </div>
-      </div>
-    </div>
+    
   );
 };
 
