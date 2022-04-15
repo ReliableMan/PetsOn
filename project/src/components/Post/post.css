@@ -6,17 +6,19 @@
   border-radius: 40px;
 }
 
-.text-title {
+.container-link {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+}
+
+.text-title {
+  /* margin-top: 3rem; */
   font-style: normal;
   font-weight: 700;
   font-size: 35px;
   line-height: 42px;
-  display: flex;
   align-items: center;
   text-align: center;
-  justify-content: center;
   color: #000000;
 }
 
