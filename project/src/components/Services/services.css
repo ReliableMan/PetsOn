@@ -1,6 +1,6 @@
-.services{
-  padding: 0px 20px 20px 20px;
-  /* background: #F1F1FF; */
+.services {
+  display: flex;
+  justify-content: space-around;
 }
 
 .heading {
@@ -15,7 +15,6 @@
 }
 
 .form-label {
-  
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
@@ -27,27 +26,49 @@
 }
 
 .form-input {
+  height: 40px;
   width: 100%;
   background: #F1F1FF;
   border: 1px solid #000000;
   box-sizing: border-box;
-  border-radius: 91px;
+  border-radius: 90px;
 }
 
-.select {
+.price-currency-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.select-category {
   width: 100%;
-  background: #F1F1FF;
+  height: 40px;
+  background: white;
   border: 1px solid #000000;
   box-sizing: border-box;
-  border-radius: 91px;
+  border-radius: 90px;
+}
+
+.select-currency {
+  width: 100%;
+  height: 40px;
+  background: white;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 90px;
 }
 
 .form-textarea {
   width: 100%;
-  background: #F1F1FF;
+  background: white;
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 10px;
+}
+
+.btn-submit-container {
+  display: flex;
+  justify-content: center;
 }
 
 .btn-submit {
@@ -60,4 +81,3 @@
   border-radius: 40px;
   background-color: #D2D7FF;
 }
-
