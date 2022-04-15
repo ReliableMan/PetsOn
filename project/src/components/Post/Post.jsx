@@ -7,52 +7,50 @@ export default function Post() {
   const [post, setPost] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3903/pet')
-    .then((allPostsFromServer)=>{
-     // console.log(allPostsFromServer.data[0].title);
+    axios.get("http://localhost:3903/posts").then((allPostsFromServer) => {
+      // console.log(allPostsFromServer.data[0].title);
 
-     const arr = [];
-      allPostsFromServer.data.forEach(i => 
-       arr.push(i.title))
+      const arr = [];
+      allPostsFromServer.data.forEach((i) => arr.push(i.title));
       //console.log('7777777', allPostsFromServer.data);
-     setPost(allPostsFromServer.data)
-    })
-  },[]);
+      setPost(allPostsFromServer.data);
+    });
+  }, []);
 
+  // useEffect(() => {
+  //   axios.get("http://localhost:3903/posts/pet/1").then((allPostsDog) => {
+  //     console.log(allPostsDog);
 
+  //     const arr = [];
+  //     allPostsDog.data.forEach((i) => arr.push(i.title));
+  //     //   //console.log('7777777', allPostsDog.data);
+  //     setpostPet(allPostsDog.data);
+  //   });
+  // }, []);
 
-//console.log('111', post);
+  //console.log('111', post);
 
   return (
     <div className="container-all">
+
       <div className="text-title">О ком будем читать?</div>
 
       <div className="container-link">
-        <Link className="cat" to="/pet/pet/1">
+        <Link className="cat" to="/posts/cats">
           <img src="images/cat.png" alt="logoCat" style={{ width: "5rem" }} />
         </Link>
-        <Link className="dog" to="/pet/pet/2">
-          <img src="images/dog.png" alt="logoDog" style={{ width: "5rem" }} />
+        <Link className="cat" to="/posts/dogs">
+          <img src="images/dog.png" alt="logoCat" style={{ width: "5rem" }} />
         </Link>
       </div>
 
-      <div className="container-post">
-        {post.map(el=>  
-           (<Link className="post1" key={el.id} to='/post/`${id}`'>
-          {el.title}
-        </Link>))}
-
-
-      {/* //   <Link className="post1" to="/post1">
-      //     {post[0]}
-      //   </Link>
-      //   <Link className="post2" to="/post2">
-      //     Название статьи
-      //   </Link>
-      //   <Link className="post3" to="/post3">
-      //     Название статьи
-      //   </Link> */}
-       </div>
+      {/* <div className="container-post">
+        {post.map((el) => (
+          <Link className="post" key={el.id} to="/posts/`${id}`">
+            {el.title}
+          </Link>
+        ))}
+      </div> */}
     </div>
   );
 }

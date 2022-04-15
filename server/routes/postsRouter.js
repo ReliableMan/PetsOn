@@ -23,10 +23,10 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/pet/:pet_id', async (req, res) => {
+router.get('/dogs', async (req, res) => {
   const {pet_id} =req.params
   try {
-    const dogPost = await Post.findAll({ where: { pet_id }, raw: true })
+    const dogPost = await Post.findAll({ where: { pet_id: 1 }, raw: true })
     return res.json(dogPost)
   } catch (err) {
     console.log(err);
@@ -34,15 +34,37 @@ router.get('/pet/:pet_id', async (req, res) => {
   }
 })
 
- router.get('/:id', async (req, res) => {
+router.get('/cats', async (req, res) => {
+  const {pet_id} =req.params
+  try {
+    const catPost = await Post.findAll({ where: { pet_id: 2 }, raw: true })
+    return res.json(catPost)
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(500)
+  }
+})
+
+ router.get('/dogs/:id', async (req, res) => {
   const {id} =req.params
    try {
-     const dogPost = await Post.findOne({ where: { id }, raw: true })
-     return res.json(dogPost)
+     const dogPostOne = await Post.findOne({ where: { id }, raw: true })
+     return res.json(dogPostOne)
    } catch (err) {
      console.log(err);
      res.sendStatus(500)
    }
  })
+
+  router.get('/cats/:id', async (req, res) => {
+   const {id} =req.params
+    try {
+      const catPost = await Post.findOne({ where: { id }, raw: true })
+      return res.json(catPost)
+    } catch (err) {
+      console.log(err);
+      res.sendStatus(500)
+    }
+  })
 
 module.exports = router;
