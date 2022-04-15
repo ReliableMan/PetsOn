@@ -11,10 +11,11 @@ const FileStore = require('session-file-store')(session); // используе�
 // requiring routes files
 const indexRouter = require('./routes/index');
 const specialityRouter = require('./routes/specialityRouter');
+const postsRouter = require('./routes/postsRouter');
 const usersRouter = require('./routes/users');
-const authRouter = require('./routes/auth')
-const vetRouter = require('./routes/vet')
-const servicesRouter = require('./routes/servicesAll')
+const authRouter = require('./routes/auth');
+const vetRouter = require('./routes/vet');
+const servicesRouter = require('./routes/servicesAll');
 // const groomingRouter = require('./routes/grooming')
 // const otherRouter = require('./routes/other')
 // const walkRouter = require('./routes/walking')
@@ -67,7 +68,7 @@ app.use((req, res, next) => {
 // routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-//app.use('/posts', postsRouter);
+app.use('/posts', postsRouter);
 app.use('/auth', authRouter);
 app.use('/vet', vetRouter)
 app.use('/services', servicesRouter)

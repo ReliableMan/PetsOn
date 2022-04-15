@@ -12,52 +12,75 @@ export default function MainPage() {
       <a className="catdog">
         <img src="images/main.png" alt="logoMain" style={{ width: "12rem" }} />
       </a>
-      <p>Наши услуги</p>
+      <div className="ContsinerTitleOurServices">
+      <p className="titleOurServices">Наши услуги</p>
+      </div>
       <div className="container_link">
-        <Link className="card" to="/services/walking">
+        <Link className="card" to="/services">
           <img src="images/walk.png" alt="logoCard" />
         </Link>
         <Link className="card" to="/services/vet">
           <img src="images/vet.png" alt="logoCard" />
         </Link>
-        <Link className="card" to="/services/grooming">
+        <Link className="card" to="/services">
           <img src="images/groom.png" alt="logoCard" />
         </Link>
-        <Link className="card" to="/services/other">
+        <Link className="card" to="/services">
           <img src="images/other.png" alt="logoCard" />
         </Link>
       </div>
-      <button><Link to="/findServ">НАЙТИ УСЛУГУ</Link></button>
+    <div className="findServMain">
+        <Link  to="/findServ">
+          <img className="findServ" src="images/btnFind.png" alt="findServ" />
+        </Link>
+    </div>
+      {/* <button><Link to="/findServ">НАЙТИ УСЛУГУ</Link></button> */}
       <div className="container_friend">
-        <img
+      <a href="https://www.friendforpet.ru" >
+          <img className="findAFriend" src="images/findAFriend.png" alt="logofindAFriend" />
+      </a> 
+        {/* <img
           src="images/fri.jpeg"
           alt="logoFriend"
           style={{ width: "20rem" }}
-        />
-        <p>Возьми себе друга</p>
+        /> */}
+        {/* <p>Возьми себе друга</p>
         <button>
           <a href="https://www.friendforpet.ru" >
             Найти друга
           </a>
-        </button>
+        </button> */}
       </div>
       <footer>
-        <p>Подпишись на рассылку новостей</p>
-        <input />
-        <button>Подписаться</button>
+          <div className="newsletter">
+            <p className="textNewsletter">Подпишись на рассылку новостей</p>
+            <div className="btnAndInputNewsletter">
+              <input className="inpytNewsletter" />
+            <button className="btnNewsletter">Подписаться</button>
+            </div>
+          </div>
         <div className="footer_body">
-        <img
-          src="images/cute.png"
-          alt="logoFooter"
-          style={{ width: "10rem" }}
-        />
-        <Link to="/about">О НАС</Link>
-        <Link to="/post">СТАТЬИ</Link>
-        <Link to="/services">УСЛУГИ</Link>
-        <Link to="/profile">ЛИЧНЫЙ КАБИНЕТ</Link>
-        <Link to="/cookie">НАСТРОЙКИ ФАЙЛОВ COOKIE</Link>
-        <Link to="/idk">ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ</Link>
+          <div>
+            <img className="footer_img"
+              src="images/cute.png"
+              alt="logoFooter"
+              style={{ width: "10rem" }}
+            />
+          </div>
+          <div className="footer_links1">
+            <Link className="textFooterLinks" to="/about">О НАС</Link>
+            <Link className="textFooterLinks" to="/posts">СТАТЬИ</Link>
+            <Link className="textFooterLinks" to="/services">УСЛУГИ</Link>
+          </div>
+
+          <div className="footer_links2">
+            <Link className="textFooterLinks" to="/profile">ЛИЧНЫЙ КАБИНЕТ</Link>
+            <a className="textFooterLinks" href='https://support.google.com/chrome/answer/95647?hl=ru&co=GENIE.Platform%3DDesktop'>НАСТРОЙКИ ФАЙЛОВ COOKIE</a>
+            <a className="textFooterLinks" href="https://webelement.ru/user_agreement/">ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ </a>
+          </div>
         </div>
+
+        
       </footer>
     </div>
   );

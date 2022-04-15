@@ -1,5 +1,5 @@
 export const setUser = (data) => {
-  return {type: 'SET_USER', payload: data}
+  return { type: 'SET_USER', payload: data }
 }
 
 export const userTyping = (myEvent) => {
@@ -11,18 +11,20 @@ export const userTypingLogin = (e) => {
 }
 
 export const clearInputs = () => {
-  return {type: 'CLEAR_INPUTS', payload: {}}
+  return { type: 'CLEAR_INPUTS', payload: {} }
 }
+
 
 export const specInputs = (item) => {
   return {type: 'SET_SPEC', payload: item}
 }
 
-export const submitUser = (e) => async(dispatch) => {
+export const submitUser = (e) => async (dispatch) => {
+
   const userRequest = await fetch('http://localhost:3903/auth/signup', {
     method: 'POST',
     credentials: 'include',
-    headers:{
+    headers: {
       'Content-type': 'application/json'
     },
     body: JSON.stringify(e)
@@ -32,12 +34,12 @@ export const submitUser = (e) => async(dispatch) => {
   dispatch(setUser(userFromBack));
 }
 
-export const submitUserLogin = (e) => async(dispatch) => {
+export const submitUserLogin = (e) => async (dispatch) => {
   console.log('eee', e)
   const userRequest2 = await fetch('http://localhost:3903/auth/signin', {
     method: 'POST',
     credentials: 'include',
-    headers:{
+    headers: {
       'Content-type': 'application/json'
     },
     body: JSON.stringify(e)
@@ -46,3 +48,11 @@ export const submitUserLogin = (e) => async(dispatch) => {
   console.log('1212', userLoginFromBack);
   dispatch(setUser(userLoginFromBack))
 }
+
+// UPDATE USER DATA IN PROFILE
+export const userUpdatingData = (e) => {
+  return { type: 'USER_UPDATING_DATA', payload: { [e.target.name]: e.target.value } }
+}
+
+// export const updateUser 
+

@@ -12,12 +12,12 @@ module.exports = {
      * }], {});
      */
     await queryInterface.bulkInsert('Pet', [
-      {
+      { id: 1,
         title: 'Собаки',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
-      {
+      { id: 2,
         title: 'Кошки',
         createdAt: new Date(),
         updatedAt: new Date(),

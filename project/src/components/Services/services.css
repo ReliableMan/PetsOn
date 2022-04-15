@@ -1,7 +1,83 @@
-.service{
-  height: 1000px;
-  left: 231px;
-  top: 130px;
+.services {
+  display: flex;
+  justify-content: space-around;
+}
+
+.heading {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 42px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.72);
+  padding-top: 15px;
+}
+
+.form-label {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: rgba(67, 67, 71, 0.47);
+}
+
+.form-input {
+  height: 40px;
+  width: 100%;
   background: #F1F1FF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 90px;
+}
+
+.price-currency-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.select-category {
+  width: 100%;
+  height: 40px;
+  background: white;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 90px;
+}
+
+.select-currency {
+  width: 100%;
+  height: 40px;
+  background: white;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 90px;
+}
+
+.form-textarea {
+  width: 100%;
+  background: white;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.btn-submit-container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-submit {
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
   border-radius: 40px;
+  background-color: #D2D7FF;
 }
