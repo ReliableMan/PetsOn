@@ -14,6 +14,10 @@ export const clearInputs = () => {
   return {type: 'CLEAR_INPUTS', payload: {}}
 }
 
+export const specInputs = (item) => {
+  return {type: 'SET_SPEC', payload: item}
+}
+
 export const submitUser = (e) => async(dispatch) => {
   const userRequest = await fetch('http://localhost:3903/auth/signup', {
     method: 'POST',
