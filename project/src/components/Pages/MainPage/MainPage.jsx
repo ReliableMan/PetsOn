@@ -69,7 +69,7 @@ export default function MainPage() {
           </div>
           <div className="footer_links1">
             <Link className="textFooterLinks" to="/about">О НАС</Link>
-            <Link className="textFooterLinks" to="/post">СТАТЬИ</Link>
+            <Link className="textFooterLinks" to="/posts">СТАТЬИ</Link>
             <Link className="textFooterLinks" to="/services">УСЛУГИ</Link>
           </div>
 

@@ -69,7 +69,6 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
-app.use('/pet', postsRouter);
 app.use('/auth', authRouter);
 app.use('/vet', vetRouter)
 app.use('/services', servicesRouter)
