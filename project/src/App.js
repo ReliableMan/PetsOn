@@ -30,26 +30,20 @@ function App() {
 
         <Route path='/' element={<MainPage />} />
         <Route path='findServ' element={<FindServ />} />
-
-        <Route path='posts' element={<Post />}/>
-     
-        <Route path='posts/cats' element={<Cat />}/>
-        <Route path='posts/cats/:id' element={<CatId />}/>
-        <Route path='posts/dogs' element={<Dog />}/>
-        <Route path='posts/dogs/:id' element={<DogId />}/>
+        <Route path='posts' element={<Post />} />
+        <Route path='posts/cats' element={<Cat />} />
+        <Route path='posts/cats/:id' element={<CatId />} />
+        <Route path='posts/dogs' element={<Dog />} />
+        <Route path='posts/dogs/:id' element={<DogId />} />
         <Route path='services' element={<Services />} />
         <Route path='about' element={<About />} />
-        <Route path='profile' element={<Profile />} />
+        {/* <Route path='profile' element={<Profile />} /> */}
+        <Route path='users/profile/:id' element={<Profile />} />
         <Route path='profile/edit' element={<EditProfile />} />
-     
-
-        <Route path='sign' element={<Registration/>}/>
-  
-          <Route path='signIn' element={<Authentificate/>}/>
-        
-
-     </Routes >
-   </div >
+        <Route path='sign' element={<Registration />} />
+        <Route path='signIn' element={<Authentificate />} />
+      </Routes >
+    </div >
   );
 }
 

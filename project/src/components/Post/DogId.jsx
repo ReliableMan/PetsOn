@@ -20,9 +20,9 @@ export default function DogId() {
   return (
     <div className="container">
       <h3>{postDog.title}</h3>
-      <img src={postDog.picture}/>
+      <img src={postDog.picture} className="pet-image"
+      alt ="dog" width="500" height="auto"/>
       <p>{postDog.text}</p>
-
     </div>
   );
 }

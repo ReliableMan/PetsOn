@@ -1,15 +1,18 @@
 const router = require('express').Router();
+const { User } = require('../db/models');
 
 // USER PROFILE
 router
-  .route('/profile/:id')
+  // .route('/profile/:id')
   // .get(checkUser, checkProtection, async (req, res) => {
-  .get(async (req, res) => {
+  .get('/profile/:id', async (req, res) => {
+
+    const { id } = req.params;
+    console.log(id, "id");
     try {
       // const userId = await User.findByPk(req.params.id);
-      const userId = Number(req.params.id);
-      const allTweets = await Tweet.findAll({ where: { id: userId }, raw: true });
-      res.render('profile', { allTweets });
+      const allUserData = await User.findOne({ where: { id }, raw: true });
+      res.json(allUserData)
     } catch (error) {
       res.sendStatus(500)
     }

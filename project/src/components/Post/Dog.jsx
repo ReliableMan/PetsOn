@@ -19,11 +19,21 @@ export default function Dog() {
 
   return (
     <>
-      <div className="container-post">
+      <div className="posts-container">
         {postDog.map((el) => (
-          <Link className="post" key={el.id} to={`/posts/dogs/${el.id}`}>
-            <img src={el.picture} alt="" width="150" height="150"/>
-            <div>{el.title}</div>
+          <Link key={el.id} to={`/posts/dogs/${el.id}`}>
+            <div className="one-post-container">
+              <div className="img-container">
+                <img src={el.picture} className="pet-link-image"
+                alt="" width="200" height="150" />
+              </div>
+              <div className="link-container">
+                {el.title}
+                {/* <div className="shorten-text">
+                  {el.text.slice(0, 170) + "..."}
+                </div> */}
+              </div>
+            </div>
           </Link>
         ))}
       </div>

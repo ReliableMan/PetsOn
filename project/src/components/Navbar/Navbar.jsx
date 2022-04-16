@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./navbar.css"
 
-export default function Navbar() {
+export default function Navbar({id}) {
   return (
+
     <div className='container'>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
@@ -31,7 +32,7 @@ export default function Navbar() {
             </ul>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" aria-current="page" to="/profile">ЛИЧНЫЙ КАБИНЕТ</Link>
+                <Link className="nav-link" aria-current="page" to={`/users/profile/${id}`}>ЛИЧНЫЙ КАБИНЕТ</Link>
               </li>
             </ul>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
