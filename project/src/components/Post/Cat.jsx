@@ -24,10 +24,14 @@ export default function Cat() {
           <Link key={el.id} to={`/posts/cats/${el.id}`}>
             <div className="one-post-container">
               <div className="img-container">
-                <img src={el.picture} alt="" width="150" height="150" />
+                <img src={el.picture} className="pet-link-image"
+                alt="" width="200" height="150" />
               </div>
               <div className="link-container">
                 {el.title}
+                {/* <div className="shorten-text">
+                  {el.text.slice(0, 170) + "..."}
+                </div> */}
               </div>
             </div>
           </Link>

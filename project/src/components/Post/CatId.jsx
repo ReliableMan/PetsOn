@@ -20,7 +20,8 @@ export default function CatId() {
   return (
     <div className="container">
       <h3>{postCat.title}</h3>
-      <img  className='' src={postCat.picture} />
+      <img  src={postCat.picture} className="pet-image"
+      alt ="dog" width="500" height="auto"/>
       <p className="postText">{postCat.text}</p>
     </div>
   );

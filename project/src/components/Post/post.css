@@ -1,18 +1,26 @@
-.container-all {
+/* .container-all {
   height: 1000px;
   left: 231px;
   top: 130px;
   background: #F1F1FF;
   border-radius: 40px;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  /* font-family: 'Courier New', Courier, monospace; */
+  box-sizing: border-box;
 }
 
+/* /posts */
 .container-link {
   display: flex;
   justify-content: space-around;
 }
 
 .text-title {
-  /* margin-top: 3rem; */
+  margin-top: 3rem;
   font-style: normal;
   font-weight: 700;
   font-size: 35px;
@@ -22,25 +30,65 @@
   color: #000000;
 }
 
-.posts-container {
+/* /posts/cats   /posts/dogs */
+/* .posts-container {
+  margin: 3rem 5rem;
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
-  gap: 2rem;
-  background: #E2E5FF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 90px;
+  gap: 2rem; */
+/* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+/* background: #E2E5FF; */
+/* border-radius: 90px; */
+/* } */
+
+.posts-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+/* .shorten-text {
+  color: #000000;
+  text-align: justify;
+  text-decoration: none;
+
+} */
 
 .one-post-container {
-  display: flex;
+  /* display: flex;
   align-items: center;
   gap: .5rem;
-  margin-left: 3rem;
+  margin-left: 3rem; */
+  width: 200px;
+  height: 200px;
+  margin: 10px 10px;
 }
 
+.pet-link-image {
+  border-radius: 5px;
+}
+
+.pet-link-image:hover {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+
+.link-container {
+  text-align: center;
+}
+
+/* CatId and DogId: */
 
 .postText {
   text-align: justify;
+}
+
+.pet-image {
+  float: right;
+  margin-left: 15px;
+  border-radius: 5px;
 }
