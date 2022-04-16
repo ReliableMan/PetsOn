@@ -29,19 +29,22 @@ function App() {
       <Routes>
 
         <Route path='/' element={<MainPage />} />
-        <Route path='findServ' element={<FindServ />} />
+        {/* USER */}
+        <Route path='signup' element={<Registration />} />
+        <Route path='login' element={<Authentificate />} />
+        <Route path='users/profile/:id' element={<Profile />} />
+        <Route path='users/profile/:id/edit' element={<EditProfile />} />
+        {/* POSTS */}
         <Route path='posts' element={<Post />} />
         <Route path='posts/cats' element={<Cat />} />
         <Route path='posts/cats/:id' element={<CatId />} />
         <Route path='posts/dogs' element={<Dog />} />
         <Route path='posts/dogs/:id' element={<DogId />} />
+        {/* SERVICES */}
         <Route path='services' element={<Services />} />
+        <Route path='findServ' element={<FindServ />} />
+        {/* ABOUT */}
         <Route path='about' element={<About />} />
-        {/* <Route path='profile' element={<Profile />} /> */}
-        <Route path='users/profile/:id' element={<Profile />} />
-        <Route path='profile/edit' element={<EditProfile />} />
-        <Route path='sign' element={<Registration />} />
-        <Route path='signIn' element={<Authentificate />} />
       </Routes >
     </div >
   );

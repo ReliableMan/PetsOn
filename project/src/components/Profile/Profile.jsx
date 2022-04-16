@@ -22,26 +22,28 @@ export default function Profile() {
         <div className="user-info-container">
           <div className="heading">ЛИЧНЫЙ КАБИНЕТ</div>
           <div className="user-info">
-            <div className="photo-container">
-              <img className="photo"
-                src={user.photo}
-                alt="user" width="" height="" />
+            <div className="user-info-container">
+              <p className="user-info-label">Логин</p>
+              <p className="user-info-data">{user.username}</p>
+              <p className="user-info-label">Email</p>
+              <p className="user-info-data">{user.email}</p>
+              <p className="user-info-label">ФИО</p>
+              <p className="user-info-data">{user.first_name} {user.last_name}</p>
+              <p className="user-info-label">Дата рождения</p>
+              <p className="user-info-data">{user.date_birth}</p>
+              <p className="user-info-label">Роль</p>
+              <p className="user-info-data">{user.role}</p>
+              <p className="user-info-label">Обо мне</p>
+              <p className="user-info-data">{user.description}</p>
+              {/* <button className="btn-change-data">
+                <Link className="btn-change-data-link" to="/profile/edit">ИЗМЕНЕНИТЬ ДАННЫЕ</Link>
+              </button> */}
             </div>
-            <div className="user-info-text">
-              <p>Логин</p>
-              <p>{user.username}</p>
-              <p>Email</p>
-              <p>{user.email}</p>
-              <p>Имя</p>
-              <p>{user.first_name}</p>
-              <p>Фамилия</p>
-              <p>{user.last_name}</p>
-              <p>ДАТА РОЖДЕНИЯ</p>
-              <p>{user.date_birth}</p>
-              <p>Роль</p>
-              <p>{user.role}</p>
-              <p>description</p>
-              <p>{user.description}</p>
+            <div className="photo-btn-container">
+              <img className="photo"
+                // src={user.photo}
+                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.stack.imgur.com%2FHQwHI.jpg&f=1&nofb=1"
+                alt="user" width="" height="" />
               <button className="btn-change-data">
                 <Link className="btn-change-data-link" to="/profile/edit">ИЗМЕНЕНИТЬ ДАННЫЕ</Link>
               </button>

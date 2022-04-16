@@ -37,7 +37,7 @@ export default function Navbar({id}) {
             </ul>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="textReg" to="/sign"><img src="images/paw.png" alt="logo" style={{ width: '4rem' }} />Нажми, чтобы <br></br> зарегистрироваться</Link>
+                <Link className="textReg" to="/signup"><img src="images/paw.png" alt="logo" style={{ width: '4rem' }} />Нажми, чтобы <br></br> зарегистрироваться</Link>
               </li>
             </ul>
           </div>
