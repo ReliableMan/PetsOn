@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom'
+import axios from "axios";
 import "./profile.css";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userUpdatingData, clearInputs, updateUser } from '../../redux/actions/userActions';
 
 export default function EditProfile() {
+  const [user, setUser] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    axios.get(`http://localhost:3903/users/profile/${id}`).then((userData) => {
+      const { username, email, first_name, last_name, date_birth, role, photo, description } = userData.data;
+      // console.log(email, "emaaaaaaaaaaaail");
+      setUser({ username, email, first_name, last_name, date_birth, role, photo, description })
+    });
+  }, [id]);
 
   const inputs = useSelector(store => store.user);
   const dispatch = useDispatch();
@@ -33,6 +45,7 @@ export default function EditProfile() {
               <label htmlFor="firstName" className="form-label">ИМЯ</label>
               <input
                 type="text" id="firstName" name="firstName" className="form-input"
+                placeholder={user.last_name}
                 value={inputs.first_name} onChange={(e) => dispatch(userUpdatingData(e))}
               />
             </div>
@@ -40,6 +53,7 @@ export default function EditProfile() {
               <label htmlFor="surname" className="form-label">ФАМИЛИЯ</label>
               <input
                 type="text" id="surname" name="surname" className="form-input"
+                placeholder={user.first_name}
                 value={inputs.last_name} onChange={(e) => (e) => dispatch(userUpdatingData(e))}
               />
             </div>
@@ -50,12 +64,13 @@ export default function EditProfile() {
               <input
                 type="date" min="1960-01-01" max="2020-12-31"
                 id="birthday" name="birthday" className="form-input"
-                value={inputs.date_birth} onChange={(e) => (e) => dispatch(userUpdatingData(e))}
+                value={user.date_birth} onChange={(e) => (e) => dispatch(userUpdatingData(e))}
               />
             </div>
             <div>
               <label htmlFor="role" className="form-label">РОЛЬ</label>
-              <select className="select-role" name="role" id="role">
+              <select className="select-role" name="role" id="role" 
+              value={user.role}>
                 <option value="user">Пользователь</option>
                 <option value="specialist">Специалист</option>
               </select>

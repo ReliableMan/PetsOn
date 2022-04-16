@@ -52,7 +52,7 @@ const Registration = () => {
     <div className='container header register'>
       <form onSubmit={submitHandler}>
         <div className='header1'>
-          <p> Регистрация ||| <Link to='/signIn'>Авторизация</Link></p>
+          <p> Регистрация ||| <Link to='/login'>Авторизация</Link></p>
         </div>
         {/* //* -----------------------------------------------------------------------------Фамилия */}
         <div className="row align-items-center">
