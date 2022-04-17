@@ -26,7 +26,7 @@ const Authentificate = () => {
       <div className="container login header">
           <form onSubmit={submitHandler}>
             <div className="header1">
-            <p> Авторизация ||| <Link to='/sign'>Регистрация</Link></p>
+            <p> Авторизация ||| <Link to='/signup'>Регистрация</Link></p>
             </div>
 
             <br />
