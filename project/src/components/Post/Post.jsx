@@ -25,10 +25,10 @@ export default function Post() {
 
       <div className="container-link">
         <Link className="cat" to="/posts/cats">
-          <img src="images/cat.png" alt="logoCat" style={{ width: "15rem" }} />
+          <img src="images/cat.png" alt="logoCat" style={{ width: "20rem" }} />
         </Link>
-        <Link className="cat" to="/posts/dogs">
-          <img src="images/dog.png" alt="logoCat" style={{ width: "15rem" }} />
+        <Link className="dog" to="/posts/dogs">
+          <img src="images/dog.png" alt="logoCat" style={{ width: "20rem" }} />
         </Link>
       </div>
 
