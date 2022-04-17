@@ -1,4 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
+//  const API_KEY = process.env.REACT_APP_API_KEY;
+//  console.log(API_KEY);
 import Navbar from './components/Navbar/Navbar';
 
 import MainPage from './components/Pages/MainPage/MainPage';
@@ -19,6 +21,7 @@ import CatId from './components/Post/CatId';
 import DogId from './components/Post/DogId';
 import Registration from './components/ModalAuth&Reg/Registration';
 import Authentificate from './components/ModalAuth&Reg/Authentificate';
+import Vet from './components/Services/Vet';
 
 
 
@@ -42,6 +45,7 @@ function App() {
         <Route path='posts/dogs/:id' element={<DogId />} />
         {/* SERVICES */}
         <Route path='services' element={<Services />} />
+        <Route path='vet' element={<Vet />} />
         <Route path='findServ' element={<FindServ />} />
         {/* ABOUT */}
         <Route path='about' element={<About />} />
