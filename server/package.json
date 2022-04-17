@@ -5,6 +5,7 @@
   "main": ".eslintrc.js",
   "scripts": {
     "start": "nodemon app.js --ignore sessions",
+    "inspect": "node --inspect-brk app.js",
     "migrate": "npx sequelize-cli db:migrate",
     "unmigrate": "npx sequelize-cli db:migrate:undo:all",
     "seed": "npx sequelize-cli db:seed:all",

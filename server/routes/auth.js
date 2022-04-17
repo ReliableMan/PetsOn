@@ -45,6 +45,8 @@ router.post('/signup', async (req, res) => {
   } catch (err) {
     console.error('Err message: ', err.message);
     console.error('Err code: ', err.code);
+
+    res.status(500).json({ error: err.message })
   }
 });
 

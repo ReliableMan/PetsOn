@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const morgan = require('morgan');
 
 
@@ -51,18 +52,24 @@ app.use((req, res, next) => {
 const sessionConfig = {
   store: new FileStore(), // хранилище для куков - папка с файлами
   name: 'userCookie', // имя сессионной куки
-  secret:process.env.SESSION_SECRET ?? 'jw2312001001000owj', // строка для шифрования сессии
+  secret: process.env.SESSION_SECRET ?? 'jw2312001001000owj', // строка для шифрования сессии
   resave: false, // не пересохраняем сессию если не было изменений
   saveUninitialized: false, // не сохраняем сессию если она пустая
   cookie: { secure: false, httpOnly: true }, // не HTTPS
 };
 app.use(session(sessionConfig));
+app.use(cors(
+  {
+    credentials: true,
+    origin: process.env.CLIENT_URL
+  }
+))
 
 app.use((req, res, next) => {
   res.locals.userId = req.session?.userId;
   res.locals.userEmail = req.session?.userEmail;
   res.locals.userUsername = req.session?.userUsername;
-  
+
   next();
 });
 

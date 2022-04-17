@@ -8,7 +8,7 @@ export default function DogId() {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:3903/posts/dogs/${id}`).then((PostsDog) => {
+    axios.get(`http://localhost:3903/posts/${id}`).then((PostsDog) => {
       //console.log(PostsDog);
       const { picture, title, text } = PostsDog.data;
       //console.log("7777777", picture);
