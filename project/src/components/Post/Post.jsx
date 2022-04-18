@@ -21,7 +21,7 @@ export default function Post() {
   return (
     <div className="container-all">
 
-      <div className="text-title">О ком будем читать?</div>
+      <h1 className="text-title">О ком будем читать?</h1>
 
       <div className="container-link">
         <Link className="cat" to="/posts/cats">

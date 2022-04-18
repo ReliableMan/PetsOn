@@ -1,11 +1,11 @@
 @import url('https://rsms.me/inter/inter.css');
 
 .mainPage{
-  margin-top: 3rem; 
+margin-top: 3rem; 
 font-family: 'Inter';
 font-style: normal;
-background: #F1F1FF;
-border-radius: 40px;
+/* background: #F1F1FF;
+border-radius: 40px; */
 display: flex;
 flex-direction: column;
 justify-content: center;

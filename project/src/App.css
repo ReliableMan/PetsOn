@@ -4,12 +4,21 @@
 .dark h1 {
   color: white;
 }
-
-/* .dark label{
+.dark th {
   color: white;
-} */
+}
+.dark td {
+  color: white;
+}
+.dark p {
+  color: white;
+}
+.dark label{
+  color: white;
+}
 
 .App {
+  /* background: #F1F1FF; */
   text-align: center;
 }
 
