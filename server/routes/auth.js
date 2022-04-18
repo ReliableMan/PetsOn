@@ -76,7 +76,7 @@ router.post('/signin', async (req, res) => {
 // * выход пользователя
 router.get('/signout', (req, res) => {
   req.session.destroy();
-  res.clearCookie('userCookie');
+  res.clearCookie('myCookiezz');
   res.status(200).end();
 });
 

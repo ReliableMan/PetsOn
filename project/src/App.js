@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 
 //  const API_KEY = process.env.REACT_APP_API_KEY;
 //  console.log(API_KEY);
-import Navbar from './components/Navbar/Navbar';
 
 // import NavbarAfter from './components/Navbar/NavbarAfter';
 import MainPage from './components/Pages/MainPage/MainPage';
@@ -62,6 +61,7 @@ function App() {
         {/* USER */}
         <Route path='signup' element={<Registration />} />
         <Route path='login' element={<Authentificate />} />
+
         <Route path='users/profile/:id' element={<Profile />} />
         <Route path='users/profile/:id/edit' element={<EditProfile />} />
         {/* POSTS */}
