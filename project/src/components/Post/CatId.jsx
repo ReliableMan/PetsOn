@@ -21,6 +21,7 @@ export default function CatId() {
       return axios
         .get(`http://localhost:3903/posts/${id}/comments`)
         .then((response) => {
+          console.log(response);
           const { data: comments } = response;
 
           setComments(comments);
@@ -35,15 +36,25 @@ export default function CatId() {
     console.log(text);
 
     // // TODD call api (axios) to create a comment for the post with id postCat.id (POST http://..../posts/${postCat.id}/comemnts)
-    fetch(`http://localhost:3903/posts/${id}/comments`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application",
-        credentials: "include",
-      },
-      body: JSON.stringify({ text }),
-    })
-      .then(() => alert("comment submitted"))
+
+    return axios
+      .post(
+        `http://localhost:3903/posts/${id}/comments`,
+        { text },
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      )
+      .then((response) => {
+        return axios
+          .get(`http://localhost:3903/posts/${id}/comments`)
+          .then((response) => {
+            const { data: comments } = response;
+
+            setComments(comments);
+          });
+      })
       .catch((error) => alert(error.message));
 
     // TODO call api (axios) to refresh the comments list (GET http://..../posts/${postCat.id}/comemnts)
