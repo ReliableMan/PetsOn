@@ -9,6 +9,7 @@ export default function Navbar({ id }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  const booleanAuthorized = useSelector((store) => store.isAuthorized);
 
   const logoutHandle = (e) => {
     e.preventDefault();
@@ -58,7 +59,6 @@ export default function Navbar({ id }) {
             </ul>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-
                 <Link className="nav-link" aria-current="page" to="/about">
                   О НАС
                 </Link>
@@ -75,6 +75,24 @@ export default function Navbar({ id }) {
                 </Link>
               </li>
             </ul>
+
+            { booleanAuthorized ?
+            // если true - то выходим
+             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+             <li className="nav-item">
+               <Link className="textReg" to="/signout" onClick={logoutHandle}>
+                 <img
+                   src="images/paw.png"
+                   alt="logo"
+                   style={{ width: "4rem" }}
+                 />
+                 Нажми, чтобы <br></br> выйти
+               </Link>
+             </li>
+           </ul>  
+           
+           :
+           // если false - то заходим
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="textReg" to="/signup">
@@ -87,18 +105,7 @@ export default function Navbar({ id }) {
                 </Link>
               </li>
             </ul>
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="textReg" to="/signout" onClick={logoutHandle}>
-                  <img
-                    src="images/paw.png"
-                    alt="logo"
-                    style={{ width: "4rem" }}
-                  />
-                  Нажми, чтобы <br></br> выйти
-                </Link>
-              </li>
-            </ul>
+            }
           </div>
         </div>
       </nav>

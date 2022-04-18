@@ -3,5 +3,6 @@ export const initState = {
   logInInputs: {},
   user: {},
   userSpeciality: {},
-  userServices: {}
+  userServices: {},
+  isAuthorized: false
 };

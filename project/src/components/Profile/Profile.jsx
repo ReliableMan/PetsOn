@@ -7,6 +7,7 @@ export default function Profile() {
 
   const [user, setUser] = useState([]);
   const { id } = useParams();
+  
 
   useEffect(() => {
     axios.get(`http://localhost:3903/users/profile/${id}`).then((userData) => {
@@ -20,7 +21,7 @@ export default function Profile() {
     <>
       <div className="profile">
         <div className="user-info-container">
-          <div className="heading">ЛИЧНЫЙ КАБИНЕТ</div>
+          <h1 className="heading">ЛИЧНЫЙ КАБИНЕТ</h1>
           <div className="user-info">
             <div className="user-info-container">
               <p className="user-info-label">Логин</p>
@@ -49,7 +50,7 @@ export default function Profile() {
         </div>
 
         <div className="user-services">
-          <div className="heading">МОИ ЗАЯВКИ И УСЛУГИ</div>
+          <h1 className="heading">МОИ ЗАЯВКИ И УСЛУГИ</h1>
           <div className="myServices">
             <table className="container">
               <thead>

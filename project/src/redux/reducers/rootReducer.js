@@ -3,7 +3,8 @@ import { signupFormReducer } from './signUpReducer';
 import { userReducer } from './userReducer';
 import { loginFormReducer } from './loginReducer';
 import { specialityReducer } from './userSpecialReducer'
-import {userTypingService} from './servicesReducer'
+import {userTypingService} from './servicesReducer';
+import { secureReducer } from './routeSecureReducer';
 
 
 export const rootReducer = combineReducers({
@@ -12,4 +13,5 @@ export const rootReducer = combineReducers({
   user: userReducer,
   userSpeciality: specialityReducer,
   userServices: userTypingService,
+  isAuthorized: secureReducer,
 });

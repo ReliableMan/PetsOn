@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 export default function MainPage() {
   return (
     <div className="mainPage">
-      <div className="text_title">Сделано с заботой о животных</div>
-      <div className="text_main">
+      <h1 className="text_title">Сделано с заботой о животных</h1>
+      <h1 className="text_main">
         Комфортная среда для животных и их владельцев
-      </div>
+      </h1>
       <a className="catdog">
         <img src="images/main.png" alt="logoMain" style={{ width: "15rem" }} />
       </a>
