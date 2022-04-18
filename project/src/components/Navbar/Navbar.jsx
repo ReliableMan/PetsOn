@@ -42,6 +42,7 @@ export default function Navbar({ id }) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
+
                 <Link className="nav-link" aria-current="page" to="/posts">
                   СТАТЬИ
                 </Link>
@@ -52,10 +53,12 @@ export default function Navbar({ id }) {
                 <Link className="nav-link" aria-current="page" to="/services">
                   УСЛУГИ
                 </Link>
+
               </li>
             </ul>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
+
                 <Link className="nav-link" aria-current="page" to="/about">
                   О НАС
                 </Link>

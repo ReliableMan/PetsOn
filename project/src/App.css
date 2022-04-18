@@ -1,6 +1,13 @@
-.container {
-  
+.dark {
+  background: rgb(21,32,43);
 }
+.dark h1 {
+  color: white;
+}
+
+/* .dark label{
+  color: white;
+} */
 
 .App {
   text-align: center;

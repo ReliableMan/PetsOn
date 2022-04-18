@@ -90,8 +90,10 @@
 }
 
 
-.link-container {
-  text-align: center;
+.link{
+  /* text-align: center; */
+  padding: 15px 0;
+  text-decoration: none;
 }
 
 /* CatId and DogId: */
