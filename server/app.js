@@ -66,7 +66,7 @@ app.use(cors(
 ))
 
 app.use((req, res, next) => {
-  res.locals.userId = req.session?.userId;
+  res.locals.userId = req.session?.id;
   res.locals.userEmail = req.session?.userEmail;
   res.locals.userUsername = req.session?.userUsername;
 
