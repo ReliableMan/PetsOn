@@ -1,15 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { logoutUser, setUser } from "../../redux/actions/userActions";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./navbar.css";
 
-export default function Navbar({ id }) {
+export default function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const booleanAuthorized = useSelector((store) => store.isAuthorized);
+  const { id } = useParams();
+  console.log ('id', user.id)
 
   const logoutHandle = (e) => {
     e.preventDefault();
@@ -69,7 +71,7 @@ export default function Navbar({ id }) {
                 <Link
                   className="nav-link"
                   aria-current="page"
-                  to={`/users/profile/${id}`}
+                  to={`/users/profile/${user.id}`}
                 >
                   ЛИЧНЫЙ КАБИНЕТ
                 </Link>

@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 //  const API_KEY = process.env.REACT_APP_API_KEY;
 //  console.log(API_KEY);
 
-// import NavbarAfter from './components/Navbar/NavbarAfter';
+import Navbar from './components/Navbar/Navbar';
 import MainPage from './components/Pages/MainPage/MainPage';
 import './App.css';
 import Post from './components/Post/Post';

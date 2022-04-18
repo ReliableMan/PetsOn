@@ -2,17 +2,29 @@
 export const setUser = (data) => {
   return { type: 'SET_USER', payload: data }
 }
-// юзер печатает в регистрации, отлавливаем изменения
+
+export const setService = (data) => {
+  return { type: 'SET_SERVICE', payload: data }
+}
+
 export const userTyping = (myEvent) => {
   return { type: 'USER_TYPING', payload: { [myEvent.target.name]: myEvent.target.value } }
 }
-// юзер печатает в авторизации, отлавливаем изменения
+
+export const userTypingService = (item) => {
+  return { type: 'USER_TYPING_SERVICE', payload: { [item.target.name]: item.target.value } }
+}
+
 export const userTypingLogin = (e) => {
   return { type: 'USER_LOGIN_TYPING', payload: { [e.target.name]: e.target.value } }
 }
 // очищаем инпуты
 export const clearInputs = () => {
   return { type: 'CLEAR_INPUTS', payload: {} }
+}
+
+export const clearInputsServices = () => {
+  return { type: 'CLEAR_INPUTS_SERVICES', payload: {} }
 }
 
 // сохраняем специальность
@@ -79,4 +91,21 @@ export const logoutUser = (e) => async (dispatch) => {
   });
   dispatch(setNotAuthorized())
 }
+
+
+export const serviceSent =  (e) => async (dispatch) => {
+  const serviceReq = await fetch ('http://localhost:3903/services/new', {
+    method: 'POST', 
+    credentials: 'include',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(e)
+  });
+  const serviceFromBack = await serviceReq.json();
+  console.log('serviceFromBack', serviceFromBack);
+  dispatch(setService(serviceFromBack))
+};
+
+
 
