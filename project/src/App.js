@@ -63,6 +63,7 @@ function App() {
         {/* USER */}
         <Route path='signup' element={<Registration />} />
         <Route path='login' element={<Authentificate />} />
+
         <Route path='users/profile/:id' element={<Profile />} />
         <Route path='users/profile/:id/edit' element={<EditProfile />} />
         {/* POSTS */}

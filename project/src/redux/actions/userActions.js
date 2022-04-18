@@ -54,5 +54,15 @@ export const userUpdatingData = (e) => {
   return { type: 'USER_UPDATING_DATA', payload: { [e.target.name]: e.target.value } }
 }
 
-// export const updateUser 
+// выход 
+export const logoutUser = async (e) => {
+  const req = await fetch ('http://localhost:3903/auth/signout', {
+    method: 'GET', 
+    credentials: 'include',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(e)
+  });
+}
 
