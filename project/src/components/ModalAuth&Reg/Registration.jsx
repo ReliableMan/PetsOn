@@ -146,7 +146,7 @@ const Registration = () => {
           </div>
           <div className="col-auto input-group-sm">
 
-            <input type="email" name="userEmail" id="inputUserEmail"
+            <input type="email" name="userEmail" id="inputUserEmail" placeholder='example@email.com'
               className="form-control inpEmail" value={inputs.userEmail ?? ''} onChange={changeHandler}
               pattern="^[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\.[A-Za-z]{2,}$" required />
           </div>

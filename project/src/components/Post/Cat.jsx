@@ -27,7 +27,7 @@ export default function Cat() {
                 <img src={el.picture} className="pet-link-image"
                 alt="" width="200" height="150" />
               </div>
-              <div className="link-container">
+              <div className="link">
                 {el.title}
                 {/* <div className="shorten-text">
                   {el.text.slice(0, 170) + "..."}

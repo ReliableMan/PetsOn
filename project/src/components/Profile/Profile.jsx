@@ -35,9 +35,6 @@ export default function Profile() {
               <p className="user-info-data">{user.role}</p>
               <p className="user-info-label">Обо мне</p>
               <p className="user-info-data">{user.description}</p>
-              {/* <button className="btn-change-data">
-                <Link className="btn-change-data-link" to="/profile/edit">ИЗМЕНЕНИТЬ ДАННЫЕ</Link>
-              </button> */}
             </div>
             <div className="photo-btn-container">
               <img className="photo"
@@ -45,7 +42,7 @@ export default function Profile() {
                 src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.stack.imgur.com%2FHQwHI.jpg&f=1&nofb=1"
                 alt="user" width="" height="" />
               <button className="btn-change-data">
-                <Link className="btn-change-data-link" to="/profile/edit">ИЗМЕНЕНИТЬ ДАННЫЕ</Link>
+                <Link className="btn-change-data-link" to="/users/profile/:id/edit">ИЗМЕНЕНИТЬ ДАННЫЕ</Link>
               </button>
             </div>
           </div>
@@ -66,12 +63,6 @@ export default function Profile() {
               {/* тут надо тянуть данные из бд, services */}
               {/* заготовка */}
               <tbody>
-                <tr className="table-row">
-                  <td>в процессе</td>
-                  <td>выгулять Бобика</td>
-                  <td>100</td>
-                  <td>Created at</td>
-                </tr>
                 <tr className="table-row">
                   <td>в процессе</td>
                   <td>выгулять Бобика</td>
