@@ -18,11 +18,11 @@ module.exports = (sequelize, DataTypes) => {
   Service.init({
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     speciality_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      // allowNull: false,
     },
     price: {
       type: DataTypes.INTEGER,

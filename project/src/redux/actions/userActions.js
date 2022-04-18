@@ -87,7 +87,7 @@ export const serviceSent =  (e) => async (dispatch) => {
     body: JSON.stringify(e)
   });
   const serviceFromBack = await serviceReq.json();
-  console.log('1212', serviceFromBack);
+  console.log('serviceFromBack', serviceFromBack);
   dispatch(setService(serviceFromBack))
 };
 

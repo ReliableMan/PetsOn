@@ -6,7 +6,7 @@ export const userTypingService = (state = initState, action)=>{
   switch (type) {
     
     case 'USER_TYPING_SERVICE':
-      return payload;
+      return { ...state, ...payload };
     case 'SET_SERVICE':
       return payload;
     case 'CLEAR_INPUTS_SERVICES':
