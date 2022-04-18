@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 
 //  const API_KEY = process.env.REACT_APP_API_KEY;
 //  console.log(API_KEY);
-import Navbar from './components/Navbar/Navbar';
 
 import Navbar from './components/Navbar/Navbar';
 // import NavbarAfter from './components/Navbar/NavbarAfter';
