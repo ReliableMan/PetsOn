@@ -2,8 +2,16 @@ export const setUser = (data) => {
   return { type: 'SET_USER', payload: data }
 }
 
+export const setService = (data) => {
+  return { type: 'SET_SERVICE', payload: data }
+}
+
 export const userTyping = (myEvent) => {
   return { type: 'USER_TYPING', payload: { [myEvent.target.name]: myEvent.target.value } }
+}
+
+export const userTypingService = (item) => {
+  return { type: 'USER_TYPING_SERVICE', payload: { [item.target.name]: item.target.value } }
 }
 
 export const userTypingLogin = (e) => {
@@ -14,6 +22,9 @@ export const clearInputs = () => {
   return { type: 'CLEAR_INPUTS', payload: {} }
 }
 
+export const clearInputsServices = () => {
+  return { type: 'CLEAR_INPUTS_SERVICES', payload: {} }
+}
 
 export const specInputs = (item) => {
   return {type: 'SET_SPEC', payload: item}
@@ -64,5 +75,21 @@ export const logoutUser = async (e) => {
     },
     body: JSON.stringify(e)
   });
-}
+};
+
+export const serviceSent =  (e) => async (dispatch) => {
+  const serviceReq = await fetch ('http://localhost:3903/services/new', {
+    method: 'POST', 
+    credentials: 'include',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(e)
+  });
+  const serviceFromBack = await serviceReq.json();
+  console.log('1212', serviceFromBack);
+  dispatch(setService(serviceFromBack))
+};
+
+
 

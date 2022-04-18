@@ -30,7 +30,7 @@ export default function MainPage() {
         </Link>
       </div>
     <div className="findServMain">
-        <Link  to="/services">
+        <Link  to="/findServ">
           <img className="findServ" src="images/btnFind.png" alt="findServ" />
         </Link>
     </div>
