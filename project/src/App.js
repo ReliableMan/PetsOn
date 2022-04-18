@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+//  const API_KEY = process.env.REACT_APP_API_KEY;
+//  console.log(API_KEY);
+import Navbar from './components/Navbar/Navbar';
+
 import Navbar from './components/Navbar/Navbar';
 // import NavbarAfter from './components/Navbar/NavbarAfter';
 import MainPage from './components/Pages/MainPage/MainPage';
@@ -19,8 +23,12 @@ import Dog from './components/Post/Dog';
 import Cat from './components/Post/Cat';
 import CatId from './components/Post/CatId';
 import DogId from './components/Post/DogId';
+
 // about component
 import About from './components/About/About';
+
+import Vet from './components/Services/Vet';
+
 
 
 function App() {
@@ -64,8 +72,9 @@ function App() {
         <Route path='posts/dogs' element={<Dog />} />
         <Route path='posts/dogs/:id' element={<DogId />} />
         {/* SERVICES */}
-        <Route path='services/form' element={<Services />} />
-        <Route path='services' element={<FindServ />} />
+        <Route path='services' element={<Services />} />
+        <Route path='vet' element={<Vet />} />
+        <Route path='findServ' element={<FindServ />} />
         {/* ABOUT */}
         <Route path='about' element={<About />} />
       </Routes >

@@ -1,6 +1,7 @@
 @import url('https://rsms.me/inter/inter.css');
 
 .mainPage{
+  margin-top: 3rem; 
 font-family: 'Inter';
 font-style: normal;
 background: #F1F1FF;
@@ -71,6 +72,7 @@ justify-content: center;
   font-weight: 700;
   font-size: 50px;
   line-height: 61px;
+  /* margin-top: 50px; */
 
   color: rgba(0, 0, 0, 0.72);
 }

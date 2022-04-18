@@ -1,10 +1,10 @@
-/* .container-all {
+ .container-all {
   height: 1000px;
   left: 231px;
   top: 130px;
   background: #F1F1FF;
   border-radius: 40px;
-} */
+} 
 
 * {
   margin: 0;
@@ -17,17 +17,24 @@
 .container-link {
   display: flex;
   justify-content: space-around;
+  /* height: 1000px;
+  left: 231px;
+  top: 130px;
+  background: #F1F1FF;
+  border-radius: 40px; */
 }
 
 .text-title {
-  margin-top: 3rem;
+  margin-top: 3rem; 
   font-style: normal;
   font-weight: 700;
-  font-size: 35px;
+  font-size: 40px;
   line-height: 42px;
   align-items: center;
   text-align: center;
   color: #000000;
+  background: #F1F1FF;
+  border-radius: 40px;
 }
 
 /* /posts/cats   /posts/dogs */
@@ -42,12 +49,18 @@
 /* } */
 
 .posts-container {
+  margin-top: 3rem; 
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  height: 1000px;
+  left: 231px;
+  top: 130px;
+  background: #F1F1FF;
+  border-radius: 40px;
 }
 
 /* .shorten-text {
@@ -93,4 +106,13 @@
   float: right;
   margin-left: 15px;
   border-radius: 5px;
+}
+
+.container_id{
+  margin-top: 3rem; 
+  height: 1500px;
+  left: 231px;
+  top: 130px;
+  background: #F1F1FF;
+  border-radius: 40px;
 }

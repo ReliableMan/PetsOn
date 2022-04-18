@@ -10,7 +10,7 @@ export default function MainPage() {
         Комфортная среда для животных и их владельцев
       </div>
       <a className="catdog">
-        <img src="images/main.png" alt="logoMain" style={{ width: "12rem" }} />
+        <img src="images/main.png" alt="logoMain" style={{ width: "15rem" }} />
       </a>
       <div className="ContsinerTitleOurServices">
       <p className="titleOurServices">Наши услуги</p>
@@ -19,7 +19,7 @@ export default function MainPage() {
         <Link className="card" to="/services">
           <img src="images/walk.png" alt="logoCard" />
         </Link>
-        <Link className="card" to="/services/vet">
+        <Link className="card" to="/vet">
           <img src="images/vet.png" alt="logoCard" />
         </Link>
         <Link className="card" to="/services">
