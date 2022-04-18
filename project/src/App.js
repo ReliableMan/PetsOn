@@ -5,7 +5,6 @@ import { Routes, Route } from 'react-router-dom';
 //  console.log(API_KEY);
 import Navbar from './components/Navbar/Navbar';
 
-import Navbar from './components/Navbar/Navbar';
 // import NavbarAfter from './components/Navbar/NavbarAfter';
 import MainPage from './components/Pages/MainPage/MainPage';
 import './App.css';
