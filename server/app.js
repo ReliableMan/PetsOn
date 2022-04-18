@@ -35,19 +35,26 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(morgan('dev'));
 
-app.use((req, res, next) => {
-  const accessList = [
-    'http://localhost:3000',
-    'http://localhost:3001',
-  ];
-  const origin = req.get('origin');
-  if (accessList.includes(origin)) { // если в списке есть адрес того, кто обращается к серверу, то делаем для него заголовок
-    res.header('Access-Control-Allow-Origin', origin);
-    res.header('Access-Control-Allow-Headers', 'Content-type');
-    res.header('Access-Control-Allow-Credentials', true);
+// app.use((req, res, next) => {
+//   const accessList = [
+//     'http://localhost:3000',
+//     'http://localhost:3001',
+//   ];
+//   const origin = req.get('origin');
+//   if (accessList.includes(origin)) { // если в списке есть адрес того, кто обращается к серверу, то делаем для него заголовок
+//     res.header('Access-Control-Allow-Origin', origin);
+//     res.header('Access-Control-Allow-Headers', 'Content-type');
+//     res.header('Access-Control-Allow-Credentials', true);
+//   }
+//   next();
+// });
+
+app.use(cors(
+  {
+    credentials: true,
+    origin: process.env.CLIENT_URL
   }
-  next();
-});
+))
 
 const sessionConfig = {
   store: new FileStore(), // хранилище для куков - папка с файлами
@@ -58,12 +65,6 @@ const sessionConfig = {
   cookie: { secure: false, httpOnly: true }, // не HTTPS
 };
 app.use(session(sessionConfig));
-app.use(cors(
-  {
-    credentials: true,
-    origin: process.env.CLIENT_URL
-  }
-))
 
 app.use((req, res, next) => {
   res.locals.userId = req.session?.userId;

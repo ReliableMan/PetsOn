@@ -3,7 +3,6 @@ import { useJsApiLoader } from "@react-google-maps/api";
 import { Map } from "../Map";
 const API_KEY = "AIzaSyBwBBkHeQj8chcjlScjJY4SgLhfs7BjiTg";
 //console.log(API_KEY);
-//import "./vet.css";
 const defaultCenter = {
   lat: 51.509865,
   lng: -0.118092,

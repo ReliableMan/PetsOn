@@ -60,33 +60,39 @@ router.get('/:postId', async (req, res) => {
 })
 
 router.post('/:postId/comments', async (req, res) => {
-  try {
-    const { session: { user: { id: userId } } } = req
+  console.log(req.params, '000000000000');
+  // console.log(text, 'kkkkkk');
+  //const { session: { user: { id: userId } } } = req
+  const { postId } = req.params
+  console.log('gggggg', req.session);
 
-    if (!userId)
-      res.status(401).json({ error: 'no session id' })
-    else {
-      const { params: { postId } } = req
+  // try {
+    console.log('1111111');
+    // if (!userId)
+    //   res.status(401).json({ error: 'no session id' })
+    // else {
+      // const { params: { postId } } = req
 
       const user = await User.findOne({ where: { id: userId }, raw: true })
       const post = await Post.findOne({ where: { id: postId }, raw: true })
-
-      if (!user) {
-        res.status(404).json({ error: `user with id ${userId} not found` })
-      } else if (!post) {
-        res.status(404).json({ error: `post with id ${postId} not found` })
-      } else {
-        const { body: { text } } = req
-
-        const comment = await Comment.create({ user_id: userId, post_id: postId, text, date: new Date })
-
-        res.status(201).json(comment)
-      }
-    }
-
-  } catch (error) {
-    res.status(400).json({ error: error.message })
-  }
+      console.log('222222');
+      // if (!user) {
+      //   res.status(404).json({ error: `user with id ${userId} not found` })
+      // } else if (!post) {
+      //   res.status(404).json({ error: `post with id ${postId} not found` })
+      // } else {
+      //   const { body: { text } } = req
+      //   console.log('333333333');
+      //   const comment = await Comment.create({ user_id: userId, post_id: postId, text, date: new Date })
+      //   console.log('444444');
+      //   res.status(201).json(comment)
+      // }
+    // }
+    console.log('555555');
+  // } catch (error) {
+  //   console.log('666666');
+  //   res.status(400).json({ error: error.message })
+  // }
 })
 
 router.get('/:postId/comments', async (req, res) => {
