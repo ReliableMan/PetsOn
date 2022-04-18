@@ -1,33 +1,56 @@
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
 
-import MainPage from './components/Pages/MainPage/MainPage';
+import Navbar from './components/Navbar/Navbar';
 // import NavbarAfter from './components/Navbar/NavbarAfter';
+import MainPage from './components/Pages/MainPage/MainPage';
 import './App.css';
 import Post from './components/Post/Post';
-// services components
-import Services from './components/Services/Services';
-
-import About from './components/About/About';
+// user components
+import Registration from './components/ModalAuth&Reg/Registration';
+import Authentificate from './components/ModalAuth&Reg/Authentificate';
 import Profile from './components/Profile/Profile';
 import EditProfile from './components/Profile/EditProfile';
+// services components
+import Services from './components/Services/Services';
 import FindServ from './components/Pages/FindServ/FindServ';
-
+// posts components
 import Dog from './components/Post/Dog';
 import Cat from './components/Post/Cat';
 import CatId from './components/Post/CatId';
 import DogId from './components/Post/DogId';
-import Registration from './components/ModalAuth&Reg/Registration';
-import Authentificate from './components/ModalAuth&Reg/Authentificate';
-
+// about component
+import About from './components/About/About';
 
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const json = localStorage.getItem("site-dark-mode");
+    const currentMode = JSON.parse(json);
+    if (currentMode) {
+      setDarkMode(true);
+    } else {
+      setDarkMode(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+    const json = JSON.stringify(darkMode);
+    localStorage.setItem("site-dark-mode", json);
+  }, [darkMode]);
+
   return (
     <div className='container'>
       <Navbar />
+      <button onClick={() => setDarkMode(!darkMode)}>Toggle Dark Mode</button>
       <Routes>
-
         <Route path='/' element={<MainPage />} />
         {/* USER */}
         <Route path='signup' element={<Registration />} />
@@ -41,12 +64,13 @@ function App() {
         <Route path='posts/dogs' element={<Dog />} />
         <Route path='posts/dogs/:id' element={<DogId />} />
         {/* SERVICES */}
-        <Route path='services' element={<Services />} />
-        <Route path='findServ' element={<FindServ />} />
+        <Route path='services/form' element={<Services />} />
+        <Route path='services' element={<FindServ />} />
         {/* ABOUT */}
         <Route path='about' element={<About />} />
       </Routes >
     </div >
+
   );
 }
 

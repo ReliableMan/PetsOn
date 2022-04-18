@@ -28,13 +28,12 @@
 .form-input {
   height: 40px;
   width: 100%;
-  background: #F1F1FF;
   border: 1px solid #000000;
   box-sizing: border-box;
-  border-radius: 90px;
+  border-radius: 5px;
 }
 
-.price-currency-container {
+.category-price-currency-container {
   display: flex;
   align-items: baseline;
   gap: 2rem; 
@@ -63,7 +62,7 @@
   background: white;
   border: 1px solid #000000;
   box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .btn-submit-container {

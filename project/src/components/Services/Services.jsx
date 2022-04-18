@@ -11,16 +11,16 @@ export default function Services() {
           <input type="text" name="serviceTitle" id="serviceTitle"
             className="form-input" required="required" />
         </div>
-        <div className="">
-          <label htmlFor="serviceCategory" className="form-label">КАТЕГОРИЯ</label>
-          <select className="select-category" name="serviceCategory" id="serviceCategory">
-            <option value="walk">ВЫГУЛ</option>
-            <option value="grooming">ГРУМИНГ</option>
-            <option value="veterinary">ВЕТЕРИНАРИЯ</option>
-            <option value="other">ДРУГОЕ</option>
-          </select>
-        </div>
-        <div className="price-currency-container">
+        <div className="category-price-currency-container">
+          <div>
+            <label htmlFor="serviceCategory" className="form-label">КАТЕГОРИЯ</label>
+            <select className="select-category" name="serviceCategory" id="serviceCategory">
+              <option value="walk">ВЫГУЛ</option>
+              <option value="grooming">ГРУМИНГ</option>
+              <option value="veterinary">ВЕТЕРИНАРИЯ</option>
+              <option value="other">ДРУГОЕ</option>
+            </select>
+          </div>
           <div>
             <label htmlFor="servicePrice" className="form-label">СТОИМОСТЬ</label>
             <input type="number" min="0" max="10000" step="1"
