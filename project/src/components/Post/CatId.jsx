@@ -56,8 +56,6 @@ export default function CatId() {
           });
       })
       .catch((error) => alert(error.message));
-
-    // TODO call api (axios) to refresh the comments list (GET http://..../posts/${postCat.id}/comemnts)
   };
 
   return (
