@@ -7,7 +7,7 @@ export default function Profile() {
 
   const [user, setUser] = useState([]);
   const { id } = useParams();
-  
+  console.log ('id', id)
 
   useEffect(() => {
     axios.get(`http://localhost:3903/users/profile/${id}`).then((userData) => {
