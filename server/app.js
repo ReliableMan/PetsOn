@@ -51,7 +51,7 @@ app.use((req, res, next) => {
 
 const sessionConfig = {
   store: new FileStore(), // хранилище для куков - папка с файлами
-  name: 'userCookie', // имя сессионной куки
+  name: 'myCookiezz', // имя сессионной куки
   secret: process.env.SESSION_SECRET ?? 'jw2312001001000owj', // строка для шифрования сессии
   resave: false, // не пересохраняем сессию если не было изменений
   saveUninitialized: false, // не сохраняем сессию если она пустая
