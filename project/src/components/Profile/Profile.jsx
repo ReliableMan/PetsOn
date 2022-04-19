@@ -41,6 +41,8 @@ export default function Profile() {
                 // src={user.photo}
                 src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.stack.imgur.com%2FHQwHI.jpg&f=1&nofb=1"
                 alt="user" width="" height="" />
+                 
+              <input type="file" id="myPhoto" name="myPhoto" className="change-photo" />
               <button className="btn-change-data">
                 <Link className="btn-change-data-link" to="/users/profile/:id/edit">ИЗМЕНЕНИТЬ ДАННЫЕ</Link>
               </button>

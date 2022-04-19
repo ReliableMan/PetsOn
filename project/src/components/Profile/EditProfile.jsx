@@ -11,7 +11,7 @@ export default function EditProfile() {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:3903/users/profile/${id}`).then((userData) => {
+    axios.get(`http://localhost:3903/users/profile/${id}/edit`).then((userData) => {
       const { username, email, first_name, last_name, date_birth, role, photo, description } = userData.data;
       // console.log(email, "emaaaaaaaaaaaail");
       setUser({ username, email, first_name, last_name, date_birth, role, photo, description })
@@ -35,12 +35,28 @@ export default function EditProfile() {
     <div className="edit-profile">
       <form onSubmit={submitHandler}>
         <h1 className="heading">ИЗМЕНЕНИЕ ДАННЫХ</h1>
-        <div>
+        {/* <div>
           <label htmlFor="myPhoto" className="form-label">ЗАГРУЗИТЬ ФОТО ПРОФИЛЯ</label>
           <input type="file" id="myPhoto" name="myPhoto" className="change-photo" />
-        </div>
+        </div> */}
         <div className="name-birth-role-container">
           <div className="name-container">
+          <div>
+              <label htmlFor="email" className="form-label">EMAIL</label>
+              <input
+                type="text" id="email" name="email" className="form-input"
+                placeholder={user.email}
+                value={inputs.email} onChange={(e) => dispatch(userUpdatingData(e))}
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="form-label">ИМЯ</label>
+              <input
+                type="text" id="password" name="password" className="form-input"
+                placeholder={user.password}
+                value={inputs.password} onChange={(e) => dispatch(userUpdatingData(e))}
+              />
+            </div>
             <div>
               <label htmlFor="firstName" className="form-label">ИМЯ</label>
               <input
