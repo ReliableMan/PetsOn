@@ -103,12 +103,12 @@ const Registration = () => {
             <select onClick={choice1} name="typeUser"
               className="form-select" aria-label="Default select example">
               <option value=''>Выберите из списка</option>
-              <option value="user">Пользователь</option>
-              <option value="specialist">Специалист</option>
+              <option value="Пользователь">Пользователь</option>
+              <option value="Специалист">Специалист</option>
             </select>
           </div>
         </div>
-        {value === "specialist" ?
+        {value === "Специалист" ?
           <>
             <div className="row align-items-center">
               <div className="col-auto">
