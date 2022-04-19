@@ -6,8 +6,10 @@ import "./profile.css";
 export default function Profile() {
 
   const [user, setUser] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
   const { id } = useParams();
-  console.log ('id', id)
+  console.log('id', id)
+
 
   useEffect(() => {
     axios.get(`http://localhost:3903/users/profile/${id}`).then((userData) => {
@@ -37,14 +39,31 @@ export default function Profile() {
               <p className="user-info-data">{user.description}</p>
             </div>
             <div className="photo-btn-container">
-              <img className="photo"
-                // src={user.photo}
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.stack.imgur.com%2FHQwHI.jpg&f=1&nofb=1"
-                alt="user" width="" height="" />
-                 
-              <input type="file" id="myPhoto" name="myPhoto" className="change-photo" />
+              <div className="photo-container">
+                <img className="my-photo"
+                  // src={user.photo}
+                  // src="images/profileImage.jpeg"
+                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvectorified.com%2Fimages%2Fno-profile-picture-icon-35.png&f=1&nofb=1"
+                  alt="user"
+                  width="300px" height="300px"
+                />
+                <input type="file" id="change-photo" name="change-photo" className="change-photo"
+                  // onChange={(e) => {
+                  // console.log(e.target.files[0]);
+                  // setSelectedImage(e.target.files[0]);
+                  // }} 
+                />
+              </div>
+
+              {/* <input type="file" id="myPhoto" name="myPhoto" className="change-photo"
+                onChange={(e) => {
+                  console.log(e.target.files[0]);
+                  setSelectedImage(e.target.files[0]);
+                }} /> */}
+
+              <button className="btn-change-data">ИЗМЕНИТЬ ФОТО</button>
               <button className="btn-change-data">
-                <Link className="btn-change-data-link" to="/users/profile/:id/edit">ИЗМЕНЕНИТЬ ДАННЫЕ</Link>
+                <Link className="btn-change-data-link" to="/users/profile/:id/edit">ИЗМЕНИТЬ ДАННЫЕ</Link>
               </button>
             </div>
           </div>

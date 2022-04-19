@@ -29,6 +29,7 @@
   /* width:60%; */
   padding: 15px 15px;
 }
+
 .user-info-label {
   font-family: 'Inter';
   font-style: normal;
@@ -53,8 +54,23 @@
   justify-content: space-between;
 }
 
-.photo {
+.photo-container {
+  height: 350px;
+  width: 300px;
+}
+
+.my-photo {
   border-radius: 10px 10px;
+}
+.change-photo {
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #D2D7FF;
+}
+
+.change-photo::-webkit-file-upload-button {
+  visibility: hidden;
 }
 
 .btn-change-data {
@@ -94,7 +110,7 @@
   /* background-color: #E5FFE2; */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  gap: 2rem; 
+  gap: 2rem;
 }
 
 /* edit profile form */
@@ -104,20 +120,9 @@
   justify-content: space-around;
 }
 
-.change-photo {
-  height: 40px;
-  width: 100%;
-  border-radius: 5px;
-  background-color: #D2D7FF;
-}
-
-.change-photo::-webkit-file-upload-button {
-  visibility: hidden;
-}
-
 .name-birth-role-container {
   display: flex;
-  gap: 2rem; 
+  gap: 2rem;
 }
 
 .select-role {
@@ -140,7 +145,7 @@
   color: rgba(67, 67, 71, 0.47);
 }
 
-.form-input{
+.form-input {
   height: 40px;
   background: white;
   border: 1px solid #605e5e;

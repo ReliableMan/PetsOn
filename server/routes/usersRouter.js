@@ -2,6 +2,17 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
 
+const multer = require('multer');
+const fileStorageEngine = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './public/sounds')
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "--" + file.originalname)
+  }
+})
+const upload = multer({ storage: fileStorageEngine });
+
 // USER PROFILE
 router
   // .get(checkUser, checkProtection, async (req, res) => {
