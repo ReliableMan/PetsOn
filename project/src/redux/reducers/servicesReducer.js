@@ -9,8 +9,8 @@ export const userTypingService = (state = initState, action)=>{
       return { ...state, ...payload };
     case 'SET_SERVICE':
       return payload;
-    case 'CLEAR_INPUTS_SERVICES':
-      return { ...payload };
+    case 'CLEAR_INPUTS_USER_SERVICES':
+      return {};
     default:
       return state;
   }

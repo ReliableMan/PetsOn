@@ -6,6 +6,7 @@ import "./profile.css";
 export default function Profile() {
 
   const [user, setUser] = useState([]);
+  const [services, setServices] = useState([]);
   const { id } = useParams();
   console.log ('id', id)
 
@@ -13,6 +14,14 @@ export default function Profile() {
     axios.get(`http://localhost:3903/users/profile/${id}`).then((userData) => {
       const { username, email, first_name, last_name, date_birth, role, photo, description } = userData.data;
       setUser({ username, email, first_name, last_name, date_birth, role, photo, description })
+    });
+
+    axios.get(`http://localhost:3903/services/${id}`)
+    .then((response) => {
+      console.log(response)
+      const { data: services } = response;
+      setServices(services);
+      // setServices(response.data);
     });
   }, [id]);
 
@@ -44,7 +53,7 @@ export default function Profile() {
                  
               <input type="file" id="myPhoto" name="myPhoto" className="change-photo" />
               <button className="btn-change-data">
-                <Link className="btn-change-data-link" to="/users/profile/:id/edit">ИЗМЕНЕНИТЬ ДАННЫЕ</Link>
+                <Link className="btn-change-data-link" to={`/users/profile/${id}/edit`}>ИЗМЕНЕНИТЬ ДАННЫЕ</Link>
               </button>
             </div>
           </div>
@@ -57,6 +66,7 @@ export default function Profile() {
               <thead>
                 <tr>
                   <th>СТАТУС</th>
+                  <th>ID ПОЛЬЗОВАТЕЛЯ</th>
                   <th>НАЗВАНИЕ</th>
                   <th>СТОИМОСТЬ</th>
                   <th>ДАТА СОЗДАНИЯ</th>
@@ -67,6 +77,7 @@ export default function Profile() {
               <tbody>
                 <tr className="table-row">
                   <td>в процессе</td>
+                  <td>7</td>
                   <td>выгулять Бобика</td>
                   <td>100</td>
                   <td>Created at</td>

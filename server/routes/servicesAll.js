@@ -1,24 +1,37 @@
 const router = require('express').Router();
 const { Service } = require('../db/models');
-const { Specialities } = require('../db/models');
+const { Speciality, User } = require('../db/models');
 
 router.get('/', async (req, res) => {
   try {
     const services = await Service.findAll()
+    const compareServices = await User.findAll({ include: [{model: Speciality, Service}], where: {id:11} });
+    console.log(compareServices[0].Specialities[0].title);
+
     return res.json(services)
-  } catch (error) {
+  } catch (err) {
     console.log(err);
     res.sendStatus(500)
   }
 })
 
+router.get('/:serviceId', async (req, res) => {
+ const {serviceId} = req.params
+   try {
+     const serviceUser = await Service.findOne({ where: { user_id: serviceId }, raw: true })
+     return res.json(serviceUser)
+   } catch (error) {
+     res.sendStatus(500)
+   }
+})
 
 router.post('/new', async (req, res) => {
   const {
     title, price, description
   } = req.body.inputs;
   const { id } = req.session?.user;
-  // const compareServices = await Specialities.findAll({ include: user_id });
+  // const compareServices = await User.findAll({ include: [{model: Speciality, Service}], where: {id:11} });
+  // console.log(compareServices);
 
   // console.log(compareServices);
   try {
