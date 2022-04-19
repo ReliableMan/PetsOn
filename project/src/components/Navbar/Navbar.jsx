@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { logoutUser, setUser } from "../../redux/actions/userActions";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,9 +10,9 @@ export default function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
-  console.log("userrrrrr,", user);
-
-
+  const booleanAuthorized = useSelector((store) => store.isAuthorized);
+  const { id } = useParams();
+  console.log ('id', user.id)
 
   const logoutHandle = (e) => {
     e.preventDefault();
@@ -62,23 +62,33 @@ export default function Navbar() {
             </ul>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" aria-current="page" to="/about">
-                  О НАС
-                </Link>
-              </li>
-            </ul>
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
                 <Link
                   className="nav-link"
                   aria-current="page"
-                  // onClick={}
                   to={`/users/profile/${user.id}`}
                 >
                   ЛИЧНЫЙ КАБИНЕТ
                 </Link>
               </li>
             </ul>
+
+            { booleanAuthorized ?
+            // если true - то выходим
+             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+             <li className="nav-item">
+               <Link className="textReg" to="/signout" onClick={logoutHandle}>
+                 <img
+                   src="images/paw.png"
+                   alt="logo"
+                   style={{ width: "4rem" }}
+                 />
+                 Нажми, чтобы <br></br> выйти
+               </Link>
+             </li>
+           </ul>  
+           
+           :
+           // если false - то заходим
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="textReg" to="/signup">
@@ -91,18 +101,7 @@ export default function Navbar() {
                 </Link>
               </li>
             </ul>
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="textReg" to="/signout" onClick={logoutHandle}>
-                  <img
-                    src="images/paw.png"
-                    alt="logo"
-                    style={{ width: "4rem" }}
-                  />
-                  Нажми, чтобы <br></br> выйти
-                </Link>
-              </li>
-            </ul>
+            }
           </div>
         </div>
       </nav>

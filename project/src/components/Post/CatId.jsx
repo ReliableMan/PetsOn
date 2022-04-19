@@ -35,7 +35,6 @@ export default function CatId() {
     const text = event.target.text.value;
     console.log(text);
 
-    // // TODD call api (axios) to create a comment for the post with id postCat.id (POST http://..../posts/${postCat.id}/comemnts)
 
     return axios
       .post(
@@ -56,8 +55,6 @@ export default function CatId() {
           });
       })
       .catch((error) => alert(error.message));
-
-    // TODO call api (axios) to refresh the comments list (GET http://..../posts/${postCat.id}/comemnts)
   };
 
   return (

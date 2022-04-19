@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Navbar from './components/Navbar/Navbar';
+// import { getState } from 'redux'
+
 //  const API_KEY = process.env.REACT_APP_API_KEY;
 //  console.log(API_KEY);
 
-// import NavbarAfter from './components/Navbar/NavbarAfter';
+import Navbar from './components/Navbar/Navbar';
 import MainPage from './components/Pages/MainPage/MainPage';
 import './App.css';
 import Post from './components/Post/Post';
@@ -27,6 +28,7 @@ import DogId from './components/Post/DogId';
 import About from './components/About/About';
 
 import Vet from './components/Services/Vet';
+import { useSelector } from 'react-redux';
 
 
 
@@ -53,33 +55,54 @@ function App() {
     localStorage.setItem("site-dark-mode", json);
   }, [darkMode]);
 
+  
+  const booleanAuthorized = useSelector((store) => store.isAuthorized);
+  
+  // useEffect(() => {
+  //   const check = getState(booleanAuthorized);
+  //   console.log('12222', check)
+  // }, [booleanAuthorized]);
+
   return (
     <div className='container'>
       <Navbar />
       <button onClick={() => setDarkMode(!darkMode)}>Toggle Dark Mode</button>
+        {/* USER */}
+
+        { booleanAuthorized ?   
+        // - true   
       <Routes>
         <Route path='/' element={<MainPage />} />
-        {/* USER */}
-        <Route path='signup' element={<Registration />} />
-        <Route path='login' element={<Authentificate />} />
-
         <Route path='users/profile/:id' element={<Profile />} />
         <Route path='users/profile/:id/edit' element={<EditProfile />} />
         {/* POSTS */}
-        <Route path='posts' element={<Post />} />
-        <Route path='posts/cats' element={<Cat />} />
-        <Route path='posts/cats/:id' element={<CatId />} />
-        <Route path='posts/dogs' element={<Dog />} />
-        <Route path='posts/dogs/:id' element={<DogId />} />
         {/* SERVICES */}
         <Route path='services' element={<Services />} />
         <Route path='vet' element={<Vet />} />
         <Route path='findServ' element={<FindServ />} />
         {/* ABOUT */}
         <Route path='about' element={<About />} />
-      </Routes >
+        <Route path='posts' element={<Post />} />
+        <Route path='posts/cats' element={<Cat />} />
+        <Route path='posts/cats/:id' element={<CatId />} />
+        <Route path='posts/dogs' element={<Dog />} />
+        <Route path='posts/dogs/:id' element={<DogId />} />
+        <Route path='signup' element={<Registration />} />
+        <Route path='login' element={<Authentificate />} />
+        </Routes >
+         : 
+         // - false
+         <Routes>
+           <Route path='posts' element={<Post />} />
+           <Route path='posts/cats' element={<Cat />} />
+           <Route path='posts/cats/:id' element={<CatId />} />
+           <Route path='posts/dogs' element={<Dog />} />
+           <Route path='posts/dogs/:id' element={<DogId />} />
+           <Route path='signup' element={<Registration />} />
+           <Route path='login' element={<Authentificate />} />
+         </Routes >
+      }
     </div >
-
   );
 }
 
