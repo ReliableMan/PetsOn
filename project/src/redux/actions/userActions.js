@@ -1,3 +1,5 @@
+import { useParams } from "react-router-dom"
+
 // сохраняем юзера
 export const setUser = (data) => {
   return { type: 'SET_USER', payload: data }
@@ -29,7 +31,7 @@ export const clearInputsServices = () => {
 
 // сохраняем специальность
 export const specInputs = (item) => {
-  return {type: 'SET_SPEC', payload: item}
+  return { type: 'SET_SPEC', payload: item }
 }
 
 // проверка на авторизованность
@@ -38,6 +40,19 @@ export const setAuthorized = () => {
 }
 export const setNotAuthorized = () => {
   return { type: 'NOT_AUTHORIZED' }
+}
+
+export const userUpdateService = (e) => {
+  console.log(e.target.name, '77777777777');
+  return { type: 'USER_TYPING_SERVICE', payload: { [e.target.name]: e.target.value } }
+}
+
+export const setUserService = (e) => {
+  return { type: 'SET_SERVICE', payload: e }
+}
+
+export const clearUserUpdateServices = () => {
+  return { type: 'CLEAR_INPUTS_USER_SERVICES', payload: {} }
 }
 
 // отправляем на бэк на нужную ручку, опять сетим(или сохраняем юзера)__регистрация 
@@ -81,8 +96,8 @@ export const userUpdatingData = (e) => {
 
 // выход юзера 
 export const logoutUser = (e) => async (dispatch) => {
-  const req = await fetch ('http://localhost:3903/auth/signout', {
-    method: 'GET', 
+  const req = await fetch('http://localhost:3903/auth/signout', {
+    method: 'GET',
     credentials: 'include',
     headers: {
       'Content-type': 'application/json'
@@ -93,9 +108,9 @@ export const logoutUser = (e) => async (dispatch) => {
 }
 
 
-export const serviceSent =  (e) => async (dispatch) => {
-  const serviceReq = await fetch ('http://localhost:3903/services/new', {
-    method: 'POST', 
+export const serviceSent = (e) => async (dispatch) => {
+  const serviceReq = await fetch('http://localhost:3903/services/new', {
+    method: 'POST',
     credentials: 'include',
     headers: {
       'Content-type': 'application/json'
@@ -108,4 +123,24 @@ export const serviceSent =  (e) => async (dispatch) => {
 };
 
 
+export const updateUser = (e, id) => async (dispatch) => {
+  //console.log('update user', e)
+  //const { id } = useParams();
+  
+  const userUpdate = await fetch(`http://localhost:3903/users/profile/${id}/edit`, {
+    method: 'PUT',
+    credentials: 'include',
+    headers: {
+    'Content-type': 'application/json'
+  },
+    body: JSON.stringify(e)
+  });
+const userUpdateFromBack = await userUpdate.json();
+console.log('vvvvvvvvvvvvvvvvv', userUpdateFromBack);
+if(userUpdateFromBack.ok) {
+  dispatch(setUserService(e))
+  dispatch(setAuthorized())
+  dispatch(clearUserUpdateServices())
+}
+}
 
