@@ -6,4 +6,8 @@
   background: #F1F1FF;
   border-radius: 40px;
 }  
+.map {
+  margin-left: 20%;
+  justify-content: center;
+}
 

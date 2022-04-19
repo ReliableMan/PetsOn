@@ -73,6 +73,27 @@
   visibility: hidden;
 }
 
+.btn-change-photo {
+  height: 50px;
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: #D2D7FF;
+}
+
+.btn-change-photo:hover {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
 .btn-change-data {
   height: 50px;
   border: none;
