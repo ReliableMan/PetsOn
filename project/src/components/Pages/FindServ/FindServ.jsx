@@ -19,7 +19,7 @@ export default function FindServ() {
     <>
       <div className="container_find">
         <h1>НАЙТИ УСЛУГУ:</h1>
-        <p>СОРТИРОВАТЬ ПО:</p>
+        <h3>СОРТИРОВАТЬ ПО:</h3>
         <div className="find_header">
           <div>ДАТА СОЗДАНИЯ</div>
           <div>НАЗВАНИЕ</div>
