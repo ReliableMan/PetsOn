@@ -39,17 +39,13 @@ export default function EditProfile() {
     //dispatch(userUpdateService({inputs}));
     dispatch(updateUser(inputs, id))
     dispatch(clearUserUpdateServices());
-    //navigate("/profile");
+    navigate(`/users/profile/${id}`);
   };
 
   return (
     <div className="edit-profile">
       <form onSubmit={submitHandler}>
         <h1 className="heading">ИЗМЕНЕНИЕ ДАННЫХ</h1>
-        {/* <div>
-          <label htmlFor="myPhoto" className="form-label">ЗАГРУЗИТЬ ФОТО ПРОФИЛЯ</label>
-          <input type="file" id="myPhoto" name="myPhoto" className="change-photo" />
-        </div> */}
         <div className="name-birth-role-container">
           <div className="name-container">
             <div>
@@ -71,7 +67,7 @@ export default function EditProfile() {
                 ПАРОЛЬ
               </label>
               <input
-                type="text"
+                type="password"
                 id="password"
                 name="password"
                 className="form-input"

@@ -1,6 +1,22 @@
 const router = require('express').Router();
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
+
+
+// MULTER
+const multer = require('multer');
+const fileStorageEngine = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './public/uploads')
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "--" + file.originalname)
+  }
+})
+const upload = multer({ storage: fileStorageEngine });
+// MULTER 
+
+
 
 // USER PROFILE
 router
@@ -57,5 +73,25 @@ router
     //    console.error('Err message: ', err.message);
     //    } 
   })
+
+   // USER PROFILE PHOTO UPLOAD
+   router
+    .route('/profile/:id/upload')
+    .post(upload.single('photo'), async (req, res) => {
+      try {
+        const { path } = req.file;
+        const photo = path;
+        console.log('req.body', req.body);
+        console.log('req.file', req.file);
+        // const newPhoto = await User.create({ photo });
+        // console.log(newPhoto);
+        // res.redirect(`/users/profile/${id}`);
+      } catch (error) {
+        res.render('error', {
+          message: 'Не удалось добавить запись в базу данных.',
+          error: {}
+        });
+      }
+    });
 
 module.exports = router;
