@@ -66,7 +66,7 @@ function App() {
   return (
     <div className='container'>
       <Navbar />
-      <button onClick={() => setDarkMode(!darkMode)}>Toggle Dark Mode</button>
+      <button className="btn btn-light" onClick={() => setDarkMode(!darkMode)}>Темная тема</button>
         {/* USER */}
 
         { booleanAuthorized ?   
