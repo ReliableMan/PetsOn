@@ -41,6 +41,7 @@ router.post('/signup', async (req, res) => {
       role: user.role,
       speciality: speciality.title
     };
+    console.log(timeCreationUser);
     res.json(req.session.user);
   } catch (err) {
     console.error('Err message: ', err.message);

@@ -11,7 +11,6 @@ export default function Profile() {
   useEffect(() => {
     axios.get(`http://localhost:3903/users/profile/${id}`).then((userData) => {
       const { username, email, first_name, last_name, date_birth, role, photo, description } = userData.data;
-      // console.log(email, "emaaaaaaaaaaaail");
       setUser({ username, email, first_name, last_name, date_birth, role, photo, description })
     });
   }, [id]);

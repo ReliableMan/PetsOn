@@ -3,7 +3,6 @@ const { User } = require('../db/models');
 
 // USER PROFILE
 router
-  // .route('/profile/:id')
   // .get(checkUser, checkProtection, async (req, res) => {
   .get('/profile/:id', async (req, res) => {
 
