@@ -16,7 +16,6 @@ router.get('/', async (req, res) => {
   try {
     const posts = await Post.findAll();
 
-    return res.json(posts)
   } catch (err) {
     console.log(err);
     res.sendStatus(500)
@@ -68,7 +67,8 @@ router.post('/:postId/comments', async (req, res) => {
     else {
       const { params: { postId } } = req
 
-      const user = await User.findOne({ where: { id: userId }, raw: true })
+      const user = await User.findOne({ where: { id: userId},  raw: true})
+      //console.log('user', user.username);
       const post = await Post.findOne({ where: { id: postId }, raw: true })
 
       if (!user) {
@@ -80,7 +80,8 @@ router.post('/:postId/comments', async (req, res) => {
 
         const comment = await Comment.create({ user_id: userId, post_id: postId, text, date: new Date })
 
-        res.status(201).json(comment)
+        res.status(201).json({comment, username: user.name})
+
       }
     }
 
@@ -95,8 +96,7 @@ router.get('/:postId/comments', async (req, res) => {
     const { params: { postId } } = req
 
     const comments = await Comment.findAll({ where: { post_id: postId } })
-
-    return res.json(comments)
+    return res.json(comments).status(202)
   } catch (error) {
     res.status(400).json({ error: error.message })
   }

@@ -31,7 +31,7 @@
   background-color: rgb(21, 32, 43);
 }
 
-.container_friend {
+.container_friend{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -180,6 +180,8 @@
   display: flex;
   flex-direction: row;
 }
+
+
 
 /* для уменьшения экрана */
 

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import "./services.css";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {userTypingService, clearInputsServices, serviceSent} from "../../redux/actions/userActions";
 
@@ -9,10 +9,13 @@ import {userTypingService, clearInputsServices, serviceSent} from "../../redux/a
 
 export default function Services() {
 
+  
+
   const [service, setService] = useState('');
+  const { id } = useParams();
 
   const choice1 = (e) => {
-    console.log('работает', e.target.value)
+    //console.log('работает', e.target.value)
     setService(e.target.value)
   };
 
@@ -28,7 +31,7 @@ export default function Services() {
     e.preventDefault();
       dispatch(serviceSent({inputs, service }));
       dispatch(clearInputsServices());
-      // navigate('/main')
+      navigate(`/findServ`);
     } 
 
 
@@ -40,7 +43,7 @@ export default function Services() {
           <label htmlFor="serviceTitle" className="form-label">НАЗВАНИЕ УСЛУГИ</label>
           <input type="text" name="title" id="serviceTitle"
             className="form-input" required="required" value={inputs.title ?? ""}
-            onChange={changeHandler}/>
+            onChange={changeHandler} placeholder="Введите название вашей услуги"/>
         </div>
         <div className="category-price-currency-container">
           <div>
@@ -71,9 +74,13 @@ export default function Services() {
         <div className="">
           <label htmlFor="serviceTitle" className="form-label">ПОДРОБНОЕ ОПИСАНИЕ</label>
           <textarea id="serviceDescription" name="description" className="form-textarea"
+          placeholder="Не забудьте оставить контактный номер телефона"
             rows="4" cols="50" value={inputs.description ?? ""}
             onChange={changeHandler}>
           </textarea>
+          <div>
+            <p className="textRemember">*Не забудьте оставить контактный номер телефона</p>
+          </div>
         </div>
         <div className="btn-submit-container">
           <button type="submit" className="btn-submit live">СОЗДАТЬ</button>

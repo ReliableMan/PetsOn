@@ -5,8 +5,8 @@
   height: 1000px;
   left: 231px;
   top: 130px;
-  /* background: #F1F1FF;
-  border-radius: 40px; */
+  background: #F1F1FF;
+  border-radius: 40px; 
 }
 
 .heading {
@@ -107,5 +107,10 @@
   75% {
     box-shadow: rgb(195, 146, 224) 0 0 0 5px;
   }
+}
+
+.textRemember {
+  text-align: right;
+  font-size: 12px;
 }
 

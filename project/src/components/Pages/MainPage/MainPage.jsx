@@ -1,8 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import "./mainPage.css";
 import { Link } from "react-router-dom";
 
 export default function MainPage() {
+
+  const [inputValue, setInputValue] = useState([]);
+
+  const handleUserInput = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const resetInputField = () => {
+    setInputValue('');
+  };
+
   return (
     <div className="mainPage">
       <div className="titles">
