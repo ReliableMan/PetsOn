@@ -168,7 +168,11 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 38px;
-  color: #F1F1FF;
+  color: black;
+}
+
+.dark .textFooterLinks {
+  color: white;
 }
 
 .footer {

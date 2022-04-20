@@ -157,9 +157,16 @@
   justify-content: space-around;
 }
 
-.name-birth-role-container {
+
+.inputs-container {
   display: flex;
   gap: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .inputs-container {
+    display: block;
+  }
 }
 
 .select-role {
