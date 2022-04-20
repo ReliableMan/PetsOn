@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./findServ.css";
 
 export default function FindServ() {
   const [services, setServices] = useState([]);
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+      navigate(`/users/profile/${id}`);
+    } 
 
   useEffect(() => {
     axios.get("http://localhost:3903/services")
@@ -31,7 +39,7 @@ export default function FindServ() {
           <div>{services.map((service)=>(<div>{service.title}</div>))}</div>
           <div>{services.map((service)=>(<div>{service.price}</div>))}</div>
           <div>{services.map((service)=>(<div>{service.description}</div>))}</div>
-          <div><input type="checkbox"/></div>
+          <div><input type="checkbox" onClick={submitHandler}/></div>
         </div>
       </div>
     </>

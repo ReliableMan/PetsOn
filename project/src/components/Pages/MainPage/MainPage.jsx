@@ -1,8 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import "./mainPage.css";
 import { Link } from "react-router-dom";
 
 export default function MainPage() {
+
+  const [inputValue, setInputValue] = useState([]);
+
+  const handleUserInput = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const resetInputField = () => {
+    setInputValue('');
+  };
+
   return (
     <div className="mainPage">
       <h1 className="text_title">Сделано с заботой о животных</h1>
@@ -55,8 +66,8 @@ export default function MainPage() {
           <div className="newsletter">
             <p className="textNewsletter">Подпишись на рассылку новостей</p>
             <div className="btnAndInputNewsletter">
-              <input className="inpytNewsletter" />
-            <button className="btnNewsletter">Подписаться</button>
+              <input className="inputNewsletterText" type="text" value={inputValue} onChange={handleUserInput}/>
+            <button className="btnNewsletter" onClick={resetInputField} >Подписаться</button>
             </div>
           </div>
         <div className="footer_body">

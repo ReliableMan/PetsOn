@@ -8,6 +8,16 @@ export default function CatId() {
   const { id } = useParams();
   const [comments, setComments] = useState([]);
 
+  //   const addHandler = (e) => {
+  //   e.preventDefault()
+  //   setPostCat(prev => [...prev, likes: 0])                                                      
+  // }
+
+  const addLike = (id) => {
+    const likes = 0;
+    setPostCat(postCat.filter((e) => postCat.likes += 1))
+  }
+
   useEffect(() => {
     axios.get(`http://localhost:3903/posts/${id}`).then((PostsCat) => {
       //console.log(PostsCat);
@@ -75,7 +85,9 @@ export default function CatId() {
       <ul>
         {comments.map((comment) => (
           <li>{comment.text}</li>
+          
         ))}
+        <button onClick={() => addLike(id)} className="btn btn-success">Like 👍 {postCat.likes}</button>
       </ul>
 
       <h5>Оставьте комментарий</h5>
