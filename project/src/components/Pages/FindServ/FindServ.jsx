@@ -25,7 +25,6 @@ export default function FindServ() {
   return (
     <div className="container_find">
       <h1>НАЙТИ УСЛУГУ:</h1>
-      {/* <h3>СОРТИРОВАТЬ ПО:</h3> */}
       <div className="find_header">
         <div>ДАТА СОЗДАНИЯ</div>
         <div>НАЗВАНИЕ</div>
@@ -35,21 +34,11 @@ export default function FindServ() {
       </div>
       <div className="container_all">
         <div className="container_allServ">
-          {/* {services.map((service)=>{
-          return(
-            <>
-          <div>{service.createdAt}</div>
-          <div>{service.title}</div>
-          <div>{service.price}</div>
-          <div>{service.description}</div>
-          <div><button type="submit" class="btn btn-light" onClick={submitHandler}>Выполнить услугу</button></div>
-            </>
-          )})}</div> */}
           <div>{services.map((service)=>(<div>{service.createdAt}</div>))}</div>
            <div>{services.map((service)=>(<div>{service.title}</div>))}</div>
           <div>{services.map((service)=>(<div>{service.price}</div>))}</div>
           <div>{services.map((service)=>(<div>{service.description}</div>))}</div>
-          <div>{services.map((service)=><button type="submit" class="btn btn-light" id={service.id} onClick={submitHandler}>Выполнить услугу</button>)}</div> 
+          <div className="btn_find">{services.map((service)=><button type="submit" class="btn btn-light" id={service.id} onClick={submitHandler}>Выполнить услугу</button>)}</div> 
         </div>
       </div>
     </div>

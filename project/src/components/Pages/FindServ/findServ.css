@@ -6,8 +6,10 @@
   border-radius: 40px;
   font-family: 'Inter';
   font-style: normal;
+  margin-top: 3rem; 
   line-height: 4;
   color: black;
+  text-align: center;
 }
 
 .find_header{
@@ -23,11 +25,16 @@
 }
 
  .container_allServ{
-  line-height: 2.5;
+  line-height: 5;
+  padding: 15px 15px;
   display: flex;
-  flex-direction:column; 
-  flex-wrap: nowrap;
-  /* background: #f6f6fa; */
+  justify-content: space-between;
+  background: #E2E5FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-family: 'Inter';
+  font-size: 20px;
 
 } 
 
@@ -36,4 +43,8 @@
   flex-direction:column;
 }
 
+.btn_find{
+  line-height: 5;
+
+}
 
