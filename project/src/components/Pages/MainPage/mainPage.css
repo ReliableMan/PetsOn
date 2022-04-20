@@ -36,8 +36,9 @@ justify-content: center;
 }
 
 .card{
-  background-color: #F1F1FF;
-  border: 1px solid #F1F1FF;
+  border: 0.5px solid white;
+  border-radius: 20px;
+  
 }
 .container_friend{
   display: flex;
