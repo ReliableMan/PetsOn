@@ -5,12 +5,13 @@ import "./findServ.css";
 
 export default function FindServ() {
   const [services, setServices] = useState([]);
+
   const navigate = useNavigate();
   const { id } = useParams();
 
   const submitHandler = async (e) => {
     e.preventDefault();
-      navigate(`/users/profile/${id}`);
+      navigate(`/`);
     } 
 
   useEffect(() => {
@@ -34,12 +35,22 @@ export default function FindServ() {
           <div>ОПИСАНИЕ</div>
           <div>ВЫПОЛНЕНИЕ</div>
         </div>
-        <div className="container_allServ">
-          <div>{services.map((service)=>(<div>{service.createdAt}</div>))}</div>
-          <div>{services.map((service)=>(<div>{service.title}</div>))}</div>
+        <div className="container_all">
+          <div className="container_allServ">{services.map((service)=>{
+          return(
+            <>
+          <div>{service.createdAt}</div>
+          <div>{service.title}</div>
+          <div>{service.price}</div>
+          <div>{service.description}</div>
+          <div><button type="submit" class="btn btn-light" onClick={submitHandler}>Выполнить услугу</button></div>
+
+            </>
+          )})}</div>
+          {/* <div>{services.map((service)=>(<div>{service.title}</div>))}</div>
           <div>{services.map((service)=>(<div>{service.price}</div>))}</div>
           <div>{services.map((service)=>(<div>{service.description}</div>))}</div>
-          <div><input type="checkbox" onClick={submitHandler}/></div>
+          <div><input type="checkbox" onClick={submitHandler}/></div> */}
         </div>
       </div>
     </>
