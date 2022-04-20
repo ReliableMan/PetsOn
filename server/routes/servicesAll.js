@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:serviceId', async (req, res) => {
  const {serviceId} = req.params
- console.log(serviceId, 'serviceId');
+ //console.log(serviceId, 'serviceId');
    try {
      const serviceUser = await Service.findAll({ where: { user_id: serviceId }, raw: true })
      console.log(serviceUser, 'serviceUser');

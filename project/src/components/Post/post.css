@@ -98,3 +98,9 @@
   background: #F1F1FF;
   border-radius: 40px;
 }
+
+.btn-light{
+  display: flex;
+  flex-direction:row;
+  width: 150px;
+}

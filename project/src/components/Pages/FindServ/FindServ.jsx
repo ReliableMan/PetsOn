@@ -16,7 +16,7 @@ export default function FindServ() {
   useEffect(() => {
     axios.get("http://localhost:3903/services")
     .then((response) => {
-      console.log(response)
+      //console.log(response)
       const { data: services } = response;
       setServices(services);
     });
@@ -26,7 +26,7 @@ export default function FindServ() {
     <>
       <div className="container_find">
         <h1>НАЙТИ УСЛУГУ:</h1>
-        <h3>СОРТИРОВАТЬ ПО:</h3>
+        {/* <h3>СОРТИРОВАТЬ ПО:</h3> */}
         <div className="find_header">
           <div>ДАТА СОЗДАНИЯ</div>
           <div>НАЗВАНИЕ</div>

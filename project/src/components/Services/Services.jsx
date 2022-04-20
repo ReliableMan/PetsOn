@@ -15,7 +15,7 @@ export default function Services() {
   const { id } = useParams();
 
   const choice1 = (e) => {
-    console.log('работает', e.target.value)
+    //console.log('работает', e.target.value)
     setService(e.target.value)
   };
 

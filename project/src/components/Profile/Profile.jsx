@@ -32,13 +32,13 @@ export default function Profile() {
 
     axios.get(`http://localhost:3903/services/${id}`)
       .then((response) => {
-        console.log(response.data, '22222222222222222')
+        //console.log(response.data, '22222222222222222')
         // const { services } = response.data;
         setServices(response.data);
         // setServices(response.data);
       });
   }, []);
-console.log(servicesState, '1111111111111');
+//console.log(servicesState, '1111111111111');
   return (
     <>
       <div className="profile">

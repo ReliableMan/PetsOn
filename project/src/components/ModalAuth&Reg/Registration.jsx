@@ -10,10 +10,10 @@ import { userTyping, clearInputs, submitUser, specInputs } from '../../redux/act
 const Registration = () => {
 
   const [value, setValue] = useState('');
-  console.log('=====1', value)
+  //console.log('=====1', value)
 
   const [value1, setValue1] = useState('');
-  console.log('+++++1', value1)
+  //console.log('+++++1', value1)
 
   const inputs = useSelector(store => store.signUpInputs);
   const select = useSelector(store => store.userSpeciality)
@@ -40,7 +40,7 @@ const Registration = () => {
     if (inputs.userPassword === inputs.userPasswordRepeat) {
       dispatch(submitUser({ inputs, value, value1 }));
       dispatch(specInputs({ select, value, value1 }));
-      console.log('121212121212', { value, value1 });
+      //console.log('121212121212', { value, value1 });
       dispatch(clearInputs());
       navigate('/')
     } else {
