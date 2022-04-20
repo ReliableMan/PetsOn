@@ -89,7 +89,7 @@ console.log(servicesState, '1111111111111');
             <table className="container">
               <thead>
                 <tr>
-                  {/* <th>СТАТУС</th> */}
+                  <th>ID ПОЛЬЗОВАТЕЛЯ</th>
                   <th>НАЗВАНИЕ</th>
                   <th>СТОИМОСТЬ</th>
                   <th>ДАТА СОЗДАНИЯ</th>
