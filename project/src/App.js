@@ -72,6 +72,7 @@ function App() {
         { booleanAuthorized ?   
         // - true   
       <Routes>
+        <Route path='/' element={<MainPage />} />
         <Route path='users/profile/:id' element={<Profile />} />
         <Route path='users/profile/:id/edit' element={<EditProfile />} />
         {/* POSTS */}
