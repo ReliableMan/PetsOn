@@ -10,6 +10,7 @@ import {userTypingService, clearInputsServices, serviceSent} from "../../redux/a
 export default function Services() {
 
   const [service, setService] = useState('');
+  const [component1, setComponent] = useState(false)
 
   const choice1 = (e) => {
     console.log('работает', e.target.value)
@@ -28,11 +29,20 @@ export default function Services() {
     e.preventDefault();
       dispatch(serviceSent({inputs, service }));
       dispatch(clearInputsServices());
-      // navigate('/main')
+     // navigate('/main')
     } 
+
+    const componentcom = ()=>{
+  setComponent(true)
+    }
+
 
 
   return (
+
+
+
+
     <div className="services">
       <form onSubmit={submitHandler}>
         <div className="heading">ОСТАВЬТЕ ЗАЯВКУ НА УСЛУГУ</div>
@@ -76,9 +86,25 @@ export default function Services() {
           </textarea>
         </div>
         <div className="btn-submit-container">
-          <button type="submit" className="btn-submit">СОЗДАТЬ</button>
+           <button type="submit" className="btn-submit" onClick={componentcom} >СОЗДАТЬ</button> 
         </div>
       </form>
+      {/* { component1 ? 
+<div aria-live="polite" aria-atomic="true" className="d-flex justify-content-center align-items-center w-100">
+<div className="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div className="toast-header">
+    <img src="..." className="rounded me-2" alt="..."/>
+    <strong className="me-auto">Bootstrap</strong>
+    <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Закрыть" ></button>
+  </div>
+  <div className="toast-body">
+  Ваша заявка принята!
+  </div>
+</div>
+</div>
+: 
+ null
+} */}
     </div>
   )
 }

@@ -92,7 +92,8 @@ function App() {
          : 
          // - false
          <Routes>
-           <Route path='/' element={<MainPage />} />
+
+            <Route path='/' element={<MainPage />} />
            <Route path='posts' element={<Post />} />
            <Route path='posts/cats' element={<Cat />} />
            <Route path='posts/cats/:id' element={<CatId />} />
