@@ -76,6 +76,7 @@ export default function DogId() {
         ))}
       </ul>
 
+
       {booleanAuthorized ? (
         <>
           <h1>Оставьте комментарий</h1>

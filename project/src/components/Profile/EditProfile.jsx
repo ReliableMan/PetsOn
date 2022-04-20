@@ -46,8 +46,8 @@ export default function EditProfile() {
     <div className="edit-profile">
       <form onSubmit={submitHandler}>
         <h1 className="heading">ИЗМЕНЕНИЕ ДАННЫХ</h1>
-        <div className="name-birth-role-container">
-          <div className="name-container">
+        
+          <div className="inputs-container">
             <div>
               <label htmlFor="email" className="form-label">
                 EMAIL
@@ -76,6 +76,10 @@ export default function EditProfile() {
                 onChange={(e) => dispatch(userUpdateService(e))}
               />
             </div>
+          </div>
+
+          <div className="inputs-container">
+
             <div>
               <label htmlFor="firstName" className="form-label">
                 ИМЯ
@@ -103,6 +107,7 @@ export default function EditProfile() {
               />
             </div>
           </div>
+          
           <div className="birth-role-container">
             <div>
               <label htmlFor="birthday" className="form-label">
@@ -135,7 +140,7 @@ export default function EditProfile() {
               </select>
             </div> */}
           </div>
-        </div>
+        
         <div>
           <label htmlFor="aboutMe" className="form-label">
             РЕДАКТИРОВАТЬ ОПИСАНИЕ
