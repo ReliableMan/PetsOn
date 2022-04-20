@@ -89,7 +89,6 @@ export default function Profile() {
             <table className="container">
               <thead>
                 <tr>
-                  <th>ID ПОЛЬЗОВАТЕЛЯ</th>
                   <th>НАЗВАНИЕ</th>
                   <th>СТОИМОСТЬ</th>
                   <th>ДАТА СОЗДАНИЯ</th>
