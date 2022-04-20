@@ -149,5 +149,6 @@
 .btn-light{
   display: flex;
   flex-direction:row;
+  justify-content: center;
   width: 150px;
 }

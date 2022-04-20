@@ -13,7 +13,7 @@ export default function Profile(item) {
 const delHandler =(e)=>{
 console.log(e.target.id, 'e.target.id');
 // console.log(servicesState, 'servicesState');
-setServices(servicesState.filter(item=> item.id !== e))
+setServices(servicesState.filter(item=> item.id != e.target.id))
 // const fuck = [...servicesState].filter((fu )=> fu.id !== id)
 // setServices(fuck)
 }
@@ -92,10 +92,10 @@ setServices(servicesState.filter(item=> item.id !== e))
             <table className="container">
               <thead>
                 <tr>
-                  <th>ID ПОЛЬЗОВАТЕЛЯ</th>
                   <th>НАЗВАНИЕ</th>
                   <th>СТОИМОСТЬ</th>
                   <th>ДАТА СОЗДАНИЯ</th>
+                  <th>ВЫПОЛНЕНО</th>
                 </tr>
               </thead>
 

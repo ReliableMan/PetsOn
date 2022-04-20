@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import "./post.css";
+import { clearInputsServices } from "../../redux/actions/userActions";
 
 export default function CatId() {
   const [postCat, setPostCat] = useState([]);
@@ -15,28 +16,28 @@ export default function CatId() {
   //   setPostCat(prev => [...prev, likes: 0])
   // }
 
-  const addLike = (id) => {
-    const likes = 0;
-    setPostCat(postCat.filter((e) => (postCat.likes += 1)));
-  };
+  // const addLike = (id) => {
+  //   const likes = 0;
+  //   setPostCat(postCat.filter((e) => (postCat.likes += 1)));
+  // };
 
   useEffect(() => {
     axios.get(`http://localhost:3903/posts/${id}`).then((PostsCat) => {
       //console.log(PostsCat);
-      const { id, picture, title, text } = PostsCat.data;
+      const { id, picture, title, text} = PostsCat.data;
       //console.log("7777777", picture);
-      setPostCat({ id, picture, title, text });
-      //console.log(postCat);
+      setPostCat({ id, picture, title, text});
+      //console.log(postCat, 'postCat');
 
       // // TODO call api (axios) to get the comments for this post (GET http://..../posts/${id}/comemnts))
 
       return axios
         .get(`http://localhost:3903/posts/${id}/comments`)
         .then((response) => {
-          console.log(response);
+         // console.log(response, 'response');
           const { data: comments } = response;
 
-          setComments(comments);
+          setComments(comments );
         });
     });
   }, []);
@@ -46,6 +47,7 @@ export default function CatId() {
 
     const text = event.target.text.value;
     //console.log(text);
+    
 
     return axios
       .post(
@@ -85,23 +87,28 @@ export default function CatId() {
       <h1>Комментарии</h1>
       <ul>
         {comments.map((comment) => (
-          <li className="comment-text">{comment.text}</li>
+          <li className="comment-text"><strong>{comment.User.username}</strong> : 
+          {comment.text} </li>
         ))}
         {/* <button onClick={() => addLike(id)} className="btn btn-success">Like 👍 {postCat.likes}</button> */}
       </ul>
 
-     {booleanAuthorized ? (
-       <>
-        <h1>Оставьте комментарий</h1>
-        <form className="comment-form" onSubmit={handleCommentSubmit}>
-          <textarea className="comment-textarea" name="text" cols="50" rows="5"></textarea>
-          <button type="submit" className="comment-button btn btn-light live">
-            Сохранить комментарий
-          </button>
-        </form>
-      </>
+      {booleanAuthorized ? (
+        <>
+          <h1>Оставьте комментарий</h1>
+          <form className="comment-form" onSubmit={handleCommentSubmit}>
+            <textarea
+              className="comment-textarea"
+              name="text"
+              cols="50"
+              rows="5"
+            ></textarea>
+            <button type="submit" className="comment-button btn btn-light live">
+              Сохранить комментарий
+            </button>
+          </form>
+        </>
       ) : null}
-
     </div>
   );
 }
