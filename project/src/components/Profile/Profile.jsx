@@ -5,9 +5,29 @@ import "./profile.css";
 
 export default function Profile() {
   const [user, setUser] = useState([]);
+
   const [service, setService] = useState([]);
   const { id } = useParams();
   console.log("id", id);
+
+  const [services, setServices] = useState([]);
+  // const [currentPhoto, setCurrentPhoto] = useState(null);
+  const { id } = useParams();
+  console.log('id', id)
+
+  // const onChange = e => {
+  //   // console.log(e.target.photo);
+  //   setPhoto(e.target.photo)
+  // };
+
+  // // console.log(photo);
+
+  // const onSubmit = async e => {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append("uploadedPhoto", photo);
+  // }
+
 
   useEffect(() => {
     axios.get(`http://localhost:3903/users/profile/${id}`).then((userData) => {
@@ -41,6 +61,16 @@ export default function Profile() {
     });
   }, []);
 
+    axios.get(`http://localhost:3903/services/${id}`)
+      .then((response) => {
+        console.log(response)
+        const { data: services } = response;
+        setServices(services);
+        // setServices(response.data);
+      });
+  }, [id]);
+
+
   return (
     <>
       <div className="profile">
@@ -64,6 +94,7 @@ export default function Profile() {
               <p className="user-info-data">{user.description}</p>
             </div>
             <div className="photo-btn-container">
+
               <img
                 className="photo"
                 // src={user.photo}
@@ -86,6 +117,26 @@ export default function Profile() {
                 >
                   ИЗМЕНЕНИТЬ ДАННЫЕ
                 </Link>
+
+              <div className="photo-container">
+                <img className="my-photo" id="photo" name="photo"
+                  // src={user.photo}
+                  // src="images/profileImage.jpeg"
+                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvectorified.com%2Fimages%2Fno-profile-picture-icon-35.png&f=1&nofb=1"
+                  alt="user"
+                  width="300px" height="300px"
+                />
+                {/* <form onSubmit={onSubmit}>
+                  <input type="file" id="photo" name="uploadedPhoto" className="change-photo"
+                    onChange={onChange}
+                  />
+                  <button type='submit' className="btn-change-photo">ИЗМЕНИТЬ ФОТО</button>
+                </form> */}
+              </div>
+
+              <button className="btn-change-data">
+                <Link className="btn-change-data-link" to={`/users/profile/${id}/edit`}>ИЗМЕНИТЬ ДАННЫЕ</Link>
+
               </button>
             </div>
           </div>
