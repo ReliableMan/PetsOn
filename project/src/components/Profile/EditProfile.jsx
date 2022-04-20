@@ -150,7 +150,7 @@ export default function EditProfile() {
           ></textarea>
         </div>
         <div className="btn-save-changes-container">
-          <button type="submit" className="btn-save-changes">
+          <button type="submit" className="btn-save-changes live">
             СОХРАНИТЬ ИЗМЕНЕНИЯ
           </button>
         </div>

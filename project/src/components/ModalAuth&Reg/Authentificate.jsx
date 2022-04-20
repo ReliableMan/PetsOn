@@ -1,5 +1,5 @@
 // import React, { useCallback, useEffect } from "react";
-import "./modal.css";
+import "./auth.css";
 import React from "react";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -24,16 +24,14 @@ const Authentificate = () => {
     navigate("/");
   };
 
-//  useEffect(
-//   window.onload = function () {
-//     google.accounts.id.initialize({
-//       client_id: 'YOUR_GOOGLE_CLIENT_ID',
-//       callback: handleCredentialResponse
-//     });
-//     google.accounts.id.prompt();
-//   }, []);
-  
-
+  //  useEffect(
+  //   window.onload = function () {
+  //     google.accounts.id.initialize({
+  //       client_id: 'YOUR_GOOGLE_CLIENT_ID',
+  //       callback: handleCredentialResponse
+  //     });
+  //     google.accounts.id.prompt();
+  //   }, []);
 
   return (
 
@@ -44,37 +42,29 @@ const Authentificate = () => {
         </div>
 
         <br />
-        <div className="row align-items-center">
+        <div>
           <div className="col-auto input-group-sm">
-        <div id="g_id_onload"
-         data-client_id={googleClient}
-         data-login_uri={urlLogin}
-         data-auto_prompt="false">
-      </div> 
-
-      <div class="g_id_signin"
-         data-type="standard"
-         data-size="large"
-         data-theme="outline"
-         data-text="sign_in_with"
-         data-shape="rectangular"
-         data-logo_alignment="left">
-      </div>
-      <br />
+            <div id="g_id_onload"
+              data-client_id={googleClient}
+              data-login_uri={urlLogin}
+              data-auto_prompt="false">
+            </div>
+            <br />
+            <label htmlFor="inputEmail6" className="col-form-label">Email</label>
             <input
-              type="text"
+              type="email"
               className="form-control "
               name="userEmail"
-              placeholder="Email"
+              placeholder="example@email.com"
               value={inputs.userEmail ?? ""}
               onChange={(event) => dispatch(userTypingLogin(event))} />
           </div>
         </div>
         <br />
 
-        <div className="row align-items-center">
-
+        <div>
           <div className="col-auto input-group-sm">
+            <label htmlFor="inputPassword6" className="col-form-label">Пароль</label>
             <input
               type="password"
               id="inputPassword6"
@@ -87,7 +77,7 @@ const Authentificate = () => {
         </div>
         <br />
 
-        <div className="container but">
+        <div className="button-container">
           <button type="submit" className="btn btn-outline-primary live">
             Войти
           </button>

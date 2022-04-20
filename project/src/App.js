@@ -33,9 +33,9 @@ import { useSelector } from 'react-redux';
 
 
 function App() {
-  
+
   const booleanAuthorized = useSelector((store) => store.isAuthorized);
-  
+
   // useEffect(() => {
   //   const check = getState(booleanAuthorized);
   //   console.log('12222', check)
@@ -44,40 +44,40 @@ function App() {
   return (
     <div className='container'>
       <Navbar />
-        {/* USER */}
+      {/* USER */}
 
-        { booleanAuthorized ?   
+      {booleanAuthorized ?
         // - true   
-      <Routes>
-        <Route path='users/profile/:id' element={<Profile />} />
-        <Route path='users/profile/:id/edit' element={<EditProfile />} />
-        {/* POSTS */}
-        {/* SERVICES */}
-        <Route path='services' element={<Services />} />
-        <Route path='vet' element={<Vet />} />
-        <Route path='findServ' element={<FindServ />} />
-        {/* ABOUT */}
-        <Route path='about' element={<About />} />
-        <Route path='posts' element={<Post />} />
-        <Route path='posts/cats' element={<Cat />} />
-        <Route path='posts/cats/:id' element={<CatId />} />
-        <Route path='posts/dogs' element={<Dog />} />
-        <Route path='posts/dogs/:id' element={<DogId />} />
-        <Route path='signup' element={<Registration />} />
-        <Route path='login' element={<Authentificate />} />
+        <Routes>
+          <Route path='users/profile/:id' element={<Profile />} />
+          <Route path='users/profile/:id/edit' element={<EditProfile />} />
+          {/* POSTS */}
+          {/* SERVICES */}
+          <Route path='services' element={<Services />} />
+          <Route path='vet' element={<Vet />} />
+          <Route path='findServ' element={<FindServ />} />
+          {/* ABOUT */}
+          <Route path='about' element={<About />} />
+          <Route path='posts' element={<Post />} />
+          <Route path='posts/cats' element={<Cat />} />
+          <Route path='posts/cats/:id' element={<CatId />} />
+          <Route path='posts/dogs' element={<Dog />} />
+          <Route path='posts/dogs/:id' element={<DogId />} />
+          <Route path='signup' element={<Registration />} />
+          <Route path='login' element={<Authentificate />} />
         </Routes >
-         : 
-         // - false
-         <Routes>
-           <Route path='/' element={<MainPage />} />
-           <Route path='posts' element={<Post />} />
-           <Route path='posts/cats' element={<Cat />} />
-           <Route path='posts/cats/:id' element={<CatId />} />
-           <Route path='posts/dogs' element={<Dog />} />
-           <Route path='posts/dogs/:id' element={<DogId />} />
-           <Route path='signup' element={<Registration />} />
-           <Route path='login' element={<Authentificate />} />
-         </Routes >
+        :
+        // - false
+        <Routes>
+          <Route path='/' element={<MainPage />} />
+          <Route path='posts' element={<Post />} />
+          <Route path='posts/cats' element={<Cat />} />
+          <Route path='posts/cats/:id' element={<CatId />} />
+          <Route path='posts/dogs' element={<Dog />} />
+          <Route path='posts/dogs/:id' element={<DogId />} />
+          <Route path='signup' element={<Registration />} />
+          <Route path='login' element={<Authentificate />} />
+        </Routes >
       }
     </div >
   );

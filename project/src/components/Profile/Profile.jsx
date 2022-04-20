@@ -76,9 +76,11 @@ export default function Profile() {
                 </form> */}
               </div>
 
-              <button className="btn-change-data">
-                <Link className="btn-change-data-link" to={`/users/profile/${id}/edit`}>ИЗМЕНИТЬ ДАННЫЕ</Link>
-              </button>
+              <Link className="btn-change-data-link" to={`/users/profile/${id}/edit`}>
+                <button className="btn-change-data">
+                  ИЗМЕНИТЬ ДАННЫЕ
+                </button>
+              </Link>
             </div>
           </div>
         </div>
