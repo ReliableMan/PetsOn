@@ -73,7 +73,7 @@ export default function DogId() {
         <form className="comment" onSubmit={handleCommentSubmit}>
           <textarea className="comment-textarea" name="text" cols="50" rows="5"></textarea>
           <button type="submit" className="comment-button btn btn-light live">
-
+          </button>
         </form>
       </>
       : null
