@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./services.css";
 
 import { useNavigate, useParams } from "react-router-dom";
@@ -30,9 +30,13 @@ export default function Services() {
   const submitHandler = async (e) => {
     e.preventDefault();
       dispatch(serviceSent({inputs, service }));
-      dispatch(clearInputsServices());
       navigate(`/findServ`);
     } 
+    
+    useEffect(()=>{
+    dispatch(clearInputsServices());
+
+  },[])
 
 
   return (
@@ -74,13 +78,10 @@ export default function Services() {
         <div className="">
           <label htmlFor="serviceTitle" className="form-label">ПОДРОБНОЕ ОПИСАНИЕ</label>
           <textarea id="serviceDescription" name="description" className="form-textarea"
-          placeholder="Не забудьте оставить контактный номер телефона"
+          placeholder="Введите задание"
             rows="4" cols="50" value={inputs.description ?? ""}
             onChange={changeHandler}>
           </textarea>
-          <div>
-            <p className="textRemember">*Не забудьте оставить контактный номер телефона</p>
-          </div>
         </div>
         <div className="btn-submit-container">
           <button type="submit" className="btn-submit">СОЗДАТЬ</button>

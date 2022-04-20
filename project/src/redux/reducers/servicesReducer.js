@@ -11,6 +11,9 @@ export const userTypingService = (state = initState, action)=>{
       return payload;
     case 'CLEAR_INPUTS_USER_SERVICES':
       return {};
+      case 'CLEAR_INPUTS_SERVICES':
+        console.log('fffffffff');
+        return {};
     default:
       return state;
   }
