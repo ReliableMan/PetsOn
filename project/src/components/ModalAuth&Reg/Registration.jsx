@@ -182,6 +182,7 @@ const Registration = () => {
           <button type="submit" className="btn btn-outline-primary live">Войти</button>
         </div>
       </form>
+
     </div>
 
   );
