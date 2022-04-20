@@ -12,8 +12,8 @@ router.post('/signup', async (req, res) => {
     userPassword } = req.body.inputs;
   const { value, value1 } = req.body;
 
-  console.log('req.body', req.body.inputs);
-  console.log('req.body-->', value, 'req.body-->', value1);
+  //console.log('req.body', req.body.inputs);
+  //console.log('req.body-->', value, 'req.body-->', value1);
 
   try {
     const hashedPass = await bcrypt.hash(userPassword, 15);
@@ -41,7 +41,7 @@ router.post('/signup', async (req, res) => {
       role: user.role,
       speciality: speciality.title
     };
-    console.log(timeCreationUser);
+   // console.log(timeCreationUser);
     res.json(req.session.user);
   } catch (err) {
     console.error('Err message: ', err.message);
@@ -54,7 +54,7 @@ router.post('/signup', async (req, res) => {
 // * авторизация пользователя
 router.post('/signin', async (req, res) => {
   const { userEmail, userPassword } = req.body;
-  console.log('req.body12', req.body);
+  //console.log('req.body12', req.body);
 
   try {
     const user = await User.findOne({ where: { email: userEmail }, raw: true });

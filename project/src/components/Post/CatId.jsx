@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import {useSelector} from "react-redux";
 import axios from "axios";
 import "./post.css";
 
@@ -7,6 +8,8 @@ export default function CatId() {
   const [postCat, setPostCat] = useState([]);
   const { id } = useParams();
   const [comments, setComments] = useState([]);
+  const booleanAuthorized = useSelector((store) => store.isAuthorized); 
+
 
   //   const addHandler = (e) => {
   //   e.preventDefault()
@@ -43,7 +46,7 @@ export default function CatId() {
     event.preventDefault();
 
     const text = event.target.text.value;
-    console.log(text);
+    //console.log(text);
 
 
     return axios
@@ -87,16 +90,18 @@ export default function CatId() {
           <li>{comment.text}</li>
           
         ))}
-        <button onClick={() => addLike(id)} className="btn btn-success">Like 👍 {postCat.likes}</button>
+        {/* <button onClick={() => addLike(id)} className="btn btn-success">Like 👍 {postCat.likes}</button> */}
       </ul>
-
+      {booleanAuthorized ? 
+<>
       <h5>Оставьте комментарий</h5>
-      <form onSubmit={handleCommentSubmit}>
+      <form className="comment" onSubmit={handleCommentSubmit}>
         <textarea name="text" cols="50" rows="5"></textarea>
-        <button type="submit" className="btn btn-light">
-          Сохранить комментарий
-        </button>
+        <button type="submit" class="btn btn-light">Сохранить комментарий</button>
       </form>
+</>
+      : null
+} 
     </div>
   );
 }

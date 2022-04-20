@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import {useSelector} from "react-redux";
 import axios from "axios";
 import "./post.css";
 
@@ -7,6 +8,7 @@ export default function DogId() {
   const [postDog, setPostDog] = useState([]);
   const { id } = useParams();
   const [comments, setComments] = useState([]);
+  const booleanAuthorized = useSelector((store) => store.isAuthorized); 
 
   useEffect(() => {
     axios.get(`http://localhost:3903/posts/${id}`).then((PostsDog) => {
@@ -29,7 +31,7 @@ export default function DogId() {
     event.preventDefault()
 
     const text = event.target.text.value
-    console.log(text);
+    //console.log(text);
 
     // // TODD call api (axios) to create a comment for the post with id postCat.id (POST http://..../posts/${postCat.id}/comemnts)
    
@@ -64,12 +66,16 @@ export default function DogId() {
       <ul>
         {comments.map(comment => <li>{comment.text}</li>)}
       </ul>
-
+{booleanAuthorized ? 
+<>
       <h5>Оставьте комментарий</h5>
-      <form onSubmit={handleCommentSubmit}>
+      <form className="comment" onSubmit={handleCommentSubmit}>
         <textarea name="text" cols="50" rows="5"></textarea>
-        <button type="submit">Сохранить комментарий</button>
+        <button type="submit" class="btn btn-light">Сохранить комментарий</button>
       </form>
+</>
+      : null
+} 
     </div>
   );
 }

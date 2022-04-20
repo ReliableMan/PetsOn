@@ -8,7 +8,7 @@ export default function Cat() {
 
   useEffect(() => {
     axios.get("http://localhost:3903/posts/cats").then((allPostsCat) => {
-      console.log(allPostsCat);
+      //console.log(allPostsCat);
 
       const arr = [];
       allPostsCat.data.forEach((i) => arr.push(i.title));
