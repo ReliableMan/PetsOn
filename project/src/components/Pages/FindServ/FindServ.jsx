@@ -44,13 +44,12 @@ export default function FindServ() {
           <div>{service.price}</div>
           <div>{service.description}</div>
           <div><button type="submit" class="btn btn-light" onClick={submitHandler}>Выполнить услугу</button></div>
-
             </>
           )})}</div>
           {/* <div>{services.map((service)=>(<div>{service.title}</div>))}</div>
           <div>{services.map((service)=>(<div>{service.price}</div>))}</div>
           <div>{services.map((service)=>(<div>{service.description}</div>))}</div>
-          <div><input type="checkbox" onClick={submitHandler}/></div> */}
+          <div>{services.map((service)=><button type="submit" class="btn btn-light" onClick={submitHandler}>Выполнить услугу</button>))}</div> */}
         </div>
       </div>
     </>
