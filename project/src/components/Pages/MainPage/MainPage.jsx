@@ -16,40 +16,42 @@ export default function MainPage() {
 
   return (
     <div className="mainPage">
-      <h1 className="text_title">Сделано с заботой о животных</h1>
-      <h1 className="text_main">
-        Комфортная среда для животных и их владельцев
-      </h1>
+      <div className="titles">
+        <h1 className="text_title">Сделано с заботой о животных</h1>
+        <h1 className="text_main">
+          Комфортная среда для животных и их владельцев
+        </h1>
+      </div>
       <a className="catdog">
         <img src="images/main.png" alt="logoMain" style={{ width: "15rem" }} />
       </a>
       <div className="ContsinerTitleOurServices">
-      <p className="titleOurServices">Наши услуги</p>
+        <p className="titleOurServices">Наши услуги</p>
       </div>
       <div className="container_link">
         <Link className="card" to="/services">
-          <img src="images/walk.png" alt="logoCard" />
+          <img className="img-card" src="images/walk.png" alt="logoCard" />
         </Link>
         <Link className="card" to="/vet">
-          <img src="images/vet.png" alt="logoCard" />
+          <img className="img-card" src="images/vet.png" alt="logoCard" />
         </Link>
         <Link className="card" to="/services">
-          <img src="images/groom.png" alt="logoCard" />
+          <img className="img-card" src="images/groom.png" alt="logoCard" />
         </Link>
         <Link className="card" to="/services">
-          <img src="images/other.png" alt="logoCard" />
+          <img className="img-card" src="images/other.png" alt="logoCard" />
         </Link>
       </div>
-    <div className="findServMain">
-        <Link  to="/findServ">
+      <div className="findServMain">
+        <Link to="/findServ">
           <img className="findServ" src="images/btnFind.png" alt="findServ" />
         </Link>
-    </div>
+      </div>
       {/* <button><Link to="/findServ">НАЙТИ УСЛУГУ</Link></button> */}
       <div className="container_friend">
-      <a href="https://www.friendforpet.ru" >
+        <a href="https://www.friendforpet.ru" >
           <img className="findAFriend" src="images/findAFriend.png" alt="logofindAFriend" />
-      </a> 
+        </a>
         {/* <img
           src="images/fri.jpeg"
           alt="logoFriend"
@@ -63,13 +65,13 @@ export default function MainPage() {
         </button> */}
       </div>
       <footer>
-          <div className="newsletter">
-            <p className="textNewsletter">Подпишись на рассылку новостей</p>
-            <div className="btnAndInputNewsletter">
-              <input className="inputNewsletterText" type="text" value={inputValue} onChange={handleUserInput}/>
-            <button className="btnNewsletter" onClick={resetInputField} >Подписаться</button>
-            </div>
+        <div className="newsletter">
+          <p className="textNewsletter">Подпишись на рассылку новостей</p>
+          <div className="btnAndInputNewsletter">
+            <input className="inputNewsletter" />
+            <button className="btnNewsletter">Подписаться</button>
           </div>
+        </div>
         <div className="footer_body">
           <div>
             <img className="footer_img"
@@ -90,8 +92,6 @@ export default function MainPage() {
             <a className="textFooterLinks" href="https://webelement.ru/user_agreement/">ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ </a>
           </div>
         </div>
-
-        
       </footer>
     </div>
   );

@@ -24,21 +24,13 @@ export default function Post() {
       <h1 className="text-title">О ком будем читать?</h1>
 
       <div className="container-link">
-        <Link className="cat" to="/posts/cats">
+        <Link className="pet-icon" to="/posts/cats">
           <img src="images/cat.png" alt="logoCat" style={{ width: "20rem" }} />
         </Link>
-        <Link className="dog" to="/posts/dogs">
+        <Link className="pet-icon" to="/posts/dogs">
           <img src="images/dog.png" alt="logoCat" style={{ width: "20rem" }} />
         </Link>
       </div>
-
-      {/* <div className="container-post">
-        {post.map((el) => (
-          <Link className="post" key={el.id} to="/posts/`${id}`">
-            {el.title}
-          </Link>
-        ))}
-      </div> */}
     </div>
   );
 }

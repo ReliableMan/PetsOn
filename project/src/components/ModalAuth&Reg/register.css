@@ -1,0 +1,77 @@
+* {
+  font-family: 'Inter';
+  /* background: #F1F1FF;  */
+}
+
+/* MAIN CONTAINER */
+.register {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  height: 650px;
+  left: 231px;
+  top: 130px;
+}
+
+/* REG AND AUTH HEADINGS */
+.header {
+  margin-top: 10px;
+  padding-top: 7px;
+}
+
+.header1 {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* INPUTS CONTAINERS  */
+.inputs-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 480px) {
+  .inputs-container {
+    display: block;
+  }
+}
+
+.category-container {
+  width: 40%;
+  gap: 2rem;
+}
+
+.birth-input {
+  width: 40%;
+  
+}
+
+label {
+  letter-spacing: 2px;
+  padding-top: 30px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;;
+}
+
+/* EFFECTS */
+.live {
+  background-color: rgb(248, 249, 250);
+  animation: pulse 1700ms infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: #e9e9ec 0 0 0 0;
+  }
+
+  75% {
+    box-shadow: rgb(195, 146, 224) 0 0 0 5px;
+  }
+}

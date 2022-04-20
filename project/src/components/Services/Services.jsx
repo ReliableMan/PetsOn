@@ -84,7 +84,7 @@ export default function Services() {
           </textarea>
         </div>
         <div className="btn-submit-container">
-          <button type="submit" className="btn-submit">СОЗДАТЬ</button>
+          <button type="submit" className="btn-submit live">СОЗДАТЬ</button>
         </div>
       </form>
     </div>
