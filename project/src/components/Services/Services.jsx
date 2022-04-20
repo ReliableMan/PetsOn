@@ -39,7 +39,7 @@ export default function Services() {
   return (
     <div className="services">
       <form onSubmit={submitHandler}>
-        <div className="heading">ОСТАВЬТЕ ЗАЯВКУ НА УСЛУГУ</div>
+        <h1 className="heading">ОСТАВЬТЕ ЗАЯВКУ НА УСЛУГУ</h1>
         <div className="">
           <label htmlFor="serviceTitle" className="form-label">НАЗВАНИЕ УСЛУГИ</label>
           <input type="text" name="title" id="serviceTitle"

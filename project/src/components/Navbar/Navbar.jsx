@@ -1,9 +1,9 @@
-import React from "react";
-import { Link, useParams } from "react-router-dom";
-import { logoutUser, setUser } from "../../redux/actions/userActions";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { logoutUser, setUser } from "../../redux/actions/userActions";
 import "./navbar.css";
+import "../../App.css"
 
 
 export default function Navbar() {
@@ -11,8 +11,8 @@ export default function Navbar() {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const booleanAuthorized = useSelector((store) => store.isAuthorized);
-  const { id } = useParams();
-  console.log ('id', user.id)
+  const { id } = useParams(); // ?
+  // console.log ('id', user.id)
 
   const logoutHandle = (e) => {
     e.preventDefault();
@@ -20,6 +20,28 @@ export default function Navbar() {
     dispatch(setUser());
     navigate("/main");
   };
+
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const json = localStorage.getItem("site-dark-mode");
+    const currentMode = JSON.parse(json);
+    if (currentMode) {
+      setDarkMode(true);
+    } else {
+      setDarkMode(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+    const json = JSON.stringify(darkMode);
+    localStorage.setItem("site-dark-mode", json);
+  }, [darkMode]);
 
   return (
     <div className="container">
@@ -72,36 +94,42 @@ export default function Navbar() {
               </li>
             </ul>
 
-            { booleanAuthorized ?
-            // если true - то выходим
-             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-             <li className="nav-item">
-               <Link className="textReg" to="/signout" onClick={logoutHandle}>
-                 <img
-                   src="images/paw.png"
-                   alt="logo"
-                   style={{ width: "4rem" }}
-                 />
-                 Нажми, чтобы <br></br> выйти
-               </Link>
-             </li>
-           </ul>  
-           
-           :
-           // если false - то заходим
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="textReg" to="/signup">
-                  <img
-                    src="images/paw.png"
-                    alt="logo"
-                    style={{ width: "4rem" }}
-                  />
-                  Нажми, чтобы <br></br> зарегистрироваться
-                </Link>
-              </li>
-            </ul>
+            {booleanAuthorized ?
+              // если true - то выходим
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <Link className="textReg" to="/signout" onClick={logoutHandle}>
+                    <img
+                      src="images/paw.png"
+                      alt="logo"
+                      style={{ width: "4rem" }}
+                    />
+                    Нажми, чтобы <br></br> выйти
+                  </Link>
+                </li>
+              </ul>
+
+              :
+              // если false - то заходим
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <Link className="textReg" to="/signup">
+                    <img
+                      src="images/paw.png"
+                      alt="logo"
+                      style={{ width: "4rem" }}
+                    />
+                    Нажми, чтобы <br></br> зарегистрироваться
+                  </Link>
+                </li>
+              </ul>
             }
+            <button className="light-mode-button"
+              onClick={() => setDarkMode(!darkMode)}>
+              <span></span>
+              <span></span>
+            </button>
+            {/* <h1 className="dark-mode-label">Темная тема</h1> */}
           </div>
         </div>
       </nav>

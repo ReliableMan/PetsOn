@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // import { getState } from 'redux'
@@ -33,28 +33,6 @@ import { useSelector } from 'react-redux';
 
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    const json = localStorage.getItem("site-dark-mode");
-    const currentMode = JSON.parse(json);
-    if (currentMode) {
-      setDarkMode(true);
-    } else {
-      setDarkMode(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-    const json = JSON.stringify(darkMode);
-    localStorage.setItem("site-dark-mode", json);
-  }, [darkMode]);
-
   
   const booleanAuthorized = useSelector((store) => store.isAuthorized);
   
@@ -66,7 +44,6 @@ function App() {
   return (
     <div className='container'>
       <Navbar />
-      <button className="btn btn-light" onClick={() => setDarkMode(!darkMode)}>Темная тема</button>
         {/* USER */}
 
         { booleanAuthorized ?   

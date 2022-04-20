@@ -19,7 +19,6 @@ export default function FindServ() {
       console.log(response)
       const { data: services } = response;
       setServices(services);
-      // setServices(response.data);
     });
   }, []);
 
