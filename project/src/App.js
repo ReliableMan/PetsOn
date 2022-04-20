@@ -72,7 +72,6 @@ function App() {
         { booleanAuthorized ?   
         // - true   
       <Routes>
-        <Route path='/' element={<MainPage />} />
         <Route path='users/profile/:id' element={<Profile />} />
         <Route path='users/profile/:id/edit' element={<EditProfile />} />
         {/* POSTS */}
@@ -93,6 +92,7 @@ function App() {
          : 
          // - false
          <Routes>
+           <Route path='/' element={<MainPage />} />
            <Route path='posts' element={<Post />} />
            <Route path='posts/cats' element={<Cat />} />
            <Route path='posts/cats/:id' element={<CatId />} />
