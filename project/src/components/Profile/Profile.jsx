@@ -7,22 +7,22 @@ export default function Profile() {
 
   const [user, setUser] = useState([]);
   const [services, setServices] = useState([]);
-  const [photo, setPhoto] = useState(null);
+  // const [currentPhoto, setCurrentPhoto] = useState(null);
   const { id } = useParams();
   console.log('id', id)
 
-  const onChange = e => {
-    // console.log(e.target.photo);
-    setPhoto(e.target.photo)
-  };
+  // const onChange = e => {
+  //   // console.log(e.target.photo);
+  //   setPhoto(e.target.photo)
+  // };
 
-  // console.log(photo);
+  // // console.log(photo);
 
-  const onSubmit = async e => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("uploadedPhoto", photo);
-  }
+  // const onSubmit = async e => {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append("uploadedPhoto", photo);
+  // }
 
   useEffect(() => {
     axios.get(`http://localhost:3903/users/profile/${id}`).then((userData) => {
@@ -68,12 +68,12 @@ export default function Profile() {
                   alt="user"
                   width="300px" height="300px"
                 />
-                <form onSubmit={onSubmit}>
+                {/* <form onSubmit={onSubmit}>
                   <input type="file" id="photo" name="uploadedPhoto" className="change-photo"
                     onChange={onChange}
                   />
                   <button type='submit' className="btn-change-photo">ИЗМЕНИТЬ ФОТО</button>
-                </form>
+                </form> */}
               </div>
 
               <button className="btn-change-data">

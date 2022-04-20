@@ -85,7 +85,7 @@ export default function EditProfile() {
                 id="firstName"
                 name="name"
                 className="form-input"
-                value={inputs.name }
+                value={inputs.name}
                 onChange={(e) => dispatch(userUpdateService(e))}
               />
             </div>
