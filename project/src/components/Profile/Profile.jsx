@@ -6,7 +6,7 @@ import "./profile.css";
 export default function Profile() {
 
   const [user, setUser] = useState([]);
-  const [services, setServices] = useState([]);
+  const [servicesState, setServices] = useState([]);
   // const [currentPhoto, setCurrentPhoto] = useState(null);
   const { id } = useParams();
   console.log('id', id)
@@ -32,13 +32,13 @@ export default function Profile() {
 
     axios.get(`http://localhost:3903/services/${id}`)
       .then((response) => {
-        console.log(response)
-        const { data: services } = response;
-        setServices(services);
+        //console.log(response.data, '22222222222222222')
+        // const { services } = response.data;
+        setServices(response.data);
         // setServices(response.data);
       });
-  }, [id]);
-
+  }, []);
+//console.log(servicesState, '1111111111111');
   return (
     <>
       <div className="profile">
@@ -91,8 +91,6 @@ export default function Profile() {
             <table className="container">
               <thead>
                 <tr>
-                  <th>СТАТУС</th>
-                  <th>ID ПОЛЬЗОВАТЕЛЯ</th>
                   <th>НАЗВАНИЕ</th>
                   <th>СТОИМОСТЬ</th>
                   <th>ДАТА СОЗДАНИЯ</th>
@@ -102,11 +100,10 @@ export default function Profile() {
               {/* заготовка */}
               <tbody>
                 <tr className="table-row">
-                  <td>в процессе</td>
-                  <td>7</td>
-                  <td>выгулять Бобика</td>
-                  <td>100</td>
-                  <td>Created at</td>
+                  {/* <td>в процессе</td> */}
+                   <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.title}</div>)) : ''}</td>  
+                   <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.price}</div>)) : ''}</td>
+                  <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.createdAt}</div>)) : ''}</td>
                 </tr>
               </tbody>
               <tfoot>

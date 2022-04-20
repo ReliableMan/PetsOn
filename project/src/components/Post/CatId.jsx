@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import "./post.css";
 
@@ -7,6 +8,17 @@ export default function CatId() {
   const [postCat, setPostCat] = useState([]);
   const { id } = useParams();
   const [comments, setComments] = useState([]);
+  const booleanAuthorized = useSelector((store) => store.isAuthorized);
+
+  //   const addHandler = (e) => {
+  //   e.preventDefault()
+  //   setPostCat(prev => [...prev, likes: 0])
+  // }
+
+  const addLike = (id) => {
+    const likes = 0;
+    setPostCat(postCat.filter((e) => (postCat.likes += 1)));
+  };
 
   useEffect(() => {
     axios.get(`http://localhost:3903/posts/${id}`).then((PostsCat) => {
@@ -33,8 +45,7 @@ export default function CatId() {
     event.preventDefault();
 
     const text = event.target.text.value;
-    console.log(text);
-
+    //console.log(text);
 
     return axios
       .post(
@@ -76,15 +87,21 @@ export default function CatId() {
         {comments.map((comment) => (
           <li className="comment-text">{comment.text}</li>
         ))}
+        {/* <button onClick={() => addLike(id)} className="btn btn-success">Like 👍 {postCat.likes}</button> */}
       </ul>
 
-      <h1>Оставьте комментарий</h1>
-      <form className="comment-form" onSubmit={handleCommentSubmit}>
-        <textarea className="comment-textarea" name="text" cols="50" rows="5"></textarea>
-        <button type="submit" className="comment-button btn btn-light live">
-          Сохранить комментарий
-        </button>
-      </form>
+     {booleanAuthorized ? (
+       <>
+        <h1>Оставьте комментарий</h1>
+        <form className="comment-form" onSubmit={handleCommentSubmit}>
+          <textarea className="comment-textarea" name="text" cols="50" rows="5"></textarea>
+          <button type="submit" className="comment-button btn btn-light live">
+            Сохранить комментарий
+          </button>
+        </form>
+      </>
+      ) : null}
+
     </div>
   );
 }

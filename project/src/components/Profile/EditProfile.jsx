@@ -35,7 +35,7 @@ export default function EditProfile() {
   const submitHandler = async (e) => {
     e.preventDefault();
     
-    console.log("inputs", inputs);
+    //console.log("inputs", inputs);
     //dispatch(userUpdateService({inputs}));
     dispatch(updateUser(inputs, id))
     dispatch(clearUserUpdateServices());

@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   /* font-family: 'Courier New', Courier, monospace; */
-  box-sizing: border-box;
 }
 
 /* CHOOSE CAT OR DOG POSTS */
@@ -145,4 +144,10 @@
   75% {
     box-shadow: rgb(195, 146, 224) 0 0 0 5px;
   }
+}
+
+.btn-light{
+  display: flex;
+  flex-direction:row;
+  width: 150px;
 }

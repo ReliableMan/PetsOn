@@ -8,7 +8,7 @@ export default function Dog() {
 
   useEffect(() => {
     axios.get("http://localhost:3903/posts/dogs").then((allPostsDog) => {
-      console.log(allPostsDog);
+      //console.log(allPostsDog);
 
       const arr = [];
       allPostsDog.data.forEach((i) => arr.push(i.title));
