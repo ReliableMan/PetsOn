@@ -2,43 +2,45 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from 'react-router-dom'
 import axios from "axios";
 import "./profile.css";
-
-export default function Profile() {
-
+export default function Profile(item) {
   const [user, setUser] = useState([]);
   const [servicesState, setServices] = useState([]);
+  
   // const [currentPhoto, setCurrentPhoto] = useState(null);
   const { id } = useParams();
-  console.log('id', id)
+  //console.log('id', id)
+
+const delHandler =(e)=>{
+console.log(e.target.id, 'e.target.id');
+// console.log(servicesState, 'servicesState');
+setServices(servicesState.filter(item=> item.id !== e))
+// const fuck = [...servicesState].filter((fu )=> fu.id !== id)
+// setServices(fuck)
+}
 
   // const onChange = e => {
   //   // console.log(e.target.photo);
   //   setPhoto(e.target.photo)
   // };
-
   // // console.log(photo);
-
   // const onSubmit = async e => {
   //   e.preventDefault();
   //   const formData = new FormData();
   //   formData.append("uploadedPhoto", photo);
   // }
-
   useEffect(() => {
     axios.get(`http://localhost:3903/users/profile/${id}`).then((userData) => {
       const { username, email, first_name, last_name, date_birth, role, photo, description } = userData.data;
       setUser({ username, email, first_name, last_name, date_birth, role, photo, description })
     });
-
     axios.get(`http://localhost:3903/services/${id}`)
       .then((response) => {
-        //console.log(response.data, '22222222222222222')
+       // console.log(response.data, '22222222222222222')
         // const { services } = response.data;
         setServices(response.data);
         // setServices(response.data);
       });
   }, []);
-//console.log(servicesState, '1111111111111');
   return (
     <>
       <div className="profile">
@@ -84,26 +86,25 @@ export default function Profile() {
             </div>
           </div>
         </div>
-
         <div className="user-services">
           <h1 className="heading">МОИ ЗАЯВКИ И УСЛУГИ</h1>
           <div className="myServices">
             <table className="container">
               <thead>
                 <tr>
+                  <th>ID ПОЛЬЗОВАТЕЛЯ</th>
                   <th>НАЗВАНИЕ</th>
                   <th>СТОИМОСТЬ</th>
                   <th>ДАТА СОЗДАНИЯ</th>
                 </tr>
               </thead>
-              {/* тут надо тянуть данные из бд, services */}
-              {/* заготовка */}
+
               <tbody>
                 <tr className="table-row">
-                  {/* <td>в процессе</td> */}
-                   <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.title}</div>)) : ''}</td>  
+                   <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.title}</div>)) : ''}</td>
                    <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.price}</div>)) : ''}</td>
                   <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.createdAt}</div>)) : ''}</td>
+                  <td>{servicesState.length ? servicesState.map((service)=>(<button type="onSubmit" class="btn btn-light" id={service.id} onClick={delHandler}>Удалить</button>)) : ''}</td>
                 </tr>
               </tbody>
               <tfoot>

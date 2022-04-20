@@ -4,5 +4,5 @@ export const initState = {
   user: {},
   userSpeciality: {},
   userServices: {},
-  isAuthorized: false
+  isAuthorized: false,
 };

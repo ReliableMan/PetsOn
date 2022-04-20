@@ -26,6 +26,7 @@ export const clearInputs = () => {
 }
 
 export const clearInputsServices = () => {
+  console.log('dddddddddddddd');
   return { type: 'CLEAR_INPUTS_SERVICES', payload: {} }
 }
 
