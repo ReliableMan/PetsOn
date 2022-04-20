@@ -74,40 +74,42 @@ export default function Navbar() {
                 </Link>
               </li>
             </ul>
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="nav-link" aria-current="page" to="/services">
-                  УСЛУГИ
-                </Link>
-
-              </li>
-            </ul>
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link
-                  className="nav-link"
-                  aria-current="page"
-                  to={`/users/profile/${user.id}`}
-                >
-                  ЛИЧНЫЙ КАБИНЕТ
-                </Link>
-              </li>
-            </ul>
 
             {booleanAuthorized ?
               // если true - то выходим
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <Link className="textReg" to="/signout" onClick={logoutHandle}>
-                    <img
-                      src="images/paw.png"
-                      alt="logo"
-                      style={{ width: "4rem" }}
-                    />
-                    Нажми, чтобы <br></br> выйти
-                  </Link>
-                </li>
-              </ul>
+              <>
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item">
+                    <Link className="nav-link" aria-current="page" to="/services">
+                      УСЛУГИ
+                    </Link>
+
+                  </li>
+                </ul>
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item">
+                    <Link
+                      className="nav-link"
+                      aria-current="page"
+                      to={`/users/profile/${user.id}`}
+                    >
+                      ЛИЧНЫЙ КАБИНЕТ
+                    </Link>
+                  </li>
+                </ul>
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item">
+                    <Link className="textReg" to="/signout" onClick={logoutHandle}>
+                      <img
+                        src="images/paw.png"
+                        alt="logo"
+                        style={{ width: "4rem" }}
+                      />
+                      Нажми, чтобы <br></br> выйти
+                    </Link>
+                  </li>
+                </ul>
+              </>
 
               :
               // если false - то заходим

@@ -70,7 +70,7 @@ export default function CatId() {
 
   return (
     <div className="container_id">
-      <h3>{postCat.title}</h3>
+      <h1>{postCat.title}</h1>
 
       <img
         src={postCat.picture}
@@ -82,24 +82,26 @@ export default function CatId() {
 
       <p className="postText">{postCat.text}</p>
 
-      <h4>Комментарии</h4>
+      <h1>Комментарии</h1>
       <ul>
         {comments.map((comment) => (
-          <li>{comment.text}</li>
+          <li className="comment-text">{comment.text}</li>
         ))}
         {/* <button onClick={() => addLike(id)} className="btn btn-success">Like 👍 {postCat.likes}</button> */}
       </ul>
-      {booleanAuthorized ? (
-        <>
-          <h5>Оставьте комментарий</h5>
-          <form className="comment" onSubmit={handleCommentSubmit}>
-            <textarea name="text" cols="50" rows="5"></textarea>
-            <button type="submit" class="btn btn-light">
-              Сохранить комментарий
-            </button>
-          </form>
-        </>
+
+     {booleanAuthorized ? (
+       <>
+        <h1>Оставьте комментарий</h1>
+        <form className="comment-form" onSubmit={handleCommentSubmit}>
+          <textarea className="comment-textarea" name="text" cols="50" rows="5"></textarea>
+          <button type="submit" className="comment-button btn btn-light live">
+            Сохранить комментарий
+          </button>
+        </form>
+      </>
       ) : null}
+
     </div>
   );
 }

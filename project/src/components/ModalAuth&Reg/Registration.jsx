@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './styleRegister.css';
+import './register.css';
 // import RegType from './RegType';
 
 import { Link, useNavigate } from 'react-router-dom';
@@ -40,7 +40,6 @@ const Registration = () => {
     if (inputs.userPassword === inputs.userPasswordRepeat) {
       dispatch(submitUser({ inputs, value, value1 }));
       dispatch(specInputs({ select, value, value1 }));
-      //console.log('121212121212', { value, value1 });
       dispatch(clearInputs());
       navigate('/')
     } else {
@@ -54,131 +53,143 @@ const Registration = () => {
         <div className='header1'>
           <p> Регистрация ||| <Link to='/login'>Авторизация</Link></p>
         </div>
-        {/* //* -----------------------------------------------------------------------------Фамилия */}
-        <div className="row align-items-center">
-          <div className="col-auto">
-            <label htmlFor="inputLogin" className="col-form-label">Фамилия</label>
+        <div className="inputs-container">
+          {/* //* -----------------------------------------------------------------------------Логин */}
+          <div className="">
+            <div className="col-auto">
+              <label htmlFor="inputLogin" className="col-form-label">Логин</label>
+            </div>
+            <div className="col-auto input-group-sm">
+              <input type="text" name="userName" id="inputUserName"
+                className="form-control" value={inputs.userName ?? ''} onChange={changeHandler}
+                pattern="[A-Za-z]\w+" required />
+            </div>
           </div>
+          <br />
+          {/* //* -----------------------------------------------------------------------------Email */}
+          <div className="">
+            <div className="col-auto">
+              <label htmlFor="inputEmail6" className="col-form-label">Email</label>
+            </div>
+            <div className="col-auto input-group-sm">
 
-          <div className="col-auto input-group-sm inpSur">
-            <input type="text" name="userSurname" id="inputUserSurname"
-              className="form-control inpSurname" value={inputs.userSurname ?? ''} onChange={changeHandler}
-              required />
+              <input type="email" name="userEmail" id="inputUserEmail" placeholder='example@email.com'
+                className="form-control" value={inputs.userEmail ?? ''} onChange={changeHandler}
+                pattern="^[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\.[A-Za-z]{2,}$" required />
+            </div>
           </div>
+          <br />
         </div>
-        <br />
-        {/* //* -----------------------------------------------------------------------------Имя */}
-        <div className="row align-items-center">
-          <div className="col-auto">
-            <label htmlFor="inputLogin" className="col-form-label label2">Имя</label>
-          </div>
 
-          <div className="col-auto input-group-sm inpSur">
-            <input type="text" name="name" id="name"
-              className="form-control inpSurname" value={inputs.name ?? ''} onChange={changeHandler}
-              required />
+        <div className="inputs-container">
+          {/* //* -----------------------------------------------------------------------------Пароль */}
+          <div className="">
+            <div className="col-auto">
+              <label htmlFor="inputPassword6" className="col-form-label">Пароль</label>
+            </div>
+            <div className="col-auto input-group-sm">
+              <input type="password" name="userPassword" id="inputUserPassword"
+                className="form-control" value={inputs.userPassword ?? ''} onChange={changeHandler}
+                required />
+            </div>
           </div>
+          <br />
+          {/* //* -----------------------------------------------------------------------------Повторите пароль */}
+          <div className="">
+            <div className="col-auto">
+              <label htmlFor="inputPassword6" className="col-form-label">Повторите пароль</label>
+            </div>
+            <div className="col-auto input-group-sm">
+              <input type="password" name="userPasswordRepeat" id="inputUserPasswordRepeat"
+                className="form-control" value={inputs.userPasswordRepeat ?? ''} onChange={changeHandler} />
+            </div>
+          </div>
+          <br />
         </div>
-        <br />
+        <div className="inputs-container">
+          {/* //* -----------------------------------------------------------------------------Фамилия */}
+          {/* <div className="row align-items-center"> */}
+          <div className="">
+            <div className="col-auto">
+              <label htmlFor="inputLogin" className="col-form-label">Фамилия</label>
+            </div>
+
+            <div className="col-auto input-group-sm">
+              <input type="text" name="userSurname" id="inputUserSurname"
+                className="form-control inpSurname" value={inputs.userSurname ?? ''} onChange={changeHandler}
+                required />
+            </div>
+          </div>
+          <br />
+          {/* //* -----------------------------------------------------------------------------Имя */}
+          <div className="">
+            <div className="col-auto">
+              <label htmlFor="inputLogin" className="col-form-label">Имя</label>
+            </div>
+
+            <div className="col-auto input-group-sm">
+              <input type="text" name="name" id="name"
+                className="form-control inpSurname" value={inputs.name ?? ''} onChange={changeHandler}
+                required />
+            </div>
+          </div>
+          <br />
+        </div>
+
+        <div className="category-container">
+
+          {/* //* -----------------------------------------------------------------------------Тип учётной записи */}
+          <div className="">
+            <div className="col-auto">
+              <label htmlFor="inputLogin" className="col-form-label">Тип учётной записи</label>
+            </div>
+            {/* //! обработать и записать в базу */}
+            <div className="col-auto input-group-sm">
+              <select onClick={choice1} name="typeUser"
+                className="form-select" aria-label="Default select example">
+                <option value=''>Выберите из списка</option>
+                <option value="Пользователь">Пользователь</option>
+                <option value="Специалист">Специалист</option>
+              </select>
+            </div>
+          </div>
+          {value === "Специалист" ?
+            <>
+              <div className="">
+                <div className="col-auto">
+                  <label htmlFor="inputLogin" className="col-form-label"
+                  >Уточните пожалуйста</label>
+                </div>
+                <div className="col-auto input-group-sm">
+                  <select onClick={choice2} name="typeUser1"
+                    className="form-select" aria-label="Default select example">
+                    <option value=''>Не выбрано</option>
+                    <option value="Выгул домашних животных">Выгул домашних животных</option>
+                    <option value="Стрижка домашних животных">Стрижка домашних животных</option>
+                    <option value='Другое'>Другое</option>
+                  </select>
+                </div>
+              </div>
+            </> : null}
+          <br />
+        </div>
+       
         {/* //* -----------------------------------------------------------------------------Дата рождения */}
-        <div className="row align-items-center">
+        <div className="birth-container">
           <div className="col-auto">
             <label htmlFor="start" className="col-form-label">Дата рождения</label>
           </div>
 
-          <div className="col-auto input-group-sm inpSur">
+          <div className="col-auto input-group-sm">
             <input type="date" name="birthday" min="1960-01-01" max="2020-12-31"
-              className="" value={inputs.birthday ?? ''} onChange={changeHandler}
+              className="birth-input" value={inputs.birthday ?? ''} onChange={changeHandler}
               required />
           </div>
         </div>
         <br />
-        {/* //* -----------------------------------------------------------------------------Тип учётной записи */}
-        <div className="row align-items-center">
-          <div className="col-auto">
-            <label htmlFor="inputLogin" className="col-form-label">Тип учётной записи</label>
-          </div>
-          {/* //! обработать и записать в базу */}
-          <div className="col-auto input-group-sm inpSur">
-            <select onClick={choice1} name="typeUser"
-              className="form-select" aria-label="Default select example">
-              <option value=''>Выберите из списка</option>
-              <option value="Пользователь">Пользователь</option>
-              <option value="Специалист">Специалист</option>
-            </select>
-          </div>
-        </div>
-        {value === "Специалист" ?
-          <>
-            <div className="row align-items-center">
-              <div className="col-auto">
-                <label htmlFor="inputLogin" className="col-form-label"
-                >Уточните пожалуйста</label>
-              </div>
-              <div className="col-auto input-group-sm inpSur">
-                <select onClick={choice2} name="typeUser1"
-                  className="form-select" aria-label="Default select example">
-                  <option value=''>Не выбрано</option>
-                  <option value="Выгул домашних животных">Выгул домашних животных</option>
-                  <option value="Стрижка домашних животных">Стрижка домашних животных</option>
-                  <option value='Другое'>Другое</option>
-                </select>
-              </div>
-            </div>
-          </> : null}
-        <br />
-        {/* //* -----------------------------------------------------------------------------Логин */}
-        <div className="row align-items-center">
-          <div className="col-auto">
-            <label htmlFor="inputLogin" className="col-form-label">Логин</label>
-          </div>
-          <div className="col-auto input-group-sm">
-            <input type="text" name="userName" id="inputUserName"
-              className="form-control inpName" value={inputs.userName ?? ''} onChange={changeHandler}
-              pattern="[A-Za-z]\w+" required />
-          </div>
-        </div>
-        <br />
-        {/* //* -----------------------------------------------------------------------------Email */}
-        <div className="row align-items-center">
-          <div className="col-auto">
-            <label htmlFor="inputEmail6" className="col-form-label">Email</label>
-          </div>
-          <div className="col-auto input-group-sm">
-
-            <input type="email" name="userEmail" id="inputUserEmail" placeholder='example@email.com'
-              className="form-control inpEmail" value={inputs.userEmail ?? ''} onChange={changeHandler}
-              pattern="^[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\.[A-Za-z]{2,}$" required />
-          </div>
-        </div>
-        <br />
-        {/* //* -----------------------------------------------------------------------------Пароль */}
-        <div className="row align-items-center">
-          <div className="col-auto">
-            <label htmlFor="inputPassword6" className="col-form-label">Пароль</label>
-          </div>
-          <div className="col-auto input-group-sm">
-            <input type="password" name="userPassword" id="inputUserPassword"
-              className="form-control inpPass" value={inputs.userPassword ?? ''} onChange={changeHandler}
-              required />
-          </div>
-        </div>
-        <br />
-        {/* //* -----------------------------------------------------------------------------Повторите пароль */}
-        <div className="row align-items-center">
-          <div className="col-auto">
-            <label htmlFor="inputPassword6" className="col-form-label">Повторите пароль</label>
-          </div>
-          <div className="col-auto input-group-sm">
-            <input type="password" name="userPasswordRepeat" id="inputUserPasswordRepeat"
-              className="form-control" value={inputs.userPasswordRepeat ?? ''} onChange={changeHandler} />
-          </div>
-        </div>
-        <br />
-        <div className="col-auto input-group-sm">
-        </div>
+        
         {/* //* -----------------------------------------------------------------------------Войти */}
-        <div className="container but">
+        <div className="button-container">
           <button type="submit" className="btn btn-outline-primary live">Войти</button>
         </div>
       </form>
