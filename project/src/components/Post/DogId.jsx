@@ -79,7 +79,7 @@ export default function DogId() {
       {booleanAuthorized ? (
         <>
           <h1>Оставьте комментарий</h1>
-          <form className="comment" onSubmit={handleCommentSubmit}>
+          <form className="comment-form" onSubmit={handleCommentSubmit}>
             <textarea
               className="comment-textarea"
               name="text"
