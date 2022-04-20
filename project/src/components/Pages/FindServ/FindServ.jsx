@@ -32,6 +32,7 @@ export default function FindServ() {
           <div>НАЗВАНИЕ</div>
           <div>ЦЕНА, p.</div>
           <div>ОПИСАНИЕ</div>
+          <div>ВЫПОЛНЕНИЕ</div>
         </div>
         <div className="container_allServ">
           <div>{services.map((service)=>(<div>{service.createdAt}</div>))}</div>
