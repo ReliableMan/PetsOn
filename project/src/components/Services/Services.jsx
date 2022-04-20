@@ -31,7 +31,8 @@ export default function Services() {
     e.preventDefault();
       dispatch(serviceSent({inputs, service }));
       dispatch(clearInputsServices());
-      navigate(`/users/profile/${id}`);
+      navigate(`/`);
+      // navigate(`/users/profile/${id}`);
     } 
 
 
