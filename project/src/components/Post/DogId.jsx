@@ -71,8 +71,10 @@ export default function DogId() {
       <h1>Комментарии</h1>
       <ul>
         {comments.map((comment) => (
-           <li className="comment-text"><strong>{comment.User.username}</strong> : 
-           {comment.text} </li>
+          <div className="comment-container">
+            <strong>{comment.User.username}: </strong>
+            <div>{comment.text}</div>
+          </div>
         ))}
       </ul>
 

@@ -88,9 +88,7 @@ export default function CatId() {
       <ul className="list-comments">
         {comments.map((comment) => (
           <div className="comment-container">
-            {/* <li className="comment-text"><strong>{comment.User.username}</strong>:
-              {comment.text} </li> */}
-              <strong>{comment.User.username}:</strong>
+              <strong>{comment.User.username}: </strong>
               <div>{comment.text}</div>
           </div>
         ))}
