@@ -31,6 +31,7 @@ export default function FindServ() {
         <div>ОПИСАНИЕ</div>
         <div>ВЫПОЛНЕНИЕ</div>
       </div>
+      
       <div className="container_all">
         <div className="container_allServ">
           <div>{services.map((service) => (<div className="services-table-cell">{service.title}</div>))}</div>
