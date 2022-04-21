@@ -94,7 +94,6 @@ setServices(servicesState.filter(item=> item.id != e.target.id))
                 <tr>
                   <th>НАЗВАНИЕ</th>
                   <th>СТОИМОСТЬ</th>
-                  <th>ДАТА СОЗДАНИЯ</th>
                   <th>ВЫПОЛНЕНО</th>
                 </tr>
               </thead>
@@ -103,7 +102,6 @@ setServices(servicesState.filter(item=> item.id != e.target.id))
                 <tr className="table-row">
                    <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.title}</div>)) : ''}</td>
                    <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.price}</div>)) : ''}</td>
-                  <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.createdAt}</div>)) : ''}</td>
                   <td>{servicesState.length ? servicesState.map((service)=>(<button type="onSubmit" class="btn btn-light" id={service.id} onClick={delHandler}>Удалить</button>)) : ''}</td>
                 </tr>
               </tbody>
