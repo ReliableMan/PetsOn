@@ -8,6 +8,7 @@ import {
   logoutUser,
   userUpdateService,
   updateUser,
+  setAuthorized
 } from "../../redux/actions/userActions";
 
 export default function EditProfile() {
@@ -31,6 +32,7 @@ export default function EditProfile() {
   const changeValue = (e) => {
     setRole(e.target.value);
   };
+  
 
   const submitHandler = async (e) => {
     e.preventDefault();
