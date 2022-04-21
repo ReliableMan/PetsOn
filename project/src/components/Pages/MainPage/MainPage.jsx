@@ -68,8 +68,8 @@ export default function MainPage() {
         <div className="newsletter">
           <p className="textNewsletter">Подпишись на рассылку новостей</p>
           <div className="btnAndInputNewsletter">
-            <input className="inputNewsletter" />
-            <button className="btnNewsletter">Подписаться</button>
+            <input className="inputNewsletter" value={inputValue} onChange={handleUserInput}/>
+            <button className="btnNewsletter" onClick={resetInputField}>Подписаться</button>
           </div>
         </div>
         <div className="footer_body">
