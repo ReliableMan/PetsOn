@@ -30,7 +30,7 @@ export default function Services() {
   const submitHandler = async (e) => {
     e.preventDefault();
     dispatch(serviceSent({inputs, service }));
-    navigate(`/findServ`);
+    navigate(`/`);
   } 
     
   useEffect(()=>{
@@ -63,22 +63,14 @@ export default function Services() {
           <input type="number"
             min="0" max="10000" step="1"
             name="price" id="servicePrice"
+            placeholder="Введите стоимость"
             className="form-input" required="required" value={inputs.price ?? ""}
             onChange={changeHandler} />
         </div>
-        {/* <div>
-            <label htmlFor="currency" className="form-label">ВАЛЮТА</label>
-            <select className="select-currency" name="select-currency" id="currency">
-              <option value="ruble">&#8381;</option>
-              <option value="dollar">&#36;</option>
-              <option value="euro">&euro;</option>
-            </select>
-          </div> */}
-
         <div className="input-container">
           <label htmlFor="serviceTitle" className="form-label">ПОДРОБНОЕ ОПИСАНИЕ</label>
           <textarea id="serviceDescription" name="description" className="form-textarea"
-            placeholder="Не забудьте оставить контактный номер телефона"
+            placeholder="Оставьте описание для исполнителя"
             rows="4" cols="50" value={inputs.description ?? ""}
             onChange={changeHandler}>
           </textarea>

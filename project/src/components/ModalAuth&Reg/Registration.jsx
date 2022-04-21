@@ -61,6 +61,7 @@ const Registration = () => {
             </div>
             <div className="col-auto input-group-sm">
               <input type="text" name="userName" id="inputUserName"
+              placeholder="Введите свой логин"
                 className="form-control" value={inputs.userName ?? ''} onChange={changeHandler}
                 pattern="[A-Za-z]\w+" required />
             </div>
@@ -89,6 +90,7 @@ const Registration = () => {
             </div>
             <div className="col-auto input-group-sm">
               <input type="password" name="userPassword" id="inputUserPassword"
+              placeholder="Введите пароль"
                 className="form-control" value={inputs.userPassword ?? ''} onChange={changeHandler}
                 required />
             </div>
@@ -101,6 +103,7 @@ const Registration = () => {
             </div>
             <div className="col-auto input-group-sm">
               <input type="password" name="userPasswordRepeat" id="inputUserPasswordRepeat"
+              placeholder="Повторите пароль"
                 className="form-control" value={inputs.userPasswordRepeat ?? ''} onChange={changeHandler} />
             </div>
           </div>
@@ -116,6 +119,7 @@ const Registration = () => {
 
             <div className="col-auto input-group-sm">
               <input type="text" name="userSurname" id="inputUserSurname"
+              placeholder="Введите фамилию"
                 className="form-control inpSurname" value={inputs.userSurname ?? ''} onChange={changeHandler}
                 required />
             </div>
@@ -129,6 +133,7 @@ const Registration = () => {
 
             <div className="col-auto input-group-sm">
               <input type="text" name="name" id="name"
+              placeholder="Введите имя"
                 className="form-control inpSurname" value={inputs.name ?? ''} onChange={changeHandler}
                 required />
             </div>

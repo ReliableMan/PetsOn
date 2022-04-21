@@ -56,8 +56,8 @@ export default function EditProfile() {
                 type="text"
                 id="email"
                 name="email"
+                placeholder="Введите новый email"
                 className="form-input"
-                placeholder={user.email}
                 value={inputs.email}
                 onChange={(e) => dispatch(userUpdateService(e))}
               />
@@ -71,7 +71,7 @@ export default function EditProfile() {
                 id="password"
                 name="password"
                 className="form-input"
-                placeholder={user.password}
+                placeholder="Введите новый пароль"
                 value={inputs.password}
                 onChange={(e) => dispatch(userUpdateService(e))}
               />
@@ -88,6 +88,7 @@ export default function EditProfile() {
                 type="text"
                 id="firstName"
                 name="name"
+                placeholder="Введите новое имя"
                 className="form-input"
                 value={inputs.name}
                 onChange={(e) => dispatch(userUpdateService(e))}
@@ -102,6 +103,7 @@ export default function EditProfile() {
                 id="surname"
                 name="userSurname"
                 className="form-input"
+                placeholder="Введите новую фамилию"
                 value={inputs.userSurname}
                 onChange={(e) => dispatch(userUpdateService(e))}
               />
@@ -150,6 +152,7 @@ export default function EditProfile() {
             id="aboutMe"
             name="aboutMe"
             className="form-textarea"
+            placeholder="Введите новое описание"
             value={inputs.aboutMe}
             onChange={(e) => dispatch(userUpdateService(e))}
           ></textarea>

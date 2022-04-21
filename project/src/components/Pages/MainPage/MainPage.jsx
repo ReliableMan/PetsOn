@@ -87,7 +87,7 @@ export default function MainPage() {
           </div>
 
           <div className="footer_links2">
-            <Link className="textFooterLinks" to="/profile">ЛИЧНЫЙ КАБИНЕТ</Link>
+            <Link className="textFooterLinks" to="/users/profile">ЛИЧНЫЙ КАБИНЕТ</Link>
             <a className="textFooterLinks" href='https://support.google.com/chrome/answer/95647?hl=ru&co=GENIE.Platform%3DDesktop'>НАСТРОЙКИ ФАЙЛОВ COOKIE</a>
             <a className="textFooterLinks" href="https://webelement.ru/user_agreement/">ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ </a>
           </div>
