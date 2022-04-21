@@ -11,7 +11,10 @@ export default function Profile(item) {
   //console.log('id', id)
 
 const delHandler =(e)=>{
-console.log(e.target.id, 'e.target.id');
+// console.log(e.target.id, 'e.target.id');
+axios.post ('http://localhost:3903/services/delete', {id}).then((data )=>{
+  console.log('daaata==>', data)
+})
 // console.log(servicesState, 'servicesState');
 setServices(servicesState.filter(item=> item.id != e.target.id))
 // const fuck = [...servicesState].filter((fu )=> fu.id !== id)
