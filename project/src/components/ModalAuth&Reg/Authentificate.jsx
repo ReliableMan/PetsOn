@@ -74,8 +74,9 @@ const Authentificate = () => {
               data-auto_prompt="false">
             </div>
 
-            <label htmlFor="inputEmail6" className="col-form-label">* зарегистрируйтесь с помощью Google</label>
-          <button className="btn_google btn-light " onClick={googleHandler} disabled={loading}>signin with Google</button>
+            {/* <label htmlFor="inputEmail6" className="col-form-label">* зарегистрируйтесь с помощью Google</label>
+          <button className="btn_google btn-light " onClick={googleHandler} disabled={loading}>signin with Google</button> */}
+
             <input
               type="email"
               className="form-input"
