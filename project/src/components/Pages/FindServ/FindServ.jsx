@@ -38,13 +38,10 @@ export default function FindServ() {
       </div>
       <div className="container_all">
         <div className="container_allServ">
-          <div className="table-cell">{services.map((service) => (<div>{service.title}</div>))}</div>
-          <div className="table-cell">{services.map((service) => (<div>{service.price}</div>))}</div>
-          <div className="table-cell">{services.map((service) => (<div>{service.description}</div>))}</div>
-          <div className="btn_find">{services.map((service) =>
-            <button type="submit" class="btn btn-light" id={service.id} onClick={submitHandler}>
-              Выполнить услугу
-            </button>)}</div>
+           <div className='table-cell'>{services.map((service)=>(<div>{service.title}</div>))}</div>
+          <div className='table-cell'>{services.map((service)=>(<div>{service.price}</div>))}</div>
+          <div className='table-cell'>{services.map((service)=>(<div>{service.description}</div>))}</div>
+          <div className="btn_find">{services.map((service)=><button type="submit" className="btn btn-light" id={service.id} onClick={submitHandler}>Выполнить услугу</button>)}</div> 
         </div>
       </div>
     <Modal active={modal} setActive={setModal}>
