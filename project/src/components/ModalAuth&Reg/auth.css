@@ -22,6 +22,26 @@
   justify-content: center;
 }
 
+label {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: rgba(67, 67, 71, 0.47);
+}
+
+.form-input {
+  height: 40px;
+  background: white;
+  border: 1px solid #605e5e;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
 .button-container {
   display: flex;
   justify-content: center;

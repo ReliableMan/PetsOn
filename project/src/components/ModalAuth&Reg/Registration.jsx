@@ -57,12 +57,12 @@ const Registration = () => {
           {/* //* -----------------------------------------------------------------------------Логин */}
           <div className="">
             <div className="col-auto">
-              <label htmlFor="inputLogin" className="col-form-label">Логин</label>
+              <label htmlFor="inputLogin" className="col-form-label">ЛОГИН</label>
             </div>
             <div className="col-auto input-group-sm">
               <input type="text" name="userName" id="inputUserName"
               placeholder="Введите свой логин"
-                className="form-control" value={inputs.userName ?? ''} onChange={changeHandler}
+                className="form-input" value={inputs.userName ?? ''} onChange={changeHandler}
                 pattern="[A-Za-z]\w+" required />
             </div>
           </div>
@@ -70,12 +70,12 @@ const Registration = () => {
           {/* //* -----------------------------------------------------------------------------Email */}
           <div className="">
             <div className="col-auto">
-              <label htmlFor="inputEmail6" className="col-form-label">Email</label>
+              <label htmlFor="inputEmail6" className="col-form-label">EMAIL</label>
             </div>
             <div className="col-auto input-group-sm">
 
               <input type="email" name="userEmail" id="inputUserEmail" placeholder='example@email.com'
-                className="form-control" value={inputs.userEmail ?? ''} onChange={changeHandler}
+                className="form-input" value={inputs.userEmail ?? ''} onChange={changeHandler}
                 pattern="^[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\.[A-Za-z]{2,}$" required />
             </div>
           </div>
@@ -86,12 +86,12 @@ const Registration = () => {
           {/* //* -----------------------------------------------------------------------------Пароль */}
           <div className="">
             <div className="col-auto">
-              <label htmlFor="inputPassword6" className="col-form-label">Пароль</label>
+              <label htmlFor="inputPassword6" className="col-form-label">ПАРОЛЬ</label>
             </div>
             <div className="col-auto input-group-sm">
               <input type="password" name="userPassword" id="inputUserPassword"
               placeholder="Введите пароль"
-                className="form-control" value={inputs.userPassword ?? ''} onChange={changeHandler}
+                className="form-input" value={inputs.userPassword ?? ''} onChange={changeHandler}
                 required />
             </div>
           </div>
@@ -99,12 +99,12 @@ const Registration = () => {
           {/* //* -----------------------------------------------------------------------------Повторите пароль */}
           <div className="">
             <div className="col-auto">
-              <label htmlFor="inputPassword6" className="col-form-label">Повторите пароль</label>
+              <label htmlFor="inputPassword6" className="col-form-label">ПОВТОРИТЕ ПАРОЛЬ</label>
             </div>
             <div className="col-auto input-group-sm">
               <input type="password" name="userPasswordRepeat" id="inputUserPasswordRepeat"
               placeholder="Повторите пароль"
-                className="form-control" value={inputs.userPasswordRepeat ?? ''} onChange={changeHandler} />
+                className="form-input" value={inputs.userPasswordRepeat ?? ''} onChange={changeHandler} />
             </div>
           </div>
           <br />
@@ -114,13 +114,13 @@ const Registration = () => {
           {/* <div className="row align-items-center"> */}
           <div className="">
             <div className="col-auto">
-              <label htmlFor="inputLogin" className="col-form-label">Фамилия</label>
+              <label htmlFor="inputLogin" className="col-form-label">ФАМИЛИЯ</label>
             </div>
 
             <div className="col-auto input-group-sm">
               <input type="text" name="userSurname" id="inputUserSurname"
               placeholder="Введите фамилию"
-                className="form-control inpSurname" value={inputs.userSurname ?? ''} onChange={changeHandler}
+                className="form-input" value={inputs.userSurname ?? ''} onChange={changeHandler}
                 required />
             </div>
           </div>
@@ -128,13 +128,13 @@ const Registration = () => {
           {/* //* -----------------------------------------------------------------------------Имя */}
           <div className="">
             <div className="col-auto">
-              <label htmlFor="inputLogin" className="col-form-label">Имя</label>
+              <label htmlFor="inputLogin" className="col-form-label">ИМЯ</label>
             </div>
 
             <div className="col-auto input-group-sm">
               <input type="text" name="name" id="name"
               placeholder="Введите имя"
-                className="form-control inpSurname" value={inputs.name ?? ''} onChange={changeHandler}
+                className="form-input" value={inputs.name ?? ''} onChange={changeHandler}
                 required />
             </div>
           </div>
@@ -146,7 +146,7 @@ const Registration = () => {
           {/* //* -----------------------------------------------------------------------------Тип учётной записи */}
           <div className="">
             <div className="col-auto">
-              <label htmlFor="inputLogin" className="col-form-label">Тип учётной записи</label>
+              <label htmlFor="inputLogin" className="col-form-label">ТИП УЧЁТНОЙ ЗАПИСИ</label>
             </div>
             {/* //! обработать и записать в базу */}
             <div className="col-auto input-group-sm">
@@ -158,12 +158,13 @@ const Registration = () => {
               </select>
             </div>
           </div>
+
           {value === "Специалист" ?
             <>
               <div className="">
                 <div className="col-auto">
                   <label htmlFor="inputLogin" className="col-form-label"
-                  >Уточните пожалуйста</label>
+                  >УТОЧНИТЕ ПОЖАЛУЙСТА</label>
                 </div>
                 <div className="col-auto input-group-sm">
                   <select onClick={choice2} name="typeUser1"
@@ -182,7 +183,7 @@ const Registration = () => {
         {/* //* -----------------------------------------------------------------------------Дата рождения */}
         <div className="birth-container">
           <div className="col-auto">
-            <label htmlFor="start" className="col-form-label">Дата рождения</label>
+            <label htmlFor="start" className="col-form-label">ДАТА РОЖДЕНИЯ</label>
           </div>
 
           <div className="col-auto input-group-sm">
@@ -195,7 +196,7 @@ const Registration = () => {
         
         {/* //* -----------------------------------------------------------------------------Войти */}
         <div className="button-container">
-          <button type="submit" className="btn btn-outline-primary live">Войти</button>
+          <button type="submit" className="btn btn-outline-primary live">ВОЙТИ</button>
         </div>
       </form>
 
