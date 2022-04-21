@@ -5,8 +5,8 @@ const { Speciality, User } = require('../db/models');
 router.get('/', async (req, res) => {
   try {
     const services = await Service.findAll()
-    const compareServices = await User.findAll({ include: [{model: Speciality, Service}], where: {id:11} });
-    console.log(compareServices[0].Specialities[0].title);
+    // const compareServices = await User.findAll({ include: [{model: Speciality, Service}], where: {id:11} });
+    // console.log(compareServices[0].Specialities[0].title);
 
     return res.json(services)
   } catch (err) {

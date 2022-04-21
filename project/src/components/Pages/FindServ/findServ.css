@@ -38,13 +38,18 @@
   
 } 
 
-.container_all{
+.table-cell {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 110px;
+  height: auto;
+  padding: 5px 5px;
 }
 
-.btn_find{
+
+/* .btn_find{
   line-height: 5;
 
-}
-
+} */
