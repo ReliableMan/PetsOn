@@ -5,6 +5,7 @@ import { loginFormReducer } from './loginReducer';
 import { specialityReducer } from './userSpecialReducer'
 import { userTypingService } from './servicesReducer';
 import { secureReducer } from './routeSecureReducer';
+import { sun_moon_mode } from './modeReducer';
 
 
 export const rootReducer = combineReducers({
@@ -14,4 +15,5 @@ export const rootReducer = combineReducers({
   userSpeciality: specialityReducer,
   userServices: userTypingService,
   isAuthorized: secureReducer,
+  darkMode: sun_moon_mode,
 });

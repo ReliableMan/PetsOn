@@ -1,11 +1,6 @@
-import React from 'react';
+
+import React from 'react'
 import { Routes, Route } from 'react-router-dom';
-
-// import { getState } from 'redux'
-
-//  const API_KEY = process.env.REACT_APP_API_KEY;
-//  console.log(API_KEY);
-
 import Navbar from './components/Navbar/Navbar';
 import MainPage from './components/Pages/MainPage/MainPage';
 import './App.css';
@@ -23,29 +18,23 @@ import Dog from './components/Post/Dog';
 import Cat from './components/Post/Cat';
 import CatId from './components/Post/CatId';
 import DogId from './components/Post/DogId';
-
 // about component
 import About from './components/About/About';
-
 import Vet from './components/Services/Vet';
 import { useSelector } from 'react-redux';
+// import { Route, Link, Switch, Redirect, useLocation } from 'react-router-dom';
+// import Context from './components/context';
+
 
 
 
 function App() {
-
+  
   const booleanAuthorized = useSelector((store) => store.isAuthorized);
-
-  // useEffect(() => {
-  //   const check = getState(booleanAuthorized);
-  //   console.log('12222', check)
-  // }, [booleanAuthorized]);
 
   return (
     <div className='container'>
       <Navbar />
-      {/* USER */}
-
       {booleanAuthorized ?
         // - true   
         <Routes>

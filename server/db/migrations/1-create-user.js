@@ -63,6 +63,9 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
+      googleId: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
