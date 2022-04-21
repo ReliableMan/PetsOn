@@ -20,10 +20,11 @@ export default function Vet() {
   // });
   return (
     <div className="vet">
-      <h2>Ветеринарные клиники</h2>
-      <div id="map">Ближайшие ветеринарные клиники</div>
+      <h1>Ветеринарные клиники</h1>
+      <div id="map"><h2>Ближайшие ветеринарные клиники</h2></div>
       <div className="map">
-      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0c2e35233dbe8e0ae6927e5e055b8eb3e7963eeee472c083cf1cbbbb3fd6f89b&amp;source=constructor" width="529" height="470" frameborder="0"></iframe>     </div>
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aadc801913b3f75308c5102adb68af4a28ab335f973669b7fc4d92724dadfbfae&amp;source=constructor" width="1000" height="1000" frameborder="0"></iframe> 
+    </div>
     </div>
   );
 }

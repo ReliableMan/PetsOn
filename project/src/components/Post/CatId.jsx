@@ -1,12 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import "./post.css";
+import { clearInputsServices } from "../../redux/actions/userActions";
 
 export default function CatId() {
   const [postCat, setPostCat] = useState([]);
   const { id } = useParams();
   const [comments, setComments] = useState([]);
+  const booleanAuthorized = useSelector((store) => store.isAuthorized);
+
+  //   const addHandler = (e) => {
+  //   e.preventDefault()
+  //   setPostCat(prev => [...prev, likes: 0])
+  // }
+
+  // const addLike = (id) => {
+  //   const likes = 0;
+  //   setPostCat(postCat.filter((e) => (postCat.likes += 1)));
+  // };
 
   useEffect(() => {
     axios.get(`http://localhost:3903/posts/${id}`).then((PostsCat) => {
@@ -14,14 +27,14 @@ export default function CatId() {
       const { id, picture, title, text } = PostsCat.data;
       //console.log("7777777", picture);
       setPostCat({ id, picture, title, text });
-      //console.log(postCat);
+      //console.log(postCat, 'postCat');
 
       // // TODO call api (axios) to get the comments for this post (GET http://..../posts/${id}/comemnts))
 
       return axios
         .get(`http://localhost:3903/posts/${id}/comments`)
         .then((response) => {
-          console.log(response);
+          // console.log(response, 'response');
           const { data: comments } = response;
 
           setComments(comments);
@@ -33,7 +46,7 @@ export default function CatId() {
     event.preventDefault();
 
     const text = event.target.text.value;
-    console.log(text);
+    //console.log(text);
 
 
     return axios
@@ -59,7 +72,7 @@ export default function CatId() {
 
   return (
     <div className="container_id">
-      <h3>{postCat.title}</h3>
+      <h1>{postCat.title}</h1>
 
       <img
         src={postCat.picture}
@@ -71,20 +84,35 @@ export default function CatId() {
 
       <p className="postText">{postCat.text}</p>
 
-      <h4>Комментарии</h4>
-      <ul>
+      <h1>Комментарии</h1>
+      <ul className="list-comments">
         {comments.map((comment) => (
-          <li>{comment.text}</li>
+          <div className="comment-container">
+            {/* <li className="comment-text"><strong>{comment.User.username}</strong>:
+              {comment.text} </li> */}
+              <strong>{comment.User.username}:</strong>
+              <div>{comment.text}</div>
+          </div>
         ))}
+        {/* <button onClick={() => addLike(id)} className="btn btn-success">Like 👍 {postCat.likes}</button> */}
       </ul>
 
-      <h5>Оставьте комментарий</h5>
-      <form onSubmit={handleCommentSubmit}>
-        <textarea name="text" cols="50" rows="5"></textarea>
-        <button type="submit" className="btn btn-light">
-          Сохранить комментарий
-        </button>
-      </form>
+      {booleanAuthorized ? (
+        <>
+          <h1>Оставьте комментарий</h1>
+          <form className="comment-form" onSubmit={handleCommentSubmit}>
+            <textarea
+              className="comment-textarea"
+              name="text"
+              cols="50"
+              rows="5"
+            ></textarea>
+            <button type="submit" className="comment-button btn btn-light live">
+              Сохранить комментарий
+            </button>
+          </form>
+        </>
+      ) : null}
     </div>
   );
 }

@@ -25,6 +25,7 @@ export const clearInputs = () => {
 }
 
 export const clearInputsServices = () => {
+  console.log('dddddddddddddd');
   return { type: 'CLEAR_INPUTS_SERVICES', payload: {} }
 }
 
@@ -42,7 +43,7 @@ export const setNotAuthorized = () => {
 }
 
 export const userUpdateService = (e) => {
-  console.log(e.target.name, '77777777777');
+  //console.log(e.target.name, '77777777777');
   return { type: 'USER_TYPING_SERVICE', payload: { [e.target.name]: e.target.value } }
 }
 
@@ -80,14 +81,14 @@ export const submitUser = (e) => async (dispatch) => {
     body: JSON.stringify(e)
   });
   const userFromBack = await userRequest.json();
-  console.log(userFromBack);
+  //console.log(userFromBack);
   dispatch(setUser(userFromBack));
   dispatch(setAuthorized())
 }
 
 // отправляем на бэк на нужную ручку, опять сетим(или сохраняем юзера)__авторизация
 export const submitUserLogin = (e) => async (dispatch) => {
-  console.log('eee', e)
+  //console.log('eee', e)
   const userRequest2 = await fetch('http://localhost:3903/auth/signin', {
     method: 'POST',
     credentials: 'include',
@@ -97,7 +98,7 @@ export const submitUserLogin = (e) => async (dispatch) => {
     body: JSON.stringify(e)
   });
   const userLoginFromBack = await userRequest2.json();
-  console.log('1212', userLoginFromBack);
+  //console.log('1212', userLoginFromBack);
   dispatch(setUser(userLoginFromBack))
   dispatch(setAuthorized())
 }
@@ -131,14 +132,12 @@ export const serviceSent = (e) => async (dispatch) => {
     body: JSON.stringify(e)
   });
   const serviceFromBack = await serviceReq.json();
-  console.log('serviceFromBack', serviceFromBack);
+  //console.log('serviceFromBack', serviceFromBack);
   dispatch(setService(serviceFromBack))
 };
 
 
 export const updateUser = (e, id) => async (dispatch) => {
-  //console.log('update user', e)
-  //const { id } = useParams();
   
   const userUpdate = await fetch(`http://localhost:3903/users/profile/${id}/edit`, {
     method: 'PUT',
@@ -149,6 +148,7 @@ export const updateUser = (e, id) => async (dispatch) => {
     body: JSON.stringify(e)
   });
   dispatch(setNotAuthorized())
-  dispatch(clearUserUpdateServices())
+
+const userUpdateFromBack = await userUpdate.json();
 }
 

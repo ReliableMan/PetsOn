@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
@@ -30,50 +31,43 @@ import { useSelector } from 'react-redux';
 function App() {
   
   const booleanAuthorized = useSelector((store) => store.isAuthorized);
-  
-  // useEffect(() => {
-  //   const check = getState(booleanAuthorized);
-  //   console.log('12222', check)
-  // }, [booleanAuthorized]);
 
   return (
     <div className='container'>
       <Navbar />
-        {/* USER */}
-
-        { booleanAuthorized ?   
+      {booleanAuthorized ?
         // - true   
-      <Routes>
-        <Route path='/' element={<MainPage />} />
-        <Route path='users/profile/:id' element={<Profile />} />
-        <Route path='users/profile/:id/edit' element={<EditProfile />} />
-        {/* POSTS */}
-        {/* SERVICES */}
-        <Route path='services' element={<Services />} />
-        <Route path='vet' element={<Vet />} />
-        <Route path='findServ' element={<FindServ />} />
-        {/* ABOUT */}
-        <Route path='about' element={<About />} />
-        <Route path='posts' element={<Post />} />
-        <Route path='posts/cats' element={<Cat />} />
-        <Route path='posts/cats/:id' element={<CatId />} />
-        <Route path='posts/dogs' element={<Dog />} />
-        <Route path='posts/dogs/:id' element={<DogId />} />
-        <Route path='signup' element={<Registration />} />
-        <Route path='login' element={<Authentificate />} />
+        <Routes>
+          <Route path='/' element={<MainPage />} />
+          <Route path='users/profile/:id' element={<Profile />} />
+          <Route path='users/profile/:id/edit' element={<EditProfile />} />
+          {/* POSTS */}
+          {/* SERVICES */}
+          <Route path='services/form' element={<Services />} />
+          <Route path='vet' element={<Vet />} />
+          <Route path='findServ' element={<FindServ />} />
+          {/* ABOUT */}
+          <Route path='about' element={<About />} />
+          <Route path='posts' element={<Post />} />
+          <Route path='posts/cats' element={<Cat />} />
+          <Route path='posts/cats/:id' element={<CatId />} />
+          <Route path='posts/dogs' element={<Dog />} />
+          <Route path='posts/dogs/:id' element={<DogId />} />
+          <Route path='signup' element={<Registration />} />
+          <Route path='login' element={<Authentificate />} />
         </Routes >
-         : 
-         // - false
-         <Routes>
-           <Route path='/' element={<MainPage />} />
-           <Route path='posts' element={<Post />} />
-           <Route path='posts/cats' element={<Cat />} />
-           <Route path='posts/cats/:id' element={<CatId />} />
-           <Route path='posts/dogs' element={<Dog />} />
-           <Route path='posts/dogs/:id' element={<DogId />} />
-           <Route path='signup' element={<Registration />} />
-           <Route path='login' element={<Authentificate />} />
-         </Routes >
+        :
+        // - false
+        <Routes>
+          <Route path='/' element={<MainPage />} />
+          <Route path='posts' element={<Post />} />
+          <Route path='posts/cats' element={<Cat />} />
+          <Route path='posts/cats/:id' element={<CatId />} />
+          <Route path='posts/dogs' element={<Dog />} />
+          <Route path='posts/dogs/:id' element={<DogId />} />
+          <Route path='signup' element={<Registration />} />
+          <Route path='login' element={<Authentificate />} />
+        </Routes >
       }
     </div >
   );

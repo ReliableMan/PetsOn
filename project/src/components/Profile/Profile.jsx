@@ -2,43 +2,48 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from 'react-router-dom'
 import axios from "axios";
 import "./profile.css";
-
-export default function Profile() {
-
+export default function Profile(item) {
   const [user, setUser] = useState([]);
-  const [services, setServices] = useState([]);
+  const [servicesState, setServices] = useState([]);
+  
   // const [currentPhoto, setCurrentPhoto] = useState(null);
   const { id } = useParams();
-  console.log('id', id)
+  //console.log('id', id)
+
+const delHandler =(e)=>{
+// console.log(e.target.id, 'e.target.id');
+axios.post ('http://localhost:3903/services/delete', {id}).then((data )=>{
+  console.log('daaata==>', data)
+})
+// console.log(servicesState, 'servicesState');
+setServices(servicesState.filter(item=> item.id != e.target.id))
+// const fuck = [...servicesState].filter((fu )=> fu.id !== id)
+// setServices(fuck)
+}
 
   // const onChange = e => {
   //   // console.log(e.target.photo);
   //   setPhoto(e.target.photo)
   // };
-
   // // console.log(photo);
-
   // const onSubmit = async e => {
   //   e.preventDefault();
   //   const formData = new FormData();
   //   formData.append("uploadedPhoto", photo);
   // }
-
   useEffect(() => {
     axios.get(`http://localhost:3903/users/profile/${id}`).then((userData) => {
       const { username, email, first_name, last_name, date_birth, role, photo, description } = userData.data;
       setUser({ username, email, first_name, last_name, date_birth, role, photo, description })
     });
-
     axios.get(`http://localhost:3903/services/${id}`)
       .then((response) => {
-        console.log(response)
-        const { data: services } = response;
-        setServices(services);
+       // console.log(response.data, '22222222222222222')
+        // const { services } = response.data;
+        setServices(response.data);
         // setServices(response.data);
       });
-  }, [id]);
-
+  }, []);
   return (
     <>
       <div className="profile">
@@ -76,35 +81,31 @@ export default function Profile() {
                 </form> */}
               </div>
 
-              <button className="btn-change-data">
-                <Link className="btn-change-data-link" to={`/users/profile/${id}/edit`}>ИЗМЕНИТЬ ДАННЫЕ</Link>
-              </button>
+              <Link className="btn-change-data-link" to={`/users/profile/${id}/edit`}>
+                <button className="btn-change-data">
+                  ИЗМЕНИТЬ ДАННЫЕ
+                </button>
+              </Link>
             </div>
           </div>
         </div>
-
         <div className="user-services">
           <h1 className="heading">МОИ ЗАЯВКИ И УСЛУГИ</h1>
           <div className="myServices">
             <table className="container">
               <thead>
                 <tr>
-                  <th>СТАТУС</th>
-                  <th>ID ПОЛЬЗОВАТЕЛЯ</th>
                   <th>НАЗВАНИЕ</th>
                   <th>СТОИМОСТЬ</th>
-                  <th>ДАТА СОЗДАНИЯ</th>
+                  <th>ВЫПОЛНЕНО</th>
                 </tr>
               </thead>
-              {/* тут надо тянуть данные из бд, services */}
-              {/* заготовка */}
+
               <tbody>
                 <tr className="table-row">
-                  <td>в процессе</td>
-                  <td>7</td>
-                  <td>выгулять Бобика</td>
-                  <td>100</td>
-                  <td>Created at</td>
+                   <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.title}</div>)) : ''}</td>
+                   <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.price}</div>)) : ''}</td>
+                  <td>{servicesState.length ? servicesState.map((service)=>(<button type="onSubmit" class="btn btn-light" id={service.id} onClick={delHandler}>Удалить</button>)) : ''}</td>
                 </tr>
               </tbody>
               <tfoot>

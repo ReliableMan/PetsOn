@@ -1,33 +1,36 @@
-*{
+* {
   font-family: 'Inter', sans-serif;
   /* margin-bottom: 20px; */
 }
 
-.login{
-  margin-top: 3rem; 
+/* MAIN CONTAINER */
+.login {
   display: flex;
   justify-content: center;
-  height: 300px;
-  left: 231px;
-  top: 130px;
-  background: #F1F1FF;
   border-radius: 40px;
 }
-.header{
+
+/* REG AND AUTH HEADINGS */
+.header {
   margin-top: 10px;
   padding-top: 7px;
 }
-.header1{
+
+.header1 {
   font-size: 20px;
   display: flex;
   justify-content: center;
 }
-.but{
+
+.button-container {
   display: flex;
-  justify-content: end;
+  justify-content: center;
+  margin-top: 20px;;
 }
-.live{
-  background-color: rgb(248,249,250);
+
+/* EFFECTS */
+.live {
+  background-color: rgb(248, 249, 250);
   animation: pulse 1700ms infinite;
 }
 
@@ -35,8 +38,8 @@
   0% {
     box-shadow: #e9e9ec 0 0 0 0;
   }
+
   75% {
-    box-shadow:rgb(195, 146, 224) 0 0 0 5px;
+    box-shadow: rgb(195, 146, 224) 0 0 0 5px;
   }
 }
-

@@ -16,7 +16,6 @@ router.get('/', async (req, res) => {
   try {
     const posts = await Post.findAll();
 
-    return res.json(posts)
   } catch (err) {
     console.log(err);
     res.sendStatus(500)
@@ -69,6 +68,7 @@ router.post('/:postId/comments', async (req, res) => {
       const { params: { postId } } = req
 
       const user = await User.findOne({ where: { id: userId }, raw: true })
+      //console.log('user', user.username);
       const post = await Post.findOne({ where: { id: postId }, raw: true })
 
       if (!user) {
@@ -79,8 +79,9 @@ router.post('/:postId/comments', async (req, res) => {
         const { body: { text } } = req
 
         const comment = await Comment.create({ user_id: userId, post_id: postId, text, date: new Date })
+        //console.log(user.name, 'username');
+        res.status(201).json({ comment, username: user.name })
 
-        res.status(201).json(comment)
       }
     }
 
@@ -92,11 +93,18 @@ router.post('/:postId/comments', async (req, res) => {
 router.get('/:postId/comments', async (req, res) => {
   // TODO read all the comments for the post with id postId 
   try {
-    const { params: { postId } } = req
+    const { params: { postId} } = req
 
-    const comments = await Comment.findAll({ where: { post_id: postId } })
+    const comments = await Comment.findAll({
+      where: { post_id: postId },
+      include: {
+        model: User,
+          //  where: { username: userName }
+          attributes: ['username'] 
+       }
+    })
 
-    return res.json(comments)
+    return res.json(comments).status(202)
   } catch (error) {
     res.status(400).json({ error: error.message })
   }

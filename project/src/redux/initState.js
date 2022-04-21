@@ -5,6 +5,7 @@ export const initState = {
   userSpeciality: {},
   userServices: {},
   isAuthorized: false,
+
   darkMode: false,
   // доделать редьюсеры, 
   // подписаться в рутредьюсерах, 

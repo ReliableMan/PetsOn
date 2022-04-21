@@ -35,7 +35,7 @@ export default function EditProfile() {
   const submitHandler = async (e) => {
     e.preventDefault();
     
-    console.log("inputs", inputs);
+    //console.log("inputs", inputs);
     //dispatch(userUpdateService({inputs}));
     dispatch(updateUser(inputs, id));
     dispatch(logoutUser());
@@ -45,8 +45,8 @@ export default function EditProfile() {
     <div className="edit-profile">
       <form onSubmit={submitHandler}>
         <h1 className="heading">ИЗМЕНЕНИЕ ДАННЫХ</h1>
-        <div className="name-birth-role-container">
-          <div className="name-container">
+        
+          <div className="inputs-container">
             <div>
               <label htmlFor="email" className="form-label">
                 EMAIL
@@ -55,8 +55,8 @@ export default function EditProfile() {
                 type="text"
                 id="email"
                 name="email"
+                placeholder="Введите новый email"
                 className="form-input"
-                placeholder={user.email}
                 value={inputs.email}
                 onChange={(e) => dispatch(userUpdateService(e))}
               />
@@ -70,11 +70,15 @@ export default function EditProfile() {
                 id="password"
                 name="password"
                 className="form-input"
-                placeholder={user.password}
+                placeholder="Введите новый пароль"
                 value={inputs.password}
                 onChange={(e) => dispatch(userUpdateService(e))}
               />
             </div>
+          </div>
+
+          <div className="inputs-container">
+
             <div>
               <label htmlFor="firstName" className="form-label">
                 ИМЯ
@@ -83,6 +87,7 @@ export default function EditProfile() {
                 type="text"
                 id="firstName"
                 name="name"
+                placeholder="Введите новое имя"
                 className="form-input"
                 value={inputs.name}
                 onChange={(e) => dispatch(userUpdateService(e))}
@@ -97,11 +102,13 @@ export default function EditProfile() {
                 id="surname"
                 name="userSurname"
                 className="form-input"
+                placeholder="Введите новую фамилию"
                 value={inputs.userSurname}
                 onChange={(e) => dispatch(userUpdateService(e))}
               />
             </div>
           </div>
+          
           <div className="birth-role-container">
             <div>
               <label htmlFor="birthday" className="form-label">
@@ -134,7 +141,7 @@ export default function EditProfile() {
               </select>
             </div> */}
           </div>
-        </div>
+        
         <div>
           <label htmlFor="aboutMe" className="form-label">
             РЕДАКТИРОВАТЬ ОПИСАНИЕ
@@ -144,12 +151,13 @@ export default function EditProfile() {
             id="aboutMe"
             name="aboutMe"
             className="form-textarea"
+            placeholder="Введите новое описание"
             value={inputs.aboutMe}
             onChange={(e) => dispatch(userUpdateService(e))}
           ></textarea>
         </div>
         <div className="btn-save-changes-container">
-          <button type="submit" className="btn-save-changes">
+          <button type="submit" className="btn-save-changes live">
             СОХРАНИТЬ ИЗМЕНЕНИЯ
           </button>
         </div>
