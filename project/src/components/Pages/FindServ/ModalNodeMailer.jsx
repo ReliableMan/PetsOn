@@ -28,6 +28,8 @@ import { useNavigate } from "react-router-dom";
   <div className="col-auto">
     <button type="submit" className="btn btn-light " onClick={navigateHadler}>Отправить</button>
   </div>
+  <div className="col-auto">
+  </div>
 </form>
 </div>
 </div>
