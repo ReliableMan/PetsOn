@@ -39,28 +39,67 @@
   }
 }
 
-.category-container {
-  width: 40%;
-  gap: 2rem;
+/* LABELS AND INPUTS */
+
+label {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: rgba(67, 67, 71, 0.47);
+}
+
+.form-input {
+  height: 40px;
+  border: 1px solid #605e5e;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+.form-select {
+  height: 40px;
+  width: 42%;
+  border-radius: 5px;
+  border: 1px solid #000000;
+}
+
+@media screen and (max-width: 480px) {
+  .form-select {
+    width: 100%;
+  }
 }
 
 .birth-input {
-  width: 40%;
-  
+  height: 40px;
+  width: 42%;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  padding-left: 5px;
 }
 
-label {
-  letter-spacing: 2px;
-  padding-top: 30px;
+@media screen and (max-width: 480px) {
+  .birth-input {
+    width: 100%;
+  }
 }
+
+/* BUTTON */
 
 .button-container {
   display: flex;
   align-items: center;
-  margin-top: 20px;;
+  margin-top: 20px;
+  ;
 }
 
 /* EFFECTS */
+
 .live {
   background-color: rgb(248, 249, 250);
   animation: pulse 1700ms infinite;

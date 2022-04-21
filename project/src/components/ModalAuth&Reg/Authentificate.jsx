@@ -64,14 +64,22 @@ const Authentificate = () => {
         <br />
         <div>
           <div className="col-auto input-group-sm">
+
+            <div id="g_id_onload"
+              data-client_id={googleClient}
+              data-login_uri={urlLogin}
+              data-auto_prompt="false">
+            </div>
+            <br />
+            <label htmlFor="inputEmail6" className="col-form-label">EMAIL</label>
+
        
           <button onClick={googleHandler} disabled={loading}>Google auth strategy</button>
       <br />
-            <label htmlFor="inputEmail6" className="col-form-label">Email</label>
-
+ 
             <input
               type="email"
-              className="form-control "
+              className="form-input"
               name="userEmail"
               placeholder="example@email.com"
               value={inputs.userEmail ?? ""}
@@ -82,11 +90,11 @@ const Authentificate = () => {
 
         <div>
           <div className="col-auto input-group-sm">
-            <label htmlFor="inputPassword6" className="col-form-label">Пароль</label>
+            <label htmlFor="inputPassword6" className="col-form-label">ПАРОЛЬ</label>
             <input
               type="password"
               id="inputPassword6"
-              className="form-control"
+              className="form-input"
               name="userPassword"
               placeholder="Пароль"
               value={inputs.userPassword ?? ""}
