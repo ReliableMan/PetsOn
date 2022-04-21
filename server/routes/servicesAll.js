@@ -27,6 +27,8 @@ router.get('/:serviceId', async (req, res) => {
    }
 })
 
+
+
 router.post('/new', async (req, res) => {
   const {
     title, price, description
@@ -56,6 +58,15 @@ router.post('/new', async (req, res) => {
 
   console.log('req.body', req.body.inputs);
   // console.log('req.body-->', service);
+})
+
+router.post ('/delete', async (req, res) => {
+  const {id} = req.body;
+   console.log(req.body)
+   const serviceDel = await Service.findOne ({where: { user_id: id }});
+   console.log(serviceDel, 'serviceDel');
+   await serviceDel.destroy();
+   res.sendStatus(200);
 })
 
 module.exports = router;
