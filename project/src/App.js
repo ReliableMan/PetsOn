@@ -54,7 +54,7 @@ function App() {
           <Route path='users/profile/:id/edit' element={<EditProfile />} />
           {/* POSTS */}
           {/* SERVICES */}
-          <Route path='services' element={<Services />} />
+          <Route path='services/form' element={<Services />} />
           <Route path='vet' element={<Vet />} />
           <Route path='findServ' element={<FindServ />} />
           {/* ABOUT */}

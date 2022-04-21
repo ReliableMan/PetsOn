@@ -24,9 +24,9 @@ export default function CatId() {
   useEffect(() => {
     axios.get(`http://localhost:3903/posts/${id}`).then((PostsCat) => {
       //console.log(PostsCat);
-      const { id, picture, title, text} = PostsCat.data;
+      const { id, picture, title, text } = PostsCat.data;
       //console.log("7777777", picture);
-      setPostCat({ id, picture, title, text});
+      setPostCat({ id, picture, title, text });
       //console.log(postCat, 'postCat');
 
       // // TODO call api (axios) to get the comments for this post (GET http://..../posts/${id}/comemnts))
@@ -34,10 +34,10 @@ export default function CatId() {
       return axios
         .get(`http://localhost:3903/posts/${id}/comments`)
         .then((response) => {
-         // console.log(response, 'response');
+          // console.log(response, 'response');
           const { data: comments } = response;
 
-          setComments(comments );
+          setComments(comments);
         });
     });
   }, []);
@@ -47,7 +47,7 @@ export default function CatId() {
 
     const text = event.target.text.value;
     //console.log(text);
-    
+
 
     return axios
       .post(
@@ -85,10 +85,14 @@ export default function CatId() {
       <p className="postText">{postCat.text}</p>
 
       <h1>Комментарии</h1>
-      <ul>
+      <ul className="list-comments">
         {comments.map((comment) => (
-          <li className="comment-text"><strong>{comment.User.username}</strong> : 
-          {comment.text} </li>
+          <div className="comment-container">
+            {/* <li className="comment-text"><strong>{comment.User.username}</strong>:
+              {comment.text} </li> */}
+              <strong>{comment.User.username}:</strong>
+              <div>{comment.text}</div>
+          </div>
         ))}
         {/* <button onClick={() => addLike(id)} className="btn btn-success">Like 👍 {postCat.likes}</button> */}
       </ul>

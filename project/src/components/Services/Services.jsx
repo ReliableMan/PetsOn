@@ -30,7 +30,7 @@ export default function Services() {
   const submitHandler = async (e) => {
     e.preventDefault();
     dispatch(serviceSent({inputs, service }));
-    navigate(`/`);
+    navigate(`/findServ`);
   } 
     
   useEffect(()=>{
