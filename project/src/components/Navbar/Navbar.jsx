@@ -74,10 +74,6 @@ export default function Navbar() {
                 </Link>
               </li>
             </ul>
-
-            {booleanAuthorized ?
-              // если true - то выходим
-              <>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   <li className="nav-item">
                     <Link className="nav-link" aria-current="page" to="/services">
@@ -97,6 +93,9 @@ export default function Navbar() {
                     </Link>
                   </li>
                 </ul>
+                {booleanAuthorized ?
+              // если true - то выходим
+              <>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   <li className="nav-item">
                     <Link className="textReg" to="/signout" onClick={logoutHandle}>

@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const bodyParser = require('body-parser');
+
 const cors = require('cors');
 const morgan = require('morgan');
 
@@ -31,9 +31,9 @@ dbcheck();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(morgan('dev'));
+
 
 app.use((req, res, next) => {
   const accessList = [
