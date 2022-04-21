@@ -17,9 +17,15 @@
 }
 
 .header1 {
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 42px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.72);
+  padding-top: 15px;
+
 }
 
 label {
@@ -62,4 +68,16 @@ label {
   75% {
     box-shadow: rgb(195, 146, 224) 0 0 0 5px;
   }
+}
+
+.for_req{
+  margin-top: 10%;
+}
+
+.p_text{
+  text-decoration: none;
+}
+
+.btn_google{
+  margin-bottom: 5%;
 }
