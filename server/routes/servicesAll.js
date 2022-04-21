@@ -54,8 +54,8 @@ router.post('/findServ', async (req,res) => {
 router.get('/', async (req, res) => {
   try {
     const services = await Service.findAll()
-    const compareServices = await User.findAll({ include: [{model: Speciality, Service}], where: {id:11} });
-    console.log(compareServices[0].Specialities[0].title);
+    // const compareServices = await User.findAll({ include: [{model: Speciality, Service}], where: {id:11} });
+    // console.log(compareServices[0].Specialities[0].title);
 
     return res.json(services)
   } catch (err) {
@@ -75,6 +75,8 @@ router.get('/:serviceId', async (req, res) => {
      res.sendStatus(500)
    }
 })
+
+
 
 router.post('/new', async (req, res) => {
   const {
@@ -105,6 +107,15 @@ router.post('/new', async (req, res) => {
 
   console.log('req.body', req.body.inputs);
   // console.log('req.body-->', service);
+})
+
+router.post ('/delete', async (req, res) => {
+  const {id} = req.body;
+   console.log(req.body)
+   const serviceDel = await Service.findOne ({where: { user_id: id }});
+   console.log(serviceDel, 'serviceDel');
+   await serviceDel.destroy();
+   res.sendStatus(200);
 })
 
 module.exports = router;

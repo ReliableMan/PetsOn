@@ -67,7 +67,7 @@ export default function DogId() {
         width="500"
         height="auto"
       />
-      <p>{postDog.text}</p>
+      <p className="postText">{postDog.text}</p>
       <h1>Комментарии</h1>
       <ul>
         {comments.map((comment) => (

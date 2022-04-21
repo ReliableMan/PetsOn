@@ -76,7 +76,7 @@ export default function Navbar() {
             </ul>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   <li className="nav-item">
-                    <Link className="nav-link" aria-current="page" to="/services">
+                    <Link className="nav-link" aria-current="page" to="/services/form">
                       УСЛУГИ
                     </Link>
 
