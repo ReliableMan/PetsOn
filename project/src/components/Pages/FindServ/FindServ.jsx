@@ -30,26 +30,31 @@ export default function FindServ() {
     <>
     <div className="container_find">
       <h1>НАЙТИ УСЛУГУ:</h1>
-      <div className="find_header">
-        <div>НАЗВАНИЕ</div>
-        <div>ЦЕНА, p.</div>
-        <div>ОПИСАНИЕ</div>
-        <div>ВЫПОЛНЕНИЕ</div>
+      <div className="myServices">
+        <table className="container services-container">
+          <thead>
+            <tr>
+              <th className="table-head">НАЗВАНИЕ</th>
+              <th className="table-head">ЦЕНА, p.</th>
+              <th className="table-head">ОПИСАНИЕ</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>{services.map((service) => (<div className="services-table-cell">{service.title}</div>))}</td>
+              <td>{services.map((service) => (<div className="services-table-cell">{service.price}</div>))}</td>
+              <td>{services.map((service) => (<div className="services-table-cell">{service.description}</div>))}</td>
+              <td>{services.map((service) =>
+                <button type="submit" className="btn btn-light" id={service.id} onClick={submitHandler}>
+                  Выполнить услугу
+                </button>)}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+          </tfoot>
+        </table>
       </div>
-      
-      <div className="container_all">
-        <div className="container_allServ">
-          <div>{services.map((service) => (<div className="services-table-cell">{service.title}</div>))}</div>
-          <div>{services.map((service) => (<div className="services-table-cell">{service.price}</div>))}</div>
-          <div>{services.map((service) => (<div className="services-table-cell">{service.description}</div>))}</div>
-          <div className="btn_find">{services.map((service) =>
-            <button type="submit" class="btn btn-light" id={service.id} onClick={submitHandler}>
-              Выполнить услугу
-            </button>)}</div>
-        </div>
-      </div>
-    <Modal active={modal} setActive={setModal}>
-    </Modal>
     </div>
     </>
   );

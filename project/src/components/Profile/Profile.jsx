@@ -92,21 +92,19 @@ setServices(servicesState.filter(item=> item.id != e.target.id))
         <div className="user-services">
           <h1 className="heading">МОИ ЗАЯВКИ</h1>
           <div className="myServices">
-            <table className="container">
+            <table className="container services-container">
               <thead>
                 <tr>
-                  <th>НАЗВАНИЕ</th>
-                  <th>СТОИМОСТЬ</th>
+                  <th className="table-head">НАЗВАНИЕ</th>
+                  <th className="table-head">СТОИМОСТЬ</th>
                   <th></th>
                 </tr>
               </thead>
-
               <tbody>
-                <tr className="table-row">
-                   <td>{servicesState.length ? servicesState.map((service)=>(<div className="profile-table-cell">{service.title}</div>)) : ''}</td>
-                   <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.price}</div>)) : ''}</td>
-                   <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.description}</div>)) : ''}</td>
-                  <td>{servicesState.length ? servicesState.map((service)=>(<button type="onSubmit" className="btn btn-light" id={service.id} onClick={delHandler}>Удалить</button>)) : ''}</td>
+                <tr>
+                  <td>{servicesState.length ? servicesState.map((service)=>(<div className="profile-table-cell">{service.title}</div>)) : ''}</td>
+                  <td>{servicesState.length ? servicesState.map((service)=>(<div className="profile-table-cell">{service.price}</div>)) : ''}</td>
+                  <td>{servicesState.length ? servicesState.map((service)=>(<div className="profile-table-cell"><button type="onSubmit" className="btn-delete" id={service.id} onClick={delHandler}>Удалить</button></div>)) : ''}</td>
                 </tr>
               </tbody>
               <tfoot>
