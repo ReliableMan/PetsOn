@@ -5,7 +5,7 @@ import "./profile.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  clearUserUpdateServices,
+  logoutUser,
   userUpdateService,
   updateUser,
 } from "../../redux/actions/userActions";
@@ -37,9 +37,8 @@ export default function EditProfile() {
     
     //console.log("inputs", inputs);
     //dispatch(userUpdateService({inputs}));
-    dispatch(updateUser(inputs, id))
-    dispatch(clearUserUpdateServices());
-    navigate(`/users/profile/${id}`);
+    dispatch(updateUser(inputs, id));
+    dispatch(logoutUser());
   };
 
   return (
