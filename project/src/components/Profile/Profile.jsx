@@ -90,14 +90,14 @@ setServices(servicesState.filter(item=> item.id != e.target.id))
           </div>
         </div>
         <div className="user-services">
-          <h1 className="heading">МОИ ЗАЯВКИ И УСЛУГИ</h1>
+          <h1 className="heading">МОИ ЗАЯВКИ</h1>
           <div className="myServices">
             <table className="container">
               <thead>
                 <tr>
                   <th>НАЗВАНИЕ</th>
                   <th>СТОИМОСТЬ</th>
-                  <th>ВЫПОЛНЕНО</th>
+                  <th>ОПИСАНИЕ</th>
                 </tr>
               </thead>
 
@@ -105,6 +105,7 @@ setServices(servicesState.filter(item=> item.id != e.target.id))
                 <tr className="table-row">
                    <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.title}</div>)) : ''}</td>
                    <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.price}</div>)) : ''}</td>
+                   <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.description}</div>)) : ''}</td>
                   <td>{servicesState.length ? servicesState.map((service)=>(<button type="onSubmit" class="btn btn-light" id={service.id} onClick={delHandler}>Удалить</button>)) : ''}</td>
                 </tr>
               </tbody>

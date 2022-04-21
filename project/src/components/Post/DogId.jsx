@@ -6,9 +6,14 @@ import "./post.css";
 
 export default function DogId() {
   const [postDog, setPostDog] = useState([]);
+  const [inputValue, setInputValue] = useState([]);
   const { id } = useParams();
   const [comments, setComments] = useState([]);
   const booleanAuthorized = useSelector((store) => store.isAuthorized);
+
+  const handleUserInput = (e) => {
+    setInputValue(e.target.value);
+  };
 
   useEffect(() => {
     axios.get(`http://localhost:3903/posts/${id}`).then((PostsDog) => {
@@ -33,6 +38,7 @@ export default function DogId() {
 
     const text = event.target.text.value;
     //console.log(text);
+    setInputValue('');
 
     // // TODD call api (axios) to create a comment for the post with id postCat.id (POST http://..../posts/${postCat.id}/comemnts)
 
@@ -85,6 +91,7 @@ export default function DogId() {
               name="text"
               cols="50"
               rows="5"
+              value={inputValue} onChange={handleUserInput}
             ></textarea>
             <button type="submit" className="comment-button btn btn-light live">
               Сохранить комментарий

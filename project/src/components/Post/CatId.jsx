@@ -7,27 +7,22 @@ import { clearInputsServices } from "../../redux/actions/userActions";
 
 export default function CatId() {
   const [postCat, setPostCat] = useState([]);
+  const [inputValue, setInputValue] = useState([]);
   const { id } = useParams();
   const [comments, setComments] = useState([]);
   const booleanAuthorized = useSelector((store) => store.isAuthorized);
 
-  //   const addHandler = (e) => {
-  //   e.preventDefault()
-  //   setPostCat(prev => [...prev, likes: 0])
-  // }
-
-  // const addLike = (id) => {
-  //   const likes = 0;
-  //   setPostCat(postCat.filter((e) => (postCat.likes += 1)));
-  // };
+  const handleUserInput = (e) => {
+    setInputValue(e.target.value);
+  };
 
   useEffect(() => {
     axios.get(`http://localhost:3903/posts/${id}`).then((PostsCat) => {
-      //console.log(PostsCat);
+
       const { id, picture, title, text } = PostsCat.data;
-      //console.log("7777777", picture);
+
       setPostCat({ id, picture, title, text });
-      //console.log(postCat, 'postCat');
+
 
       // // TODO call api (axios) to get the comments for this post (GET http://..../posts/${id}/comemnts))
 
@@ -47,6 +42,7 @@ export default function CatId() {
 
     const text = event.target.text.value;
     //console.log(text);
+    setInputValue('');
 
 
     return axios
@@ -68,6 +64,7 @@ export default function CatId() {
           });
       })
       .catch((error) => alert(error.message));
+      
   };
 
   return (
@@ -94,7 +91,6 @@ export default function CatId() {
               <div>{comment.text}</div>
           </div>
         ))}
-        {/* <button onClick={() => addLike(id)} className="btn btn-success">Like 👍 {postCat.likes}</button> */}
       </ul>
 
       {booleanAuthorized ? (
@@ -105,9 +101,10 @@ export default function CatId() {
               className="comment-textarea"
               name="text"
               cols="50"
-              rows="5"
+              rows="5" 
+              value={inputValue} onChange={handleUserInput}
             ></textarea>
-            <button type="submit" className="comment-button btn btn-light live">
+            <button type="submit" className="comment-button btn btn-light live"  >
               Сохранить комментарий
             </button>
           </form>
