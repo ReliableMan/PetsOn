@@ -38,6 +38,7 @@ export const specInputs = (item) => {
 export const setAuthorized = () => {
   return { type: 'AUTHORIZED' }
 }
+
 export const setNotAuthorized = () => {
   return { type: 'NOT_AUTHORIZED' }
 }

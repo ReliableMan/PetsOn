@@ -24,8 +24,6 @@ export default function Navbar() {
     fetch('http://localhost:3903/auth/session', {
       credentials: 'include',
     }).then(raw => raw.json())
-      .then(user => dispatch({type: 'SET_USER', payload: user}))
-      .then(user => dispatch(setAuthorized()))
   }, [dispatch]);
 
 
@@ -92,7 +90,17 @@ export default function Navbar() {
               style={{ width: "7rem" }}
             />
           </Link>
-
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
 {/* --------------------Статьи-------------------- */}
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
