@@ -33,12 +33,41 @@ export default function FindServ() {
       </div>
       <div className="container_all">
         <div className="container_allServ">
-           <div>{services.map((service)=>(<div>{service.title}</div>))}</div>
-          <div>{services.map((service)=>(<div>{service.price}</div>))}</div>
-          <div>{services.map((service)=>(<div>{service.description}</div>))}</div>
-          <div className="btn_find">{services.map((service)=><button type="submit" class="btn btn-light" id={service.id} onClick={submitHandler}>Выполнить услугу</button>)}</div> 
+          <div className="table-cell">{services.map((service) => (<div>{service.title}</div>))}</div>
+          <div className="table-cell">{services.map((service) => (<div>{service.price}</div>))}</div>
+          <div className="table-cell">{services.map((service) => (<div>{service.description}</div>))}</div>
+          <div className="btn_find">{services.map((service) =>
+            <button type="submit" class="btn btn-light" id={service.id} onClick={submitHandler}>
+              Выполнить услугу
+            </button>)}</div>
         </div>
       </div>
+
+      {/* 
+      <table className="service-table-container" >
+        <thead className="find_header">
+          <tr>
+            <th><h1>НАЗВАНИЕ</h1></th>
+            <th><h1>ЦЕНА, p</h1></th>
+            <th><h1>ОПИСАНИЕ</h1></th>
+            <th><h1>ВЫПОЛНЕНИЕ</h1></th>
+          </tr>
+        </thead>
+
+        <tbody className="container_all">
+          <tr className="container_allServ">
+            <td>{services.map((service)=>(<div>{service.title}</div>))}</td>
+            <td>{services.map((service)=>(<div>{service.price}</div>))}</td>
+            <td>{services.map((service)=>(<div>{service.description}</div>))}</td>
+            <td>{services.map((service)=>
+            <button type="submit" class="btn btn-light" id={service.id} onClick={submitHandler}>
+              Выполнить услугу
+            </button>)}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+        </tfoot>
+      </table> */}
     </div>
   );
 }

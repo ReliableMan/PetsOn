@@ -5,6 +5,7 @@
 }
 
 /* CHOOSE CAT OR DOG POSTS */
+
 .container-link {
   display: flex;
   justify-content: space-around;
@@ -105,7 +106,23 @@
   flex-direction: column;
 }
 
+.list-comments {
+  margin: 0;
+  padding: 0;
+}
+
+.comment-container {
+  display: flex;
+  margin: 4px 0;
+  background: #E2E5FF;
+  padding: 10px 10px;
+  border-radius: 5px;
+  width: 90%;
+}
+
 .comment-textarea {
+  margin: 0;
+  padding: 0;
   border-radius: 5px;
 }
 
