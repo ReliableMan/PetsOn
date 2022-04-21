@@ -56,9 +56,9 @@ const Authentificate = () => {
   return (
 
     <div className="container login header">
-      <form onSubmit={submitHandler}>
+      <form className='for_req' onSubmit={submitHandler}>
         <div className="header1">
-          <p> Авторизация ||| <Link to='/signup'>Регистрация</Link></p>
+          <p className="p_text"> Авторизация <Link to='/signup'>Регистрация</Link></p>
         </div>
 
         <br />
@@ -66,17 +66,14 @@ const Authentificate = () => {
           <div className="col-auto input-group-sm">
 
             <div id="g_id_onload"
-              data-client_id={googleClient}
-              data-login_uri={urlLogin}
+              data-client_id
+              data-login_uri
               data-auto_prompt="false">
             </div>
-            <br />
-            <label htmlFor="inputEmail6" className="col-form-label">EMAIL</label>
 
-       
-          <button onClick={googleHandler} disabled={loading}>Google auth strategy</button>
-      <br />
- 
+            <label htmlFor="inputEmail6" className="col-form-label">* зарегистрируйтесь с помощью Google</label>
+          <button className="btn_google btn-light " onClick={googleHandler} disabled={loading}>signin with Google</button>
+
             <input
               type="email"
               className="form-input"
@@ -86,7 +83,7 @@ const Authentificate = () => {
               onChange={(event) => dispatch(userTypingLogin(event))} />
           </div>
         </div>
-        <br />
+      
 
         <div>
           <div className="col-auto input-group-sm">

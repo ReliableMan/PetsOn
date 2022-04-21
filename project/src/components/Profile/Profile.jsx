@@ -103,11 +103,10 @@ setServices(servicesState.filter(item=> item.id != e.target.id))
 
               <tbody>
                 <tr className="table-row">
-                  
                    <td>{servicesState.length ? servicesState.map((service)=>(<div className="profile-table-cell">{service.title}</div>)) : ''}</td>
                    <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.price}</div>)) : ''}</td>
                    <td>{servicesState.length ? servicesState.map((service)=>(<div>{service.description}</div>)) : ''}</td>
-                  <td>{servicesState.length ? servicesState.map((service)=>(<button type="onSubmit" class="btn btn-light" id={service.id} onClick={delHandler}>Удалить</button>)) : ''}</td>
+                  <td>{servicesState.length ? servicesState.map((service)=>(<button type="onSubmit" className="btn btn-light" id={service.id} onClick={delHandler}>Удалить</button>)) : ''}</td>
                 </tr>
               </tbody>
               <tfoot>
