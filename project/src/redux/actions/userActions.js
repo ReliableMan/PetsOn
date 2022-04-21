@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom"
 
 // сохраняем юзера
 export const setUser = (data) => {
@@ -54,6 +53,20 @@ export const setUserService = (e) => {
 export const clearUserUpdateServices = () => {
   return { type: 'CLEAR_INPUTS_USER_SERVICES', payload: {} }
 }
+
+// ----------------------------dark mode or sun mode
+
+export const sunMode = () => {
+  // console.log(1)
+  return { type: "SUN"}
+}
+
+export const moonMode = () => {
+  // console.log(2)
+  return { type: "MOON"}
+}
+
+
 
 // отправляем на бэк на нужную ручку, опять сетим(или сохраняем юзера)__регистрация 
 export const submitUser = (e) => async (dispatch) => {
@@ -135,12 +148,7 @@ export const updateUser = (e, id) => async (dispatch) => {
   },
     body: JSON.stringify(e)
   });
-const userUpdateFromBack = await userUpdate.json();
-console.log('vvvvvvvvvvvvvvvvv', userUpdateFromBack);
-if(userUpdateFromBack.ok) {
-  dispatch(setUserService(e))
-  dispatch(setAuthorized())
+  dispatch(setNotAuthorized())
   dispatch(clearUserUpdateServices())
-}
 }
 

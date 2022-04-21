@@ -71,6 +71,9 @@ module.exports = (sequelize, DataTypes) => {
     description: {
       type: DataTypes.TEXT,
     },
+    googleId: {
+      type: DataTypes.STRING,
+    },
   }, {
     sequelize,
     modelName: 'User',

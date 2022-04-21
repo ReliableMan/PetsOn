@@ -1,21 +1,49 @@
 // import React, { useCallback, useEffect } from "react";
 import "./modal.css";
 import React from "react";
+import { useEffect } from 'react';
+import { baseUrl } from "../api/urls";
 
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  userTypingLogin,
-  clearInputs,
-  submitUserLogin,
-} from "../../redux/actions/userActions";
+import { userTypingLogin, clearInputs, submitUserLogin} from "../../redux/actions/userActions";
 
 const Authentificate = () => {
   const inputs = useSelector((store) => store.logInInputs);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const googleClient = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-  const urlLogin = 'http://localhost:3000';
+
+  const [ loading, setLoading ] = React.useState(false);
+  const [isAuth, setAuth] = React.useState(false);
+  const [user, setUser] = React.useState('');
+
+  const setAuthorization = (isAu = false) => {
+    setAuth(isAu);
+  };
+
+  const setUserName = (name = '') => {
+    setUser(name);
+  };
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const isAuth = await (await fetch('/api/auth/check')).json();
+        setAuth(isAuth.session);
+        setUser(isAuth.user);
+      } catch ({ message }) {
+        console.log('Err: ', message);
+      }
+    })();
+  }, []);
+
+  console.log('user:', user);
+  console.log('isAuth:', isAuth);
+
+  const googleHandler = () => {
+    setLoading(true);
+    navigate(`${baseUrl}/api/auth/google`);
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -23,16 +51,6 @@ const Authentificate = () => {
     dispatch(clearInputs());
     navigate("/");
   };
-
-//  useEffect(
-//   window.onload = function () {
-//     google.accounts.id.initialize({
-//       client_id: 'YOUR_GOOGLE_CLIENT_ID',
-//       callback: handleCredentialResponse
-//     });
-//     google.accounts.id.prompt();
-//   }, []);
-  
 
 
   return (
@@ -46,20 +64,8 @@ const Authentificate = () => {
         <br />
         <div className="row align-items-center">
           <div className="col-auto input-group-sm">
-        <div id="g_id_onload"
-         data-client_id={googleClient}
-         data-login_uri={urlLogin}
-         data-auto_prompt="false">
-      </div> 
-
-      <div class="g_id_signin"
-         data-type="standard"
-         data-size="large"
-         data-theme="outline"
-         data-text="sign_in_with"
-         data-shape="rectangular"
-         data-logo_alignment="left">
-      </div>
+       
+          <button onClick={googleHandler} disabled={loading}>Google auth strategy</button>
       <br />
             <input
               type="text"

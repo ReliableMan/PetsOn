@@ -4,5 +4,15 @@ export const initState = {
   user: {},
   userSpeciality: {},
   userServices: {},
-  isAuthorized: false
+  isAuthorized: false,
+  darkMode: false,
+  // доделать редьюсеры, 
+  // подписаться в рутредьюсерах, 
+  // прописать в экшионах запросы, 
+  // прокинуть экшионы в компоненты, 
+  // подписаться селектом и диспатчом инициировать изменения
+  userContext: {},
+  isAuth: false,
+  setUser: {},
+  setAuth: {},
 };

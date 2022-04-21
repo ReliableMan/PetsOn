@@ -1,11 +1,5 @@
-import { useState, useEffect } from 'react';
+import React from 'react'
 import { Routes, Route } from 'react-router-dom';
-
-// import { getState } from 'redux'
-
-//  const API_KEY = process.env.REACT_APP_API_KEY;
-//  console.log(API_KEY);
-
 import Navbar from './components/Navbar/Navbar';
 import MainPage from './components/Pages/MainPage/MainPage';
 import './App.css';
@@ -23,38 +17,17 @@ import Dog from './components/Post/Dog';
 import Cat from './components/Post/Cat';
 import CatId from './components/Post/CatId';
 import DogId from './components/Post/DogId';
-
 // about component
 import About from './components/About/About';
-
 import Vet from './components/Services/Vet';
 import { useSelector } from 'react-redux';
+// import { Route, Link, Switch, Redirect, useLocation } from 'react-router-dom';
+// import Context from './components/context';
+
 
 
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    const json = localStorage.getItem("site-dark-mode");
-    const currentMode = JSON.parse(json);
-    if (currentMode) {
-      setDarkMode(true);
-    } else {
-      setDarkMode(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-    const json = JSON.stringify(darkMode);
-    localStorage.setItem("site-dark-mode", json);
-  }, [darkMode]);
-
   
   const booleanAuthorized = useSelector((store) => store.isAuthorized);
   
@@ -66,12 +39,12 @@ function App() {
   return (
     <div className='container'>
       <Navbar />
-      <button className="btn btn-light" onClick={() => setDarkMode(!darkMode)}>Темная тема</button>
         {/* USER */}
 
         { booleanAuthorized ?   
         // - true   
       <Routes>
+        <Route path='/' element={<MainPage />} />
         <Route path='users/profile/:id' element={<Profile />} />
         <Route path='users/profile/:id/edit' element={<EditProfile />} />
         {/* POSTS */}

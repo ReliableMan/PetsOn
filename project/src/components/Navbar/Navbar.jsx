@@ -1,8 +1,10 @@
 import React from "react";
+import { useEffect } from 'react';
 import { Link, useParams } from "react-router-dom";
 import { logoutUser, setUser } from "../../redux/actions/userActions";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { sunMode, moonMode } from "../../redux/actions/userActions";
 import "./navbar.css";
 
 
@@ -11,8 +13,31 @@ export default function Navbar() {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const booleanAuthorized = useSelector((store) => store.isAuthorized);
+  const dark = useSelector((store) => store.darkMode);
+
   const { id } = useParams();
-  console.log ('id', user.id)
+  // console.log ('id', user.id)
+
+  useEffect(() => {
+    const json = localStorage.getItem("site-dark-mode");
+    const currentMode = JSON.parse(json);
+    if (currentMode) {
+      dispatch(sunMode());
+    } else {
+      dispatch(moonMode());
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (dark) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+    const json = JSON.stringify(dark);
+    localStorage.setItem("site-dark-mode", json);
+  }, [dark]);
+
 
   const logoutHandle = (e) => {
     e.preventDefault();
@@ -71,6 +96,22 @@ export default function Navbar() {
                 </Link>
               </li>
             </ul>
+            { dark ? 
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <img className="icon" aria-hidden="true" onClick={() => dispatch(moonMode())} src="//yastatic.net/weather/i/icons/funky/dark/skc_d.svg" />
+              </li>
+            </ul>
+
+            : 
+
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <img className="icon" aria-hidden="true" onClick={() => dispatch(sunMode())} src="//yastatic.net/weather/i/icons/funky/dark/skc_n.svg" />
+              </li>
+            </ul> 
+             }
+
 
             { booleanAuthorized ?
             // если true - то выходим

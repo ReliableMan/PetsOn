@@ -44,3 +44,8 @@ text-align: left;
 
 color: rgba(0, 0, 0, 0.34);
 }
+
+.icon{
+  width: 45px;
+  height: 45px;
+}
