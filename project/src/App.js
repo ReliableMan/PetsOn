@@ -1,11 +1,6 @@
-import React from 'react';
+
+import React, {useEffect} from 'react'
 import { Routes, Route } from 'react-router-dom';
-
-// import { getState } from 'redux'
-
-//  const API_KEY = process.env.REACT_APP_API_KEY;
-//  console.log(API_KEY);
-
 import Navbar from './components/Navbar/Navbar';
 import MainPage from './components/Pages/MainPage/MainPage';
 import './App.css';
@@ -23,29 +18,33 @@ import Dog from './components/Post/Dog';
 import Cat from './components/Post/Cat';
 import CatId from './components/Post/CatId';
 import DogId from './components/Post/DogId';
-
 // about component
 import About from './components/About/About';
-
 import Vet from './components/Services/Vet';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+// import { setAuthorized } from '../../project/src/redux/actions/userActions';
+// import { Route, Link, Switch, Redirect, useLocation } from 'react-router-dom';
+// import Context from './components/context';
+
 
 
 
 function App() {
-
+  const dispatch = useDispatch();
+  
   const booleanAuthorized = useSelector((store) => store.isAuthorized);
 
   // useEffect(() => {
-  //   const check = getState(booleanAuthorized);
-  //   console.log('12222', check)
-  // }, [booleanAuthorized]);
+  //   fetch('http://localhost:3903/auth/session', {
+  //     credentials: 'include',
+  //   }).then(raw => raw.json())
+  // }, []);
+
+
 
   return (
     <div className='container'>
       <Navbar />
-      {/* USER */}
-
       {booleanAuthorized ?
         // - true   
         <Routes>
@@ -54,7 +53,7 @@ function App() {
           <Route path='users/profile/:id/edit' element={<EditProfile />} />
           {/* POSTS */}
           {/* SERVICES */}
-          <Route path='services/form' element={<Services />} />
+          <Route path='services' element={<Services />} />
           <Route path='vet' element={<Vet />} />
           <Route path='findServ' element={<FindServ />} />
           {/* ABOUT */}

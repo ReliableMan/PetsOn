@@ -1,22 +1,28 @@
 require('dotenv').config();
 const express = require('express');
-const bodyParser = require('body-parser');
+
 const cors = require('cors');
 const morgan = require('morgan');
+const passport = require('passport');
 
-
+require('./db/config/passportGoogle');
 const cookieParser = require('cookie-parser'); // скачиваем либу для работы с куки
 const session = require('express-session'); // создает сессии на экпрессе
 const FileStore = require('session-file-store')(session); // используется для хранения наших сессий
 
 // requiring routes files
 const indexRouter = require('./routes/index');
+const auth2Router = require('./routes/auth2');
 const specialityRouter = require('./routes/specialityRouter');
 const postsRouter = require('./routes/postsRouter');
 const usersRouter = require('./routes/usersRouter');
 const authRouter = require('./routes/auth');
 const vetRouter = require('./routes/vet');
 const servicesRouter = require('./routes/servicesAll');
+// middlewaries
+const userMiddleware = require('./middlewares/user');
+const notFoundMiddleware = require('./middlewares/notfound404');
+const errorMidlleware = require('./middlewares/error')
 // const groomingRouter = require('./routes/grooming')
 // const otherRouter = require('./routes/other')
 // const walkRouter = require('./routes/walking')
@@ -31,9 +37,9 @@ dbcheck();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(morgan('dev'));
+
 
 app.use((req, res, next) => {
   const accessList = [
@@ -45,9 +51,18 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', origin);
     res.header('Access-Control-Allow-Headers', 'Content-type');
     res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Methods', 'POST, PUT, GET, OPTIONS')
   }
   next();
 });
+
+// const corsOptions = {
+//   origin: '*',
+//   methods: 'GET, HEAD, POST, PATCH, UPDATE, PUT, DELETE, OPTIONS',
+//   credentials: true,
+//   allowedHeaders: 'Content-Type, Authorization, X-Requested-With'
+// }
+// app.use(cors(corsOptions))
 
 const sessionConfig = {
   store: new FileStore(), // хранилище для куков - папка с файлами
@@ -75,18 +90,26 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(passport.initialize());
+app.use(passport.session()); //passport.js записывает сессии в req.user
+
+app.use(userMiddleware);
+
 // routes
-app.use('/', indexRouter);
+app.use('/api', indexRouter)
+app.use('/api/auth', auth2Router);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 app.use('/auth', authRouter);
 app.use('/vet', vetRouter)
 app.use('/services', servicesRouter)
-// app.use('/services/grooming', groomingRouter)
-// app.use('/services/other', otherRouter)
-// app.use('/services/walking', walkRouter)
 app.use('/findServ', specialityRouter)
 
+// в случае, если не сработает ни один роут
+app.use(notFoundMiddleware);
+/* в случае, если в каком-то роуте 
+   вызовется ф-я next('some value') с аргументом */
+app.use(errorMidlleware);
 
 
 app.listen(PORT ?? 3003, () => {

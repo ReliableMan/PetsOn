@@ -4,9 +4,94 @@
   top: 130px;
   font-family: 'Inter';
   font-style: normal;
-  margin-top: 3rem; 
+  margin-top: 3rem;
   line-height: 4;
   color: black;
   text-align: center;
 }
 
+.find_header {
+  padding: 15px 15px;
+  display: flex;
+  justify-content: space-between;
+  /* background: #E2E5FF; */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-family: 'Inter';
+  font-size: 20px;
+}
+
+.container_allServ {
+  line-height: 5;
+  padding: 15px 15px;
+  display: flex;
+  justify-content: space-between;
+  background: #E2E5FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-family: 'Inter';
+  font-size: 20px;
+
+}
+
+.container_all {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn_find {
+  line-height: 5;
+}
+
+.services-table-cell {
+  height: auto;
+  max-width: 150px;
+}
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  /* background-color: rgba(223, 198, 219, 0.486); */
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+
+}
+
+.modelContent {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 12px;
+  transform: scale(0.5);
+  transition: 0.4s all;
+  background-color: #e5e8ec;
+  color: white;
+  width: 60vw;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+  z-index: 999;
+}
+
+.modelContent.active {
+  transform: scale(1);
+}
+
+.modalLittle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: black;
+}

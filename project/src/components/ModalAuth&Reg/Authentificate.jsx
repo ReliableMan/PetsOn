@@ -1,21 +1,52 @@
 // import React, { useCallback, useEffect } from "react";
 import "./auth.css";
 import React from "react";
+import { useEffect } from 'react';
+import { baseUrl } from "../api/urls";
 
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  userTypingLogin,
-  clearInputs,
-  submitUserLogin,
-} from "../../redux/actions/userActions";
+import { userTypingLogin, clearInputs, submitUserLogin} from "../../redux/actions/userActions";
 
 const Authentificate = () => {
   const inputs = useSelector((store) => store.logInInputs);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const googleClient = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-  const urlLogin = 'http://localhost:3000';
+
+  // const [ loading, setLoading ] = React.useState(false);
+  // const [isAuth, setAuth] = React.useState(false);
+  // const [user, setUser] = React.useState('');
+
+  // const setAuthorization = (isAu = false) => {
+  //   setAuth(isAu);
+  // };
+
+  // const setUserName = (name = '') => {
+  //   setUser(name);
+  // };
+
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const isAuth = await (await fetch('/api/auth/check')).json();
+  //       setAuth(isAuth.session);
+  //       setUser(isAuth.user);
+  //     } catch ({ message }) {
+  //       console.log('Err: ', message);
+  //     }
+  //   })();
+  // }, []);
+
+  // console.log('user:', user);
+  // console.log('isAuth:', isAuth);
+
+  // const googleHandler = async(e) => {
+  //   e.preventDefault();
+  //   // setLoading(true);
+  //   // navigate(`${baseUrl}/api/auth/google`)
+  //   window.location.href = `${baseUrl}/api/auth/google`
+    
+  // };
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -24,33 +55,27 @@ const Authentificate = () => {
     navigate("/");
   };
 
-  //  useEffect(
-  //   window.onload = function () {
-  //     google.accounts.id.initialize({
-  //       client_id: 'YOUR_GOOGLE_CLIENT_ID',
-  //       callback: handleCredentialResponse
-  //     });
-  //     google.accounts.id.prompt();
-  //   }, []);
 
   return (
 
     <div className="container login header">
-      <form onSubmit={submitHandler}>
+      <form className='for_req' onSubmit={submitHandler}>
         <div className="header1">
-          <p> Авторизация ||| <Link to='/signup'>Регистрация</Link></p>
+          <p className="p_text"> Авторизация <Link to='/signup'>Регистрация</Link></p>
         </div>
 
         <br />
         <div>
           <div className="col-auto input-group-sm">
+
             <div id="g_id_onload"
-              data-client_id={googleClient}
-              data-login_uri={urlLogin}
+              data-client_id
+              data-login_uri
               data-auto_prompt="false">
             </div>
-            <br />
-            <label htmlFor="inputEmail6" className="col-form-label">EMAIL</label>
+
+            <label htmlFor="inputEmail6" className="col-form-label">* зарегистрируйтесь с помощью Google</label>
+          <button className="btn_google btn-light " onClick={googleHandler} disabled={loading}>signin with Google</button>
             <input
               type="email"
               className="form-input"
@@ -60,7 +85,7 @@ const Authentificate = () => {
               onChange={(event) => dispatch(userTypingLogin(event))} />
           </div>
         </div>
-        <br />
+      
 
         <div>
           <div className="col-auto input-group-sm">

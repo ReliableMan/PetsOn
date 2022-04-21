@@ -48,6 +48,12 @@
   color: rgba(0, 0, 0, 0.34);
 }
 
+
+.icon{
+  width: 45px;
+  height: 45px;
+}
+
 .light-mode-button {
   background: 0;
   border: 0;
@@ -87,3 +93,4 @@
   box-shadow: 1px 1px 2px 0 rgb(0 0 0 / 40%);
   transition: .3s;
 }
+

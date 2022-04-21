@@ -49,9 +49,10 @@ const Registration = () => {
 
   return (
     <div className='container header register'>
-      <form onSubmit={submitHandler}>
+      <form  className='for_req'
+      onSubmit={submitHandler}>
         <div className='header1'>
-          <p> Регистрация ||| <Link to='/login'>Авторизация</Link></p>
+          <p className="p_text"> Регистрация <Link to='/login'>Авторизация</Link></p>
         </div>
         <div className="inputs-container">
           {/* //* -----------------------------------------------------------------------------Логин */}

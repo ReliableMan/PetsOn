@@ -5,9 +5,10 @@ import "./profile.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  clearUserUpdateServices,
+  logoutUser,
   userUpdateService,
   updateUser,
+  setAuthorized
 } from "../../redux/actions/userActions";
 
 export default function EditProfile() {
@@ -31,15 +32,15 @@ export default function EditProfile() {
   const changeValue = (e) => {
     setRole(e.target.value);
   };
+  
 
   const submitHandler = async (e) => {
     e.preventDefault();
     
     //console.log("inputs", inputs);
     //dispatch(userUpdateService({inputs}));
-    dispatch(updateUser(inputs, id))
-    dispatch(clearUserUpdateServices());
-    navigate(`/users/profile/${id}`);
+    dispatch(updateUser(inputs, id));
+    dispatch(logoutUser());
   };
 
   return (

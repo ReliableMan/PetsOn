@@ -1,5 +1,5 @@
 const router = require('express').Router();
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
 
 
@@ -35,63 +35,53 @@ router
   })
 
 
-  // USER PROFILE EDIT
-  router
-  // .get(checkUser, checkProtection, async (req, res) => {
+// USER PROFILE EDIT
+router
   .put('/profile/:id/edit', async (req, res, next) => {
-
     const { id } = req.params;
-    //console.log(login, "login");
-    const {name, email, password, userSurname, birthday, aboutMe } = req.body;
-    console.log(req.body, '------');
-    res.json({ok: true}).status(200)
-    
-    //  try {
-    //    const user = await User.findOne({ where: { id }, raw : true });
+    const { name, email, password, userSurname, birthday, aboutMe } = req.body;
+    try {
+      const user = await User.findOne({ where: { id } });
+      const hashedPassword = await bcrypt.hash(password, 10);
+      user.set({
+        username: name,
+        last_name: name,
+        email,
+        password: hashedPassword,
+        first_name: userSurname,
+        date_birth: birthday,
+        description: aboutMe,
+      });
+      await user.save();
 
-    //    console.log(user, 'ppppppppp');
-    //    res.send(user).end()
-    //   //  const hashedPassword = await bcrypt.hash(password, 10);
+      req.session.destroy((err) => {
+        if (err) return next(err);
+        res.clearCookie('myCookiezz');
+      });
       
-    //      user.set({
-    //      login: username, email, first_name, last_name, date_birth, role, description
-    //      });
-      
-    //   //  await user.save();
-      
-    //   //  req.session.destroy((err) => {
-    //   //  if (err) return next(err);
-    //   //  res.clearCookie('Cookie');
-    //   //  console.log('это будет наш юзер===>', user);
-    //   //   // res.sendStatus(200);  * Жизненный цикл заканчивается у ручки
-    //   //   // res.status(200);  * то же самое
-    //   //  res.json({
-    //   //  ok: true,
-    //   //  });
-    //   //  });
-    //    } catch (err) {
-    //    console.error('Err message: ', err.message);
-    //    } 
+    } catch (err) {
+      console.error('Err message: ', err.message);
+    }
   })
 
-   // USER PROFILE PHOTO UPLOAD
-   router
-    .route('/profile/:id/upload')
-    .post(upload.single('photo'), async (req, res) => {
-      try {
-        const { path } = req.file;
-        const photo = path;
-        console.log('req.body', req.body);
-        console.log('req.file', req.file);
-        // const newPhoto = await User.create({ photo });
-        // console.log(newPhoto);
-        // res.redirect(`/users/profile/${id}`);
-      } catch (error) {
-        res.render('error', {
-          message: 'Не удалось добавить запись в базу данных.',
-          error: {}
-        });
-      }
-    });
+// USER PROFILE PHOTO UPLOAD
+router
+  .route('/profile/:id/upload')
+  .post(upload.single('photo'), async (req, res) => {
+    try {
+      const { path } = req.file;
+      const photo = path;
+      console.log('req.body', req.body);
+      console.log('req.file', req.file);
+      // const newPhoto = await User.create({ photo });
+      // console.log(newPhoto);
+      // res.redirect(`/users/profile/${id}`);
+    } catch (error) {
+      res.render('error', {
+        message: 'Не удалось добавить запись в базу данных.',
+        error: {}
+      });
+    }
+  });
 
 module.exports = router;

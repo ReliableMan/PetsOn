@@ -2,16 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./findServ.css";
+import Modal from './ModalNodeMailer'
 
 export default function FindServ() {
   const [services, setServices] = useState([]);
+  const [modal, setModal] = useState(false);
 
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    navigate(`/`);
+  const submitHandler = () => {
+    // e.preventDefault();
+    // navigate(`/`);
+    // console.log('yrrrrrrrr');
+    setModal(true)
   };
 
   useEffect(() => {
@@ -23,6 +27,7 @@ export default function FindServ() {
   }, []);
 
   return (
+    <>
     <div className="container_find">
       <h1>НАЙТИ УСЛУГУ:</h1>
       <div className="myServices">
@@ -51,5 +56,6 @@ export default function FindServ() {
         </table>
       </div>
     </div>
+    </>
   );
 }
