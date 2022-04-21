@@ -5,7 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const passport = require('passport');
 
-
+require('./db/config/passportGoogle');
 const cookieParser = require('cookie-parser'); // скачиваем либу для работы с куки
 const session = require('express-session'); // создает сессии на экпрессе
 const FileStore = require('session-file-store')(session); // используется для хранения наших сессий

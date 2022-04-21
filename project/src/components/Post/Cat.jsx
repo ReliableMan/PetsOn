@@ -2,9 +2,22 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./post.css";
+import { useDispatch } from "react-redux";
+import {
+  setAuthorized
+} from "../../redux/actions/userActions";
 
 export default function Cat() {
   const [postCat, setPostCat] = useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetch('http://localhost:3903/auth/session', {
+      credentials: 'include',
+    }).then(raw => raw.json())
+      .then(user => dispatch({type: 'SET_USER', payload: user}))
+      .then(user => dispatch(setAuthorized()))
+  }, [dispatch]);
 
   useEffect(() => {
     axios.get("http://localhost:3903/posts/cats").then((allPostsCat) => {

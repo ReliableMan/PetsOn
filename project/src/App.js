@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import MainPage from './components/Pages/MainPage/MainPage';
@@ -21,7 +21,8 @@ import DogId from './components/Post/DogId';
 // about component
 import About from './components/About/About';
 import Vet from './components/Services/Vet';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+// import { setAuthorized } from '../../project/src/redux/actions/userActions';
 // import { Route, Link, Switch, Redirect, useLocation } from 'react-router-dom';
 // import Context from './components/context';
 
@@ -29,8 +30,17 @@ import { useSelector } from 'react-redux';
 
 
 function App() {
+  const dispatch = useDispatch();
   
   const booleanAuthorized = useSelector((store) => store.isAuthorized);
+
+  // useEffect(() => {
+  //   fetch('http://localhost:3903/auth/session', {
+  //     credentials: 'include',
+  //   }).then(raw => raw.json())
+  // }, []);
+
+
 
   return (
     <div className='container'>

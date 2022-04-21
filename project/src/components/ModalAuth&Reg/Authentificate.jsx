@@ -13,37 +13,40 @@ const Authentificate = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [ loading, setLoading ] = React.useState(false);
-  const [isAuth, setAuth] = React.useState(false);
-  const [user, setUser] = React.useState('');
+  // const [ loading, setLoading ] = React.useState(false);
+  // const [isAuth, setAuth] = React.useState(false);
+  // const [user, setUser] = React.useState('');
 
-  const setAuthorization = (isAu = false) => {
-    setAuth(isAu);
-  };
+  // const setAuthorization = (isAu = false) => {
+  //   setAuth(isAu);
+  // };
 
-  const setUserName = (name = '') => {
-    setUser(name);
-  };
+  // const setUserName = (name = '') => {
+  //   setUser(name);
+  // };
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const isAuth = await (await fetch('/api/auth/check')).json();
-        setAuth(isAuth.session);
-        setUser(isAuth.user);
-      } catch ({ message }) {
-        console.log('Err: ', message);
-      }
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const isAuth = await (await fetch('/api/auth/check')).json();
+  //       setAuth(isAuth.session);
+  //       setUser(isAuth.user);
+  //     } catch ({ message }) {
+  //       console.log('Err: ', message);
+  //     }
+  //   })();
+  // }, []);
 
-  console.log('user:', user);
-  console.log('isAuth:', isAuth);
+  // console.log('user:', user);
+  // console.log('isAuth:', isAuth);
 
-  const googleHandler = () => {
-    setLoading(true);
-    navigate(`${baseUrl}/api/auth/google`);
-  };
+  // const googleHandler = async(e) => {
+  //   e.preventDefault();
+  //   // setLoading(true);
+  //   // navigate(`${baseUrl}/api/auth/google`)
+  //   window.location.href = `${baseUrl}/api/auth/google`
+    
+  // };
 
   const submitHandler = async (e) => {
     e.preventDefault();
