@@ -90,7 +90,7 @@ setServices(servicesState.filter(item=> item.id != e.target.id))
           </div>
         </div>
         <div className="user-services">
-          <h1 className="heading">МОИ ЗАЯВКИ И УСЛУГИ</h1>
+          <h1 className="heading">МОИ ЗАЯВКИ</h1>
           <div className="myServices">
             <table className="container">
               <thead>
