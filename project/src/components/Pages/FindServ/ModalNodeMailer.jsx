@@ -19,14 +19,14 @@ import { useNavigate } from "react-router-dom";
     onClick={(e) => e.stopPropagation()}>
 <form className="row g-3 modalLittle">
   <div className="col-auto">
-    <p>*Введите e-mail для <br></br> связи с заказчиком</p>
+    <p className='title'>*Введите e-mail для связи с заказчиком</p>
   </div>
   <div className="col-auto">
     <label htmlFor="inputPassword2" className="visually-hidden">Email</label>
     <input type="Email" className="form-control" id="inputPassword2" placeholder="Email"/>
   </div>
   <div className="col-auto">
-    <button type="submit" className="btn btn-light " onClick={navigateHadler}>Отправить</button>
+    <button type="submit" className="btn btn-light butn " onClick={navigateHadler}>Отправить</button>
   </div>
   <div className="col-auto">
   </div>

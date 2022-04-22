@@ -13,17 +13,8 @@ export default function Profile(item) {
   const [user, setUser] = useState([]);
   const [servicesState, setServices] = useState([]);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    fetch('http://localhost:3903/auth/session', {
-      credentials: 'include',
-    }).then(raw => raw.json())
-      .then(user => dispatch({type: 'SET_USER', payload: user}))
-      .then(user => dispatch(setAuthorized()))
-  }, [dispatch]);
-
   
-  
+
   const { id } = useParams();
   
 

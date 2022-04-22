@@ -22,7 +22,7 @@ import DogId from './components/Post/DogId';
 import About from './components/About/About';
 import Vet from './components/Services/Vet';
 import { useSelector, useDispatch } from 'react-redux';
-// import { setAuthorized } from '../../project/src/redux/actions/userActions';
+import { setAuthorized, setNotAuthorized } from '../../project/src/redux/actions/userActions';
 // import { Route, Link, Switch, Redirect, useLocation } from 'react-router-dom';
 // import Context from './components/context';
 
@@ -30,17 +30,21 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 function App() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch(); fetch('http://localhost:3903/auth/session')
   
   const booleanAuthorized = useSelector((store) => store.isAuthorized);
-
-  // useEffect(() => {
-  //   fetch('http://localhost:3903/auth/session', {
-  //     credentials: 'include',
-  //   }).then(raw => raw.json())
-  // }, []);
-
-
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    fetch('http://localhost:3903/auth/session', {
+      credentials: 'include'
+    }).then(response => response.json())
+      .then((user) => {
+        user.length ? dispatch(setNotAuthorized())  : dispatch(setAuthorized())
+        console.log(user)
+      })
+  }, [dispatch]);
+   console.log(booleanAuthorized)
 
   return (
     <div className='container'>

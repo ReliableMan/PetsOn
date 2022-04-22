@@ -43,7 +43,7 @@ export default function FindServ() {
           <div>{services.map((service) => (<div className="services-table-cell">{service.price}</div>))}</div>
           <div>{services.map((service) => (<div className="services-table-cell">{service.description}</div>))}</div>
           <div className="btn_find">{services.map((service) =>
-            <button type="submit" class="btn btn-light" id={service.id} onClick={submitHandler}>
+            <button type="submit" class="btn btn-light butn1" id={service.id} onClick={submitHandler}>
               Выполнить услугу
             </button>)}</div>
         </div>

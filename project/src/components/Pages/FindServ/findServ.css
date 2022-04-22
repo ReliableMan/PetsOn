@@ -61,7 +61,7 @@
 .modal {
   height: 100vh;
   width: 100vw;
-  /* background-color: rgba(223, 198, 219, 0.486); */
+  background-color: rgba(248, 246, 248, 0.397);
   position: fixed;
   top: 0;
   left: 0;
@@ -78,13 +78,13 @@
 .modelContent {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
-  transform: scale(0.5);
+  transform: scale(0.7);
   transition: 0.4s all;
-  background-color: #e5e8ec;
+  background-color: #b9c0e4;
   color: white;
-  width: 60vw;
+  width: 55vw;
 }
 
 .modal.active {
@@ -101,8 +101,59 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: baseline;
   color: black;
 }
+.title{
+  
+}
 
+.butn{
+  background: linear-gradient(-45deg, #4716cc, #3ce73c, #c623d5, #23d5cc);
+	background-size: 400% 400%;
+	animation: animate_gradient 4.5s ease infinite;
+}
+.butn:hover {
+	animation: none;
+}
+@keyframes animate_gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 
-
+/* .btn1{
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgb(126, 179, 105);
+  outline: 2px solid rgb(35, 55, 110);
+  padding: 30px 60px;
+  position: relative;
+  overflow: hidden;
+  transition: color 1s;
+}
+.btn1:hover{
+  color: #833ab4;
+}
+.butn1::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -500px;
+  width: 0;
+  height: 100%;
+  background-color: rgb(199, 79, 145);
+  transform: skewX(35deg);
+  z-index: -1;
+  transition: width 1s;
+}
+.butn1:hover::before{
+  width: 500%;
+} */

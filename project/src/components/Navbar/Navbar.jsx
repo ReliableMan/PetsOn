@@ -20,11 +20,11 @@ export default function Navbar() {
 
   const { id } = useParams();
   
-  useEffect(() => {
-    fetch('http://localhost:3903/auth/session', {
-      credentials: 'include',
-    }).then(raw => raw.json())
-  }, [dispatch]);
+  // useEffect(() => {
+  //   fetch('http://localhost:3903/auth/session', {
+  //     credentials: 'include',
+  //   }).then(raw => raw.json())
+  // }, [dispatch]);
 
 
   useEffect(() => {
@@ -150,20 +150,6 @@ export default function Navbar() {
 
              }
 
-{/*                   
-                </ul>
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link"
-                      aria-current="page"
-                      to={`/users/profile/${user.id}`}
-                    >
-                      ЛИЧНЫЙ КАБИНЕТ
-                    </Link>
-                  </li>
-                </ul> */}
-
                 {booleanAuthorized ?
               // если true - то выходим
               <>
@@ -196,12 +182,6 @@ export default function Navbar() {
                 </li>
               </ul>
             }
-{/* //             <button className="light-mode-button" */}
-{/* //               onClick={() => setDarkMode(!darkMode)}> */}
-{/* //               <span></span> */}
-{/* //               <span></span> */}
-{/* //             </button> */}
-{/* //             <h1 className="dark-mode-label">Темная тема</h1> */}
           </div>
         </div>
       </nav>
