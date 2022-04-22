@@ -64,13 +64,37 @@ router.post('/signin', async (req, res) => {
       req.session.user = {
         id: user.id,
         name: user.username,
-        email: user.userEmail,
+        email: user.email,
+        role: user.role,
       };
+      console.log(12121212)
     }
+    
     res.json(req.session.user);
+    console.log(req.session.user)
   } catch (err) {
+
     console.error('Err message: ', err.message);
     console.error('Err code: ', err.code);
+  }
+});
+
+// // * получить информацию о текущей сессии
+// router.get('/session', (req, res) => {
+//   // console.log(req.session.user);
+//   if (!req.session.user) {
+//     res.json({ok: false});
+//   } else {
+//     res.json(req.session.user);
+//   }
+// });
+
+router.get('/session', (req, res) => {
+  // console.log(req.session.user);
+  if (!req.session.user) {
+    res.json(req.session.user);
+  } else {
+    res.json(req.session.user);
   }
 });
 
@@ -81,12 +105,10 @@ router.get('/signout', (req, res) => {
   res.status(200).end();
 });
 
-// * получить информацию о текущей сессии
-router.get('/session', (req, res) => {
-  if (!req.session.user) {
-    req.session.user = {};
-  }
-  res.json(req.session.user);
+
+router.get('/clear', (req, res) => {
+  res.clearCookie('myCookiezz');
+  res.status(200).json({ok: true});
 });
 
 module.exports = router;

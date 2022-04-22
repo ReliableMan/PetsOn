@@ -3,21 +3,17 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./findServ.css";
 import Modal from './ModalNodeMailer'
-
 export default function FindServ() {
   const [services, setServices] = useState([]);
   const [modal, setModal] = useState(false);
-
   const navigate = useNavigate();
   const { id } = useParams();
-
   const submitHandler = () => {
     // e.preventDefault();
     // navigate(`/`);
     // console.log('yrrrrrrrr');
     setModal(true)
   };
-
   useEffect(() => {
     axios.get("http://localhost:3903/services").then((response) => {
       //console.log(response)
@@ -25,7 +21,6 @@ export default function FindServ() {
       setServices(services);
     });
   }, []);
-
   return (
     <>
     <div className="container_find">
@@ -39,7 +34,6 @@ export default function FindServ() {
               <th className="table-head">ОПИСАНИЕ</th>
             </tr>
           </thead>
-
           <tbody>
             <tr>
               <td>{services.map((service) => (<div className="services-table-cell">{service.title}</div>))}</td>

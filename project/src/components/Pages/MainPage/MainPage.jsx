@@ -10,6 +10,7 @@ export default function MainPage() {
     setInputValue(e.target.value);
   };
 
+
   const resetInputField = () => {
     setInputValue('');
   };
