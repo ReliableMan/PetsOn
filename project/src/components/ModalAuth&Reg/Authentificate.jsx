@@ -13,7 +13,7 @@ const Authentificate = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const [ loading, setLoading ] = React.useState(false);
+  const [ loading, setLoading ] = React.useState(false);
   // const [isAuth, setAuth] = React.useState(false);
   // const [user, setUser] = React.useState('');
 
@@ -40,13 +40,13 @@ const Authentificate = () => {
   // console.log('user:', user);
   // console.log('isAuth:', isAuth);
 
-  // const googleHandler = async(e) => {
-  //   e.preventDefault();
-  //   // setLoading(true);
-  //   // navigate(`${baseUrl}/api/auth/google`)
-  //   window.location.href = `${baseUrl}/api/auth/google`
+  const googleHandler = async(e) => {
+    e.preventDefault();
+    // setLoading(true);
+    // navigate(`${baseUrl}/api/auth/google`)
+    window.location.href = `${baseUrl}/api/auth/google`
     
-  // };
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();

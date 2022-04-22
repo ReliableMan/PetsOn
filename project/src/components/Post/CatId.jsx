@@ -93,7 +93,7 @@ export default function CatId() {
 
       {booleanAuthorized ? (
         <>
-          <h1>Оставьте комментарий</h1>
+          <h1 className="title-comment-form">Оставьте комментарий</h1>
           <form className="comment-form" onSubmit={handleCommentSubmit}>
             <textarea
               className="comment-textarea"

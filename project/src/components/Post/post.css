@@ -101,6 +101,10 @@
   }
 }
 
+.title-comment-form {
+  margin: 15px 0;
+}
+
 .comment-form {
   display: flex;
   flex-direction: column;

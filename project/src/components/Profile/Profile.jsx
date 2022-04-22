@@ -7,6 +7,8 @@ import {
   setAuthorized
 } from "../../redux/actions/userActions";
 
+import Uploady from "@rpldy/uploady";
+import UploadButton from "@rpldy/upload-button";
 
 
 export default function Profile(item) {
@@ -18,21 +20,21 @@ export default function Profile(item) {
     fetch('http://localhost:3903/auth/session', {
       credentials: 'include',
     }).then(raw => raw.json())
-      .then(user => dispatch({type: 'SET_USER', payload: user}))
+      .then(user => dispatch({ type: 'SET_USER', payload: user }))
       .then(user => dispatch(setAuthorized()))
   }, [dispatch]);
 
-  
-  
-  const { id } = useParams();
-  
 
-const delHandler =(e)=>{
-axios.post ('http://localhost:3903/services/delete', {id}).then((data )=>{
-  console.log('daaata==>', data)
-})
-setServices(servicesState.filter(item=> item.id != e.target.id))
-}
+
+  const { id } = useParams();
+
+
+  const delHandler = (e) => {
+    axios.post('http://localhost:3903/services/delete', { id }).then((data) => {
+      console.log('daaata==>', data)
+    })
+    setServices(servicesState.filter(item => item.id != e.target.id))
+  }
 
   useEffect(() => {
     axios.get(`http://localhost:3903/users/profile/${id}`).then((userData) => {
@@ -73,6 +75,14 @@ setServices(servicesState.filter(item=> item.id != e.target.id))
                   alt="user"
                   width="300px" height="300px"
                 />
+
+
+                <Uploady
+                  destination={{ url: "http://localhost:3903/users/profile/upload" }}>
+                  <UploadButton />
+                </Uploady>
+
+
                 {/* <form onSubmit={onSubmit}>
                   <input type="file" id="photo" name="uploadedPhoto" className="change-photo"
                     onChange={onChange}
@@ -102,9 +112,9 @@ setServices(servicesState.filter(item=> item.id != e.target.id))
               </thead>
               <tbody>
                 <tr>
-                  <td>{servicesState.length ? servicesState.map((service)=>(<div className="profile-table-cell">{service.title}</div>)) : ''}</td>
-                  <td>{servicesState.length ? servicesState.map((service)=>(<div className="profile-table-cell">{service.price}</div>)) : ''}</td>
-                  <td>{servicesState.length ? servicesState.map((service)=>(<div className="profile-table-cell"><button type="onSubmit" className="btn-delete" id={service.id} onClick={delHandler}>Удалить</button></div>)) : ''}</td>
+                  <td>{servicesState.length ? servicesState.map((service) => (<div className="profile-table-cell">{service.title}</div>)) : ''}</td>
+                  <td>{servicesState.length ? servicesState.map((service) => (<div className="profile-table-cell">{service.price}</div>)) : ''}</td>
+                  <td>{servicesState.length ? servicesState.map((service) => (<div className="profile-table-cell"><button type="onSubmit" className="btn-delete" id={service.id} onClick={delHandler}>Удалить</button></div>)) : ''}</td>
                 </tr>
               </tbody>
               <tfoot>

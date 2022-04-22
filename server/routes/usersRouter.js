@@ -4,16 +4,16 @@ const { User } = require('../db/models');
 
 
 // MULTER
-const multer = require('multer');
-const fileStorageEngine = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './public/uploads')
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + "--" + file.originalname)
-  }
-})
-const upload = multer({ storage: fileStorageEngine });
+// const multer = require('multer');
+// const fileStorageEngine = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, './public/uploads')
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, Date.now() + "--" + file.originalname)
+//   }
+// })
+// const upload = multer({ storage: fileStorageEngine });
 // MULTER 
 
 
@@ -66,22 +66,42 @@ router
 
 // USER PROFILE PHOTO UPLOAD
 router
-  .route('/profile/:id/upload')
-  .post(upload.single('photo'), async (req, res) => {
-    try {
-      const { path } = req.file;
-      const photo = path;
-      console.log('req.body', req.body);
-      console.log('req.file', req.file);
-      // const newPhoto = await User.create({ photo });
-      // console.log(newPhoto);
-      // res.redirect(`/users/profile/${id}`);
-    } catch (error) {
-      res.render('error', {
-        message: 'Не удалось добавить запись в базу данных.',
-        error: {}
-      });
+  .route('/profile/upload')
+  // .post(upload.single('photo'), async (req, res) => {
+  //   try {
+  //     const { path } = req.file;
+  //     const photo = path;
+  //     console.log('req.body', req.body);
+  //     console.log('req.file', req.file);
+  //     // const newPhoto = await User.create({ photo });
+  //     // console.log(newPhoto);
+  //     // res.redirect(`/users/profile/${id}`);
+  //   } catch (error) {
+  //     res.render('error', {
+  //       message: 'Не удалось добавить запись в базу данных.',
+  //       error: {}
+  //     });
+  //   }
+  // });
+
+  .post((req, res) => {
+
+    if (!req.files) {
+        return res.status(500).send({ msg: "file is not found" })
     }
-  });
+        // accessing the file
+    const myFile = req.files.file;
+
+    //  mv() method places the file inside public directory
+    myFile.mv(`${__dirname}/public/${myFile.name}`, function (err) {
+        if (err) {
+            console.log(err)
+            return res.status(500).send({ msg: "Error occured" });
+        }
+        // returing the response with file path and name
+        return res.send({name: myFile.name, path: `/${myFile.name}`});
+    });
+})
+
 
 module.exports = router;
