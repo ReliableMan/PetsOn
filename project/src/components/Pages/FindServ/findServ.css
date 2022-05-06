@@ -121,13 +121,13 @@
 	}
 }
 
-/* .btn1{
+.btn1{
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: rgb(126, 179, 105);
   outline: 2px solid rgb(35, 55, 110);
-  padding: 30px 60px;
+  padding: 20px 40px;
   position: relative;
   overflow: hidden;
   transition: color 1s;
@@ -149,5 +149,5 @@
 }
 .butn1:hover::before{
   width: 500%;
-} */
+}
 

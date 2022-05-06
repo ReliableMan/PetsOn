@@ -12,9 +12,6 @@ router.post('/signup', async (req, res) => {
     userPassword } = req.body.inputs;
   const { value, value1 } = req.body;
 
-  //console.log('req.body', req.body.inputs);
-  //console.log('req.body-->', value, 'req.body-->', value1);
-
   try {
     const hashedPass = await bcrypt.hash(userPassword, 15);
     const user = await User.create({
@@ -41,12 +38,11 @@ router.post('/signup', async (req, res) => {
       role: user.role,
       speciality: speciality.title
     };
-   // console.log(timeCreationUser);
+   
     res.json(req.session.user);
   } catch (err) {
     console.error('Err message: ', err.message);
     console.error('Err code: ', err.code);
-
     res.status(500).json({ error: err.message })
   }
 });
@@ -54,7 +50,6 @@ router.post('/signup', async (req, res) => {
 // * авторизация пользователя
 router.post('/signin', async (req, res) => {
   const { userEmail, userPassword } = req.body;
-  //console.log('req.body12', req.body);
 
   try {
     const user = await User.findOne({ where: { email: userEmail }, raw: true });
@@ -67,30 +62,15 @@ router.post('/signin', async (req, res) => {
         email: user.email,
         role: user.role,
       };
-      console.log(12121212)
     }
-    
     res.json(req.session.user);
-    console.log(req.session.user)
   } catch (err) {
-
     console.error('Err message: ', err.message);
     console.error('Err code: ', err.code);
   }
 });
 
-// // * получить информацию о текущей сессии
-// router.get('/session', (req, res) => {
-//   // console.log(req.session.user);
-//   if (!req.session.user) {
-//     res.json({ok: false});
-//   } else {
-//     res.json(req.session.user);
-//   }
-// });
-
 router.get('/session', (req, res) => {
-  // console.log(req.session.user);
   if (!req.session.user) {
     res.json(req.session.user);
   } else {
@@ -104,7 +84,6 @@ router.get('/signout', (req, res) => {
   res.clearCookie('myCookiezz');
   res.status(200).end();
 });
-
 
 router.get('/clear', (req, res) => {
   res.clearCookie('myCookiezz');

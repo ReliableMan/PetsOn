@@ -22,7 +22,7 @@ import DogId from './components/Post/DogId';
 import About from './components/About/About';
 import Vet from './components/Services/Vet';
 import { useSelector, useDispatch } from 'react-redux';
-import { setAuthorized, setNotAuthorized } from '../../project/src/redux/actions/userActions';
+import { setAuthorized, setNotAuthorized, setUser } from '../../project/src/redux/actions/userActions';
 // import { Route, Link, Switch, Redirect, useLocation } from 'react-router-dom';
 // import Context from './components/context';
 
@@ -40,7 +40,7 @@ function App() {
       credentials: 'include'
     }).then(response => response.json())
       .then((user) => {
-        user.length ? dispatch(setNotAuthorized())  : dispatch(setAuthorized())
+        user.length ? dispatch(setNotAuthorized())  : dispatch(setAuthorized()); dispatch(setUser())
         console.log(user)
       })
   }, [dispatch]);

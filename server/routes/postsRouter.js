@@ -1,21 +1,10 @@
 const router = require('express').Router();
 
-// const multer = require('multer');
-// const fileStorageEngine = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, './public/uploads')
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, Date.now() + "--" + file.originalname)
-//   }
-// })
-// const upload = multer({ storage: fileStorageEngine });
 const { Post, Comment, User } = require('../db/models');
 
 router.get('/', async (req, res) => {
   try {
     const posts = await Post.findAll();
-
   } catch (err) {
     console.log(err);
     res.sendStatus(500)
@@ -25,7 +14,6 @@ router.get('/', async (req, res) => {
 router.get('/dogs', async (req, res) => {
   try {
     const dogPost = await Post.findAll({ where: { pet_id: 1 }, raw: true })
-
     return res.json(dogPost)
   } catch (err) {
     console.log(err);
@@ -46,14 +34,12 @@ router.get('/cats', async (req, res) => {
 
 router.get('/:postId', async (req, res) => {
   const { postId } = req.params
-
   try {
     const post = await Post.findOne({ where: { id: postId }, raw: true })
 
     return res.json(post)
   } catch (err) {
     console.log(err);
-
     res.sendStatus(500)
   }
 })
@@ -77,14 +63,12 @@ router.post('/:postId/comments', async (req, res) => {
         res.status(404).json({ error: `post with id ${postId} not found` })
       } else {
         const { body: { text } } = req
-
         const comment = await Comment.create({ user_id: userId, post_id: postId, text, date: new Date })
         //console.log(user.name, 'username');
         res.status(201).json({ comment, username: user.name })
 
       }
     }
-
   } catch (error) {
     res.status(400).json({ error: error.message })
   }
