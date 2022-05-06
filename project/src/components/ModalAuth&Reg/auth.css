@@ -1,0 +1,83 @@
+* {
+  font-family: 'Inter', sans-serif;
+  /* margin-bottom: 20px; */
+}
+
+/* MAIN CONTAINER */
+.login {
+  display: flex;
+  justify-content: center;
+  border-radius: 40px;
+}
+
+/* REG AND AUTH HEADINGS */
+.header {
+  margin-top: 10px;
+  padding-top: 7px;
+}
+
+.header1 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 42px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.72);
+  padding-top: 15px;
+
+}
+
+label {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: rgba(67, 67, 71, 0.47);
+}
+
+.form-input {
+  height: 40px;
+  background: white;
+  border: 1px solid #605e5e;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;;
+}
+
+/* EFFECTS */
+.live {
+  background-color: rgb(248, 249, 250);
+  animation: pulse 1700ms infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: #e9e9ec 0 0 0 0;
+  }
+
+  75% {
+    box-shadow: rgb(195, 146, 224) 0 0 0 5px;
+  }
+}
+
+.for_req{
+  margin-top: 10%;
+}
+
+.p_text{
+  text-decoration: none;
+}
+
+.btn_google{
+  margin-bottom: 5%;
+}
